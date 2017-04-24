@@ -11,22 +11,25 @@ import {
   Text,
   View
 } from 'react-native';
+import { Provider, connect } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import promiseMiddleware from 'redux-promise-middleware';
+import thunk from 'redux-thunk';
+import rootReducer from './src/reducers';
+
+import Login from './src/containers/Login';
+import Register from './src/containers/Register';
+
+// const RouterWithRedux = connect()(Router);
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk, promiseMiddleware));
+
 
 export default class Accountabilibuddy extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Provider store={store}>
+        <Text>App Works!</Text>
+      </Provider>
     );
   }
 }
