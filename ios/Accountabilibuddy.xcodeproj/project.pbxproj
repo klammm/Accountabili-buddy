@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -36,6 +35,10 @@
 		2DCD954D1E0B4F2C00145EB5 /* AccountabilibuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AccountabilibuddyTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		69C249C394914EFE8F54F001 /* LobsterTwo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9275948CB0884F1F831FA1FF /* LobsterTwo-Bold.otf */; };
+		0C22608F32CA4F44A97873FF /* LobsterTwo-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A2E6DAE17B194B4B94782441 /* LobsterTwo-BoldItalic.otf */; };
+		C9A327382CA54DA4B52F9F3D /* LobsterTwo-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50724B7675DB4653A84636A0 /* LobsterTwo-Italic.otf */; };
+		A5CF479E9AF2451C9B633555 /* LobsterTwo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +258,10 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		9275948CB0884F1F831FA1FF /* LobsterTwo-Bold.otf */ = {isa = PBXFileReference; name = "LobsterTwo-Bold.otf"; path = "../assets/fonts/LobsterTwo-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A2E6DAE17B194B4B94782441 /* LobsterTwo-BoldItalic.otf */ = {isa = PBXFileReference; name = "LobsterTwo-BoldItalic.otf"; path = "../assets/fonts/LobsterTwo-BoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		50724B7675DB4653A84636A0 /* LobsterTwo-Italic.otf */ = {isa = PBXFileReference; name = "LobsterTwo-Italic.otf"; path = "../assets/fonts/LobsterTwo-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */ = {isa = PBXFileReference; name = "LobsterTwo-Regular.otf"; path = "../assets/fonts/LobsterTwo-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +474,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AccountabilibuddyTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				A9C6B72225BE4767A48FE346 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -481,6 +489,18 @@
 				2D02E4901E0B4A5D006451C7 /* Accountabilibuddy-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A9C6B72225BE4767A48FE346 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9275948CB0884F1F831FA1FF /* LobsterTwo-Bold.otf */,
+				A2E6DAE17B194B4B94782441 /* LobsterTwo-BoldItalic.otf */,
+				50724B7675DB4653A84636A0 /* LobsterTwo-Italic.otf */,
+				8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,7 +584,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -841,6 +861,10 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				69C249C394914EFE8F54F001 /* LobsterTwo-Bold.otf in Resources */,
+				0C22608F32CA4F44A97873FF /* LobsterTwo-BoldItalic.otf in Resources */,
+				C9A327382CA54DA4B52F9F3D /* LobsterTwo-Italic.otf in Resources */,
+				A5CF479E9AF2451C9B633555 /* LobsterTwo-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
