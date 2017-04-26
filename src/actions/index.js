@@ -31,7 +31,7 @@ export const logout = props => {
   };
 };
 
-export const register = props => {
+export const registerNav = () => {
   return {
     type: "REGISTER"
   };

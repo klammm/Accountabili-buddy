@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { reduxForm } from 'redux-form';
 
-class Register extends Component {
+export default class Register extends Component {
   submit = (values) => {
     console.log('submitting form', values)
   }
 
   render() {
     return (
-      <View>
-        <Text>First name</Text>
-        <TextInput style={styles.input} />
-        <Text>Last name</Text>
-        <TextInput style={styles.input} />
-        <Text>Email</Text>
-        <TextInput style={styles.input} />
-        <Text>Password</Text>
-        <TextInput style={styles.input} />
-        <TouchableOpacity onPress={this.props.handleSubmit(this.submit)}>
-          <Text style={styles.button}>Submit</Text>
+      <View style={styles.container}>
+        <TextInput style={styles.input} placeholder="First Name"/>
+        <TextInput style={styles.input} placeholder="Last Name"/>
+        <TextInput style={styles.input} placeholder="Username"/>
+        <TextInput style={styles.input} placeholder="Password"/>
+        <TextInput style={styles.input} placeholder="Confirm Password"/>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
     )
@@ -31,21 +27,31 @@ Register.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
   button: {
     backgroundColor: '#0091EA',
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: '#0091EA',
+    padding: 5
+  },
+  buttonText: {
+    backgroundColor: '#0091EA',
     color: "white",
-    height: 30,
-    lineHeight: 30,
-    marginTop: 10,
+    height: 20,
     textAlign: 'center',
-    width: 250
+    width: 150
   },
   input: {
     borderColor: 'black',
     borderWidth: 1,
-    height: 37,
-    width: 250
+    height: 35,
+    margin: 5,
+    textAlign: 'center'
   }
 })
-
-export default reduxForm({ form: 'Form' })(Register);
