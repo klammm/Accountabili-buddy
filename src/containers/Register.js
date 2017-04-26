@@ -9,6 +9,7 @@ export default class Register extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>Create a new user</Text>
         <TextInput style={styles.input} placeholder="First Name"/>
         <TextInput style={styles.input} placeholder="Last Name"/>
         <TextInput style={styles.input} placeholder="Username"/>

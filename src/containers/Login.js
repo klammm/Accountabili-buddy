@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
-import { NavigationActions } from 'react-navigation';
 
 export default class Login extends Component {
   render() {
@@ -11,7 +10,7 @@ export default class Login extends Component {
         <TextInput style={styles.input} placeholder="Username" />
         <TextInput style={styles.input} placeholder="Password" />
         <TouchableOpacity
-          onPress={() => { console.log('Login!!!!') }}
+          onPress={() => navigate("Tab")}
           underlayColor='white'
           activeOpacity={0.7}>
           <View style={styles.login}>
