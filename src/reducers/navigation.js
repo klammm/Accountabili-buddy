@@ -3,7 +3,6 @@ import { AppNavigator } from '../../App';
 import initialState from './initialState';
 
 const nav = (state = initialState.initialNavState, action) => {
-  console.log(action)
   let nextState;
   switch (action.type) {
     case 'USER_LOGIN':

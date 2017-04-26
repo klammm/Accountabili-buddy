@@ -1,29 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { register } from '../actions';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
-const mapStateToProps = state => ({
-  login: state.login
-});
-
-const mapDispatchToProps = dispatch => {
-  return {
-    register: () => dispatch(NavigationActions.navigate({ routeName: 'Register' }))
-  }
-  // return bindActionCreators({ register }, dispatch)
-}
-
-class Login extends Component {
+export default class Login extends Component {
   render() {
-    console.log('Hey we"re starting off with these props: ', this.props)
-    console.log("Register action: ", this.props.register())
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Accountabili-Buddy</Text>
+        <TextInput style={styles.input} placeholder="Username" />
+        <TextInput style={styles.input} placeholder="Password" />
         <TouchableOpacity
           onPress={() => { console.log('Login!!!!') }}
           underlayColor='white'
@@ -33,7 +19,10 @@ class Login extends Component {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => this.props.register(this.props)}
+          onPress={() => {
+            console.log('Hey Im being pressed');
+            return navigate("Register")
+          }}
           underlayColor='white'
           activeOpacity={0.7}>
           <View style={styles.register}>
@@ -44,12 +33,6 @@ class Login extends Component {
     )
   }
 }
-
-Login.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  login: PropTypes.bool.isRequired,
-  register: PropTypes.func.isRequired,
-};
 
 Login.navigationOptions = {
   title: "Login"
@@ -94,7 +77,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  input: {
+    borderColor: 'black',
+    borderWidth: 1,
+    height: 35,
+    margin: 5,
+    textAlign: 'center'
   }
 })
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
