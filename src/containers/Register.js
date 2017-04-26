@@ -7,7 +7,6 @@ class Register extends Component {
     console.log('submitting form', values)
   }
 
-
   render() {
     return (
       <View>
@@ -26,6 +25,10 @@ class Register extends Component {
     )
   }
 }
+
+Register.navigationOptions = {
+  title: "Register"
+};
 
 const styles = StyleSheet.create({
   button: {
