@@ -1,38 +1,43 @@
 
-const loginRequest = props => {
-  // API call in here
-  let magic = 'happen';
-};
-
-const logoutRequest = props => {
-  // API call in here
-  let magic = 'happen';
+const login = (email, password) => {
+  const loginURL = ''
+  return fetch(loginURL, {
+    mode: 'no-cors',
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email,
+      password
+    })
+  })
+  .then((res) => {
+    return res.json();
+  });
 }
-
-const registerRequest = props => {
-  // API call in here
-  let magic = 'happen';
-};
 
 
 /********************************** ACTION CREATORS ********************************/
 
-export const login = props => {
+export const emailChanged = (text) => {
   return {
-    type: "USER_LOGIN",
-    payload: loginRequest(props)
+    type: 'EMAIL_CHANGE',
+    payload: text
   };
 };
 
-export const logout = props => {
+export const passwordChanged = (text) => {
   return {
-    type: "USER_LOGOUT",
-    payload: logoutRequest(props)
+    type: 'PASSWORD_CHANGE',
+    payload: text
   };
 };
 
-export const registerNav = () => {
+export const loginUser = ({ email, password }) => {
   return {
-    type: "REGISTER"
+    type: 'LOGIN_USER',
+    payload: login(email, password)
   };
 };
