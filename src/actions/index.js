@@ -1,6 +1,6 @@
 
 const login = (email, password) => {
-  const loginURL = ''
+  const loginURL = 'https://bilibuddy-api.herokuapp.com/users'
   return fetch(loginURL, {
     mode: 'no-cors',
     method: 'POST',
@@ -14,8 +14,12 @@ const login = (email, password) => {
     })
   })
   .then((res) => {
+    console.log(res)
     return res.json();
-  });
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 }
 
 
