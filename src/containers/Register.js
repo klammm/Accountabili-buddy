@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Button, Card, CardSection, Input } from '../components/common';
 
 export default class Register extends Component {
   submit = (values) => {
@@ -8,17 +9,38 @@ export default class Register extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Create a new user</Text>
-        <TextInput style={styles.input} placeholder="First Name"/>
-        <TextInput style={styles.input} placeholder="Last Name"/>
-        <TextInput style={styles.input} placeholder="Username"/>
-        <TextInput style={styles.input} placeholder="Password"/>
-        <TextInput style={styles.input} placeholder="Confirm Password"/>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
-      </View>
+      <Card>
+        <Text style={styles.welcome}>Create a new user</Text>
+        <CardSection>
+          <Input placeholder="Oarack" label='First Name' />
+        </CardSection>
+
+        <CardSection>
+          <Input placeholder="Bbama" label='Last Name' />
+        </CardSection>
+
+        <CardSection>
+          <Input placeholder="SuperCoder415" label='Username' />
+        </CardSection>
+
+        <CardSection>
+          <Input placeholder="example@email.com" label='Email' />
+        </CardSection>
+
+        <CardSection>
+          <Input placeholder="Password" label='Password' />
+        </CardSection>
+
+        <CardSection>
+          <Input placeholder="Confirm Password" label='Confirm Password' />
+        </CardSection>
+
+        <CardSection>
+          <Button>
+            Submit
+          </Button>
+        </CardSection>
+      </Card>
     )
   }
 }
@@ -28,31 +50,9 @@ Register.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  button: {
-    backgroundColor: '#0091EA',
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: '#0091EA',
-    padding: 5
-  },
-  buttonText: {
-    backgroundColor: '#0091EA',
-    color: "white",
-    height: 20,
+  welcome: {
+    fontSize: 20,
     textAlign: 'center',
-    width: 150
-  },
-  input: {
-    borderColor: 'black',
-    borderWidth: 1,
-    height: 35,
-    margin: 5,
-    textAlign: 'center'
+    margin: 10,
   }
 })
