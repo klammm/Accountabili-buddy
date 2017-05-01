@@ -1,28 +1,34 @@
 
 const login = (email, password) => {
-  return (dispatch) => {
-    const loginURL = 'https://bilibuddy-api.herokuapp.com/users/1'
-    fetch(loginURL, {
-      mode: 'no-cors',
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email,
-        password
-      })
+  const loginURL = 'https://bilibuddy-api.herokuapp.com/users'
+  return fetch(loginURL)
+    .then((response) => response.json())
+    .then((responseJSON) => {
+      console.log(responseJSON)
     })
-    .then((res) => {
-      console.log(res)
-      loginUserSucess(dispatch)
-      return res.json();
+    .catch((err) => {
+      console.error(err)
     })
-    .catch(() => {
-      loginUserFail(dispatch)
+}
+
+const createUser = (email, password) => {
+  const url = 'https://bilibuddy-api.herokuapp.com/users'
+  return fetch(url, {
+    mode: 'no-cors',
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email,
+      password
     })
-  }
+  }).then((res) => {
+    return res.json();
+  }).catch((err) => {
+    console.log(err)
+  })
 }
 
 
