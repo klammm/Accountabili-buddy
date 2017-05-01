@@ -3,5 +3,6 @@ export default {
   password: '',
   loading: false,
   error: '',
-  user: null
+  user: null,
+  isLoggedIn: null
 }

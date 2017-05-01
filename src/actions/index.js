@@ -1,25 +1,28 @@
 
 const login = (email, password) => {
-  const loginURL = 'https://bilibuddy-api.herokuapp.com/users'
-  return fetch(loginURL, {
-    mode: 'no-cors',
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      email,
-      password
+  return (dispatch) => {
+    const loginURL = 'https://bilibuddy-api.herokuapp.com/users/1'
+    fetch(loginURL, {
+      mode: 'no-cors',
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
     })
-  })
-  .then((res) => {
-    console.log(res)
-    return res.json();
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((res) => {
+      console.log(res)
+      loginUserSucess(dispatch)
+      return res.json();
+    })
+    .catch(() => {
+      loginUserFail(dispatch)
+    })
+  }
 }
 
 
@@ -45,3 +48,14 @@ export const loginUser = ({ email, password }) => {
     payload: login(email, password)
   };
 };
+
+export const loginUserFail = (dispatch) => {
+  dispatch({ type: 'USER_FAIL' });
+};
+
+export const loginUserSucess = (dispatch, user) => {
+  dispatch({
+    type: 'USER_SUCCESS',
+    payload: user
+  })
+}
