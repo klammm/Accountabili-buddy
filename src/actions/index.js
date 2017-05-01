@@ -1,27 +1,16 @@
 
+
 const login = (email, password) => {
   const loginURL = 'https://bilibuddy-api.herokuapp.com/users'
-  return fetch(loginURL, {
-    mode: 'no-cors',
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      email,
-      password
+  return fetch(loginURL)
+    .then((response) => response.json())
+    .then((responseJSON) => {
+      console.log(responseJSON)
     })
-  })
-  .then((res) => {
-    console.log(res)
-    return res.json();
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .catch((err) => {
+      console.error(err)
+    })
 }
-
 
 /********************************** ACTION CREATORS ********************************/
 
