@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 const Profile = () => {
   return (
     <View style={styles.container}>
-      <Text>Stories</Text>
+      <Text>User Profile</Text>
     </View>
   );
 };

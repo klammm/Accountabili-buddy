@@ -6,14 +6,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#58FE58',
+    backgroundColor: 'rgb(168, 8, 255)',
   },
 });
 
 const Ducky = () => {
   return (
     <View style={styles.container}>
-      <Text>Stories</Text>
+      <Text>Ducky Race</Text>
     </View>
   );
 };

@@ -34,22 +34,19 @@ const SubMenu = () => (
    />
 );
 
-const MainMenu = () => {
-  <Menu
-    routes={[
-      { component: Profile },
-      { component: SubMenu },
-      { component: Ducky },
-    ]}
-    initialIndex={1}
-  />
-}
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <MainMenu></MainMenu>
+        <Menu
+          routes={[
+            { component: Profile },
+            { component: SubMenu },
+            { component: Ducky },
+          ]}
+          initialIndex={1}
+        />
       </Provider>
     )
   }
