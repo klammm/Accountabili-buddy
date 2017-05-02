@@ -17,15 +17,15 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export class TeamList extends Component {
-  renderTeams() {
-    return this.props.showAllTeams.map(team => <TeamDetail key={team.id} team={team} />)
-  }
+  // renderTeams() {
+  //   return this.props.showAllTeams.map(team => <TeamDetail key={team.id} team={team} />)
+  // }
 
   render() {
     console.log('all the props in teamslist: ', this.props);
     return (
       <ScrollView>
-        {this.renderTeams()}
+        {/* {this.renderTeams()} */}
       </ScrollView>
     );
   }
