@@ -36,7 +36,7 @@ export default class Register extends Component {
         </CardSection>
 
         <CardSection>
-          <Button>
+          <Button whenPressed={() => this.props.navigation.navigate('Teams')}>
             Submit
           </Button>
         </CardSection>

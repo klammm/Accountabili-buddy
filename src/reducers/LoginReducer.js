@@ -23,6 +23,9 @@ const loginReducer = (state = initialState, action) => {
     case 'USER_FAIL':
       console.log('user failed to log in!');
       return { ...state, ...initialState, error: 'Unable to login. Please provide a valid email or password.'}
+    case 'USER_LOGOUT':
+      console.log('user is logging out!');
+      return { ...state, ...initialState, isLoggedIn: false }
     default:
       return state;
   }
