@@ -6,16 +6,16 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgb(168, 8, 255)',
+    backgroundColor: '#66A6FD',
   },
 });
 
-const Ducky = () => {
+const Settings = () => {
   return (
     <View style={styles.container}>
-      <Text>Ducky Race</Text>
+      <Text>Me</Text>
     </View>
   );
 };
 
-export default Ducky;
+export default Settings;
