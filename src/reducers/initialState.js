@@ -4,7 +4,6 @@ export default {
   loading: false,
   error: '',
   user: null,
-  isLoggedIn: null,
-  teamsList: []
+  teamsList: [],
   isLoggedIn: null
 }
