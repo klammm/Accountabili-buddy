@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { Button, CardSection, Card, Input } from '../components/common';
+import { Text, StyleSheet, View } from 'react-native';
+import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
-import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
+import { bindActionCreators } from 'redux';
+// var { FBLogin, FBLoginManager } = require('react-native-facebook-login');
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
     email: state.email,
     password: state.password,
-    loading: state.loading
+    loading: state.loading,
+    error: state.error,
+    isLoggedIn: state.isLoggedIn
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    loginToApp: (email, pasword) => { dispatch(loginAction(email, password)) }
-  };
+  // return {
+  //   loginToApp: (email, pasword) => { dispatch(loginAction(email, password)) }
+  // };
+  return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
-export class Login extends Component {
+class Login extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -32,10 +36,35 @@ export class Login extends Component {
     const { email, password } = this.props;
 
     this.props.loginUser({ email, password });
+
+    if (this.props.isLoggedIn) {
+      this.props.navigation.navigate("Tab")
+    }
+  }
+
+  renderSpinner() {
+    if (this.props.loading) {
+      return (
+        <CardSection>
+          <Spinner size='large' />
+        </CardSection>
+      )
+    }
+    const { navigate } = this.props.navigation;
+
+    return (
+      <CardSection>
+        <Button whenPressed={this.onLoginAttempt.bind(this)}>
+          Log in
+        </Button>
+        <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
+          Sign Up
+        </Button>
+      </CardSection>
+    );
   }
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Card>
         <Text style={styles.welcome}>Accountabili-Buddy</Text>
@@ -44,7 +73,9 @@ export class Login extends Component {
           <Input
             placeholder="example@gmail.com"
             label='Email'
-            onChangeText={() => this.onEmailChange}
+            autoCapitalize={'none'}
+            value={this.props.email}
+            onChangeText={this.onEmailChange.bind(this)}
           />
         </CardSection>
 
@@ -52,19 +83,24 @@ export class Login extends Component {
           <Input
             placeholder='Password'
             label="Password"
-            onChangeText={() => this.onPasswordChange}
+            autoCapitalize={'none'}
+            secureTextEntry
+            value={this.props.password}
+            onChangeText={this.onPasswordChange.bind(this)}
           />
         </CardSection>
 
+        <Text style={styles.errorTextStyle}>
+          {this.props.error}
+        </Text>
+
+        {this.renderSpinner()}
+
         <CardSection>
-          <Button whenPressed={() => this.onLoginAttempt()}>
-            Log in
-          </Button>
-          <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
-            Sign Up
+          <Button whenPressed={() => this.props.navigation.navigate('Tab')}>
+            Ducky Schmucky
           </Button>
         </CardSection>
-        {/* <FBLogin /> */}
       </Card>
     )
   }
@@ -79,7 +115,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
   }
 })
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(Login);
+// export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
