@@ -30,7 +30,6 @@ const mapStateToProps = (state) => {
 
 export class Navigation extends Component {
   render() {
-    console.log('props brehhhh', this.props)
     if (!this.props.isLoggedIn) {
       return <LoginNavigator />
     }
