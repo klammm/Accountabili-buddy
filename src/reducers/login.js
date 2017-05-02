@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-const login = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch(action.type) {
     case 'EMAIL_CHANGE':
       console.log('email');
@@ -17,9 +17,15 @@ const login = (state = initialState, action) => {
     case 'LOGIN_USER_REJECTED':
       console.log('login rejected');
       return { ...state, loading: false, error: 'Unable to login. Please provide a valid email or password', user: null };
+    case 'USER_SUCCESS':
+      console.log('user successfully logged in!');
+      return { ...state, ...initialState, isLoggedIn: true, user: action.payload };
+    case 'USER_FAIL':
+      console.log('user failed to log in!');
+      return { ...state, ...initialState, error: 'Unable to login. Please provide a valid email or password.'}
     default:
       return state;
   }
 };
 
-export default login
+export default loginReducer
