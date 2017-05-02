@@ -110,5 +110,5 @@ export const showAllTeams = () => {
   return {
     type: 'SHOW_ALL_TEAMS',
     payload: grabAllTeams()
-  }
-}
+  };
+};

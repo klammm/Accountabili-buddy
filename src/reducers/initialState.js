@@ -6,4 +6,5 @@ export default {
   user: null,
   isLoggedIn: null,
   teamsList: []
+  isLoggedIn: null
 }
