@@ -65,7 +65,6 @@ class Login extends Component {
   }
 
   render() {
-    console.log('Heres the props when being rendered: ', this.props);
     return (
       <Card>
         <Text style={styles.welcome}>Accountabili-Buddy</Text>
@@ -74,6 +73,7 @@ class Login extends Component {
           <Input
             placeholder="example@gmail.com"
             label='Email'
+            autoCapitalize={'none'}
             value={this.props.email}
             onChangeText={this.onEmailChange.bind(this)}
           />
@@ -83,6 +83,7 @@ class Login extends Component {
           <Input
             placeholder='Password'
             label="Password"
+            autoCapitalize={'none'}
             secureTextEntry
             value={this.props.password}
             onChangeText={this.onPasswordChange.bind(this)}
