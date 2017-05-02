@@ -9,7 +9,7 @@ import rootReducer from './reducers';
 import Router from './Router';
 
 const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(thunk, promiseMiddleware)
+  applyMiddleware(thunk, promiseMiddleware())
 ));
 
 
