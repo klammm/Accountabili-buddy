@@ -8,17 +8,48 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import Router from './Router';
 
-import Camera from './containers/Camera';
-
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk, promiseMiddleware)
 ));
+
+
+// Swiping action achieved through two 'menus' one for vertical and one for horizontal swiping
+import Profile from './containers/Profile.js';
+import Camera from './containers/Camera';
+import Ducky from './containers/Ducky';
+import Settings from './containers/Settings'
+
+import Menu from './components/Menu';
+
+const SubMenu = () => (
+  <Menu
+    routes={
+      [
+        { component: Settings },
+        { component: Camera }
+      ]
+    }
+    initialIndex={1}
+    horizontal={false}
+   />
+);
+
+const MainMenu = () => {
+  <Menu
+    routes={[
+      { component: Profile },
+      { component: SubMenu },
+      { component: Ducky },
+    ]}
+    initialIndex={1}
+  />
+}
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Camera></Camera>
+        <MainMenu></MainMenu>
       </Provider>
     )
   }

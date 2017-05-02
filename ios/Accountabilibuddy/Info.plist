@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Billybuddy needs access to the camera to take photos.</string>
+	<string>Allow Billybuddy to access the camera to take photos.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Billybuddy needs access to the location to geolocalize your captures.</string>
 	<key>NSMicrophoneUsageDescription</key>
