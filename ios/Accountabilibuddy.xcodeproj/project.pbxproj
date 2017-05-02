@@ -35,16 +35,12 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* AccountabilibuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AccountabilibuddyTests.m */; };
-		350D3934F4BB41FF8E8533C9 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB96DD0AB622445DA071C1F2 /* libRCTCamera.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		69C249C394914EFE8F54F001 /* LobsterTwo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9275948CB0884F1F831FA1FF /* LobsterTwo-Bold.otf */; };
-		7C30592D1EB3B3920035EEC5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C30592A1EB3B3920035EEC5 /* FBSDKCoreKit.framework */; };
-		7C30592E1EB3B3920035EEC5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C30592B1EB3B3920035EEC5 /* FBSDKLoginKit.framework */; };
-		7C30592F1EB3B3920035EEC5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C30592C1EB3B3920035EEC5 /* FBSDKShareKit.framework */; };
-		7C3059301EB3B6020035EEC5 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C3059291EB3B04D0035EEC5 /* libRCTFBLogin.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A5CF479E9AF2451C9B633555 /* LobsterTwo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */; };
 		C9A327382CA54DA4B52F9F3D /* LobsterTwo-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50724B7675DB4653A84636A0 /* LobsterTwo-Italic.otf */; };
+		F62E1EAF1EB802400062B855 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C17E1E1EB7FA480060EF52 /* libRCTCamera.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +240,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		F61F83381EB8F5FF00E42E5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F61F83301EB8F5FF00E42E5C /* RCTCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RCTCamera;
+		};
 		F6C17E1D1EB7FA480060EF52 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59069DBCC76C45F094338F6A /* RCTCamera.xcodeproj */;
@@ -280,14 +283,11 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7C3059241EB3B04D0035EEC5 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
-		7C30592A1EB3B3920035EEC5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../node_modules/react-native-facebook-login/FacebookSDK/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		7C30592B1EB3B3920035EEC5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../node_modules/react-native-facebook-login/FacebookSDK/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		7C30592C1EB3B3920035EEC5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../node_modules/react-native-facebook-login/FacebookSDK/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LobsterTwo-Regular.otf"; path = "../assets/fonts/LobsterTwo-Regular.otf"; sourceTree = "<group>"; };
 		9275948CB0884F1F831FA1FF /* LobsterTwo-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LobsterTwo-Bold.otf"; path = "../assets/fonts/LobsterTwo-Bold.otf"; sourceTree = "<group>"; };
 		A2E6DAE17B194B4B94782441 /* LobsterTwo-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LobsterTwo-BoldItalic.otf"; path = "../assets/fonts/LobsterTwo-BoldItalic.otf"; sourceTree = "<group>"; };
-		DB96DD0AB622445DA071C1F2 /* libRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTCamera.a; sourceTree = "<group>"; };
+		F61F83301EB8F5FF00E42E5C /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,22 +303,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C3059301EB3B6020035EEC5 /* libRCTFBLogin.a in Frameworks */,
+				F62E1EAF1EB802400062B855 /* libRCTCamera.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
-				7C30592D1EB3B3920035EEC5 /* FBSDKCoreKit.framework in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
-				7C30592E1EB3B3920035EEC5 /* FBSDKLoginKit.framework in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
-				7C30592F1EB3B3920035EEC5 /* FBSDKShareKit.framework in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				350D3934F4BB41FF8E8533C9 /* libRCTCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,16 +467,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7C3059231EB3AFE10035EEC5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7C30592A1EB3B3920035EEC5 /* FBSDKCoreKit.framework */,
-				7C30592B1EB3B3920035EEC5 /* FBSDKLoginKit.framework */,
-				7C30592C1EB3B3920035EEC5 /* FBSDKShareKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7C3059251EB3B04D0035EEC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,7 +507,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				7C3059231EB3AFE10035EEC5 /* Frameworks */,
+				F61F83301EB8F5FF00E42E5C /* RCTCamera.xcodeproj */,
 				13B07FAE1A68108700A75B9A /* Accountabilibuddy */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AccountabilibuddyTests */,
@@ -552,6 +538,14 @@
 				8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		F61F83311EB8F5FF00E42E5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F61F83391EB8F5FF00E42E5C /* libRCTCamera.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F6C17E171EB7FA480060EF52 /* Products */ = {
@@ -684,6 +678,10 @@
 				{
 					ProductGroup = F6C17E171EB7FA480060EF52 /* Products */;
 					ProjectRef = 59069DBCC76C45F094338F6A /* RCTCamera.xcodeproj */;
+				},
+				{
+					ProductGroup = F61F83311EB8F5FF00E42E5C /* Products */;
+					ProjectRef = F61F83301EB8F5FF00E42E5C /* RCTCamera.xcodeproj */;
 				},
 				{
 					ProductGroup = 7C3059251EB3B04D0035EEC5 /* Products */;
@@ -919,6 +917,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F61F83391EB8F5FF00E42E5C /* libRCTCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCamera.a;
+			remoteRef = F61F83381EB8F5FF00E42E5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F6C17E1E1EB7FA480060EF52 /* libRCTCamera.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1064,6 +1069,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1093,6 +1099,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
@@ -1119,9 +1126,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"\"${PODS_ROOT}/Headers/Public/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 				);
 				INFOPLIST_FILE = Accountabilibuddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../node_modules/react-native-facebook-login/FacebookSDK @executable_path/Frameworks";
@@ -1140,9 +1150,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"\"${PODS_ROOT}/Headers/Public/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 				);
 				INFOPLIST_FILE = Accountabilibuddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../node_modules/react-native-facebook-login/FacebookSDK @executable_path/Frameworks";
@@ -1167,6 +1180,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1201,6 +1215,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1234,6 +1249,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Accountabilibuddy-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1259,6 +1275,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Accountabilibuddy-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1294,6 +1311,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/marylai/Documents/FacebookSDKs-iOS-4.22.0/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1336,6 +1354,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/marylai/Documents/FacebookSDKs-iOS-4.22.0/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

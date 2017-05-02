@@ -41,6 +41,10 @@ const styles = StyleSheet.create({
 });
 
 export default class CameraComponent extends Component {
+  takePicture() {
+    alert("was snapped");
+  }
+
   render() {
     return (
       <View>
@@ -49,18 +53,13 @@ export default class CameraComponent extends Component {
             this.camera = cam;
           }}
           style={styles.preview}
-          aspect={Camera.constants.Aspect.fit} >
-          <Text styles={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+          aspect={Camera.constants.Aspect.fill}
+          >
+          <Text style={styles.capture} onPress={this.takePicture.bind(this)}></Text>
         </Camera>
       </View>
-    )
-  }
 
-  takePicture() {
-    const options = {};
-    //options.location = ...
-    this.camera.capture({metadata: options})
-      .then((data) => console.log(data))
-      .catch(err => console.error(err));
+
+    )
   }
 }
