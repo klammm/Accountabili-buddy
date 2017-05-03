@@ -1,22 +1,8 @@
 
-
-// const login = (email, password) => {
-//   const loginURL = 'https://bilibuddy-api.herokuapp.com/token'
-//   return fetch(loginURL)
-//     .then((response) => response.json())
-//     .then((responseJSON) => {
-//       console.log(responseJSON)
-//     })
-//     .catch((err) => {
-//       console.error(err)
-//     })
-// }
-
-
 const login = (email, password) => {
   const url = 'https://bilibuddy-api.herokuapp.com/token'
   return fetch(url, {
-    mode: 'no-cors',
+    // mode: 'no-cors',
     method: 'POST',
     headers: {
       // 'Accept': 'application/json',
@@ -27,12 +13,14 @@ const login = (email, password) => {
       password: password
     })
   }).then((res) => {
-    console.log("The res: ", res)
     return res.json();
   }).then((responseJSON) => {
-    console.log("The responseJSON: ", responseJSON)
+    // redirect and set cookie/token in headers
+
+    // navigate('Slider')
+    console.log(' response JSON',responseJSON)
   }).catch((err) => {
-    console.log(err)
+    console.log(error)
   })
 }
 
@@ -92,8 +80,10 @@ export const loginUser = ({ email, password }) => {
   };
 };
 
-export const loginUserFail = (dispatch) => {
-  dispatch({ type: 'USER_FAIL' });
+export const loginUserFail = () => {
+  return {
+    type: 'USER_FAIL'
+  }
 };
 
 export const loginUserSucess = (dispatch, user) => {
@@ -103,7 +93,7 @@ export const loginUserSucess = (dispatch, user) => {
   });
 };
 
-export const logoutUser = (dispatch) => {
+export const logoutUser = () => {
   dispatch({ type: 'USER_LOGOUT' });
 };
 

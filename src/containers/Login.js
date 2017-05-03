@@ -5,14 +5,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
-const mapStateToProps = (state) => {
-  return {
-    email: state.email,
-    password: state.password,
-    loading: state.loading,
-    error: state.error,
-    isLoggedIn: state.isLoggedIn
-  };
+const mapStateToProps = ({ login }) => {
+  const { email, password, error, loading, isLoggedIn } = login;
+
+  return { email, password, error, loading, isLoggedIn };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -20,6 +16,12 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class Login extends Component {
+  componentWillMount() {
+    if (this.props.isLoggedIn) {
+      return this.props.navigation.navigate('Slider')
+    }
+  }
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -28,13 +30,15 @@ class Login extends Component {
     this.props.passwordChanged(text);
   }
 
-  onLoginAttempt() {
+  onLoginAttempt = () => {
     const { email, password } = this.props;
 
     this.props.loginUser({ email, password });
 
+    // console.log('Our loggedIn prop: ',this.props.isLoggedIn)
+
     if (this.props.isLoggedIn) {
-      this.props.navigation.navigate("Tab")
+      return this.props.navigation.navigate("Slider")
     }
   }
 
@@ -61,6 +65,10 @@ class Login extends Component {
   }
 
   render() {
+
+    if (this.props.isLoggedIn) {
+      this.props.navigation.navigate('Slider')
+    }
     return (
       <Card>
         <Text style={styles.welcome}>Accountabili-Buddy</Text>

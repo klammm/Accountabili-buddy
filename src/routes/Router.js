@@ -31,11 +31,7 @@ const mapStateToProps = (state) => {
 
 export class Navigation extends Component {
   render() {
-    if (!this.props.isLoggedIn) {
-      return <LoginNavigator />
-    }
-
-    return <DashboardNavigator />
+    return <LoginNavigator />
   }
 }
 
