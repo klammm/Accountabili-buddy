@@ -16,7 +16,7 @@ const store = createStore(rootReducer, composeWithDevTools(
 // Swiping action achieved through two 'menus' one for vertical and one for horizontal swiping
 import Profile from './containers/Profile.js';
 import Camera from './containers/Camera';
-import DuckyRace from './containers/DuckyRace';
+import DuckyRace from './containers/DuckyRace/DuckyList';
 import Settings from './containers/Settings'
 
 import Menu from './components/Menu';

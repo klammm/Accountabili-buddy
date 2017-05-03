@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import Card from './common/Card';
 import CardSection from './common/CardSection';
@@ -7,7 +7,6 @@ import Button from './common/Button';
 class DuckyDetail extends Component {
   // properties for individual players
   // const { title, artist, thumbnail_image, image } = album;
-  // =
 
   // styling destructured
   const {

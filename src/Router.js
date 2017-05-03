@@ -5,7 +5,7 @@ import Login from './containers/Login';
 import Register from './containers/Register';
 import Profile from './containers/Profile';
 import Camera from './containers/Camera';
-import Ducky from './containers/DuckyRace';
+import Ducky from './containers/DuckyRace/DuckyList';
 
 export const DashboardNavigator = TabNavigator({
   Profile: { screen: Profile },
