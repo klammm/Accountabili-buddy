@@ -1,24 +1,24 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
-const CardSection = ({ children }) => {
+const CardSection = (props) => {
   return (
     <View style={styles.containerStyle}>
-      { children }
+      {props.children}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = {
   containerStyle: {
     borderBottomWidth: 1,
     padding: 5,
-    backgroundColor: '#ddd',
+    backgroundColor: '#fff',
     justifyContent: 'flex-start',
     flexDirection: 'row',
     borderColor: '#ddd',
     position: 'relative'
   }
-});
+};
 
 export { CardSection };

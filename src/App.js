@@ -16,7 +16,7 @@ const store = createStore(rootReducer, composeWithDevTools(
 // Swiping action achieved through two 'menus' one for vertical and one for horizontal swiping
 import Profile from './containers/Profile.js';
 import Camera from './containers/Camera';
-import Ducky from './containers/Ducky';
+import DuckyRace from './containers/DuckyRace';
 import Settings from './containers/Settings'
 
 import Menu from './components/Menu';
@@ -43,7 +43,7 @@ export default class App extends Component {
           routes={[
             { component: Profile },
             { component: SubMenu },
-            { component: Ducky },
+            { component: DuckyRace },
           ]}
           initialIndex={1}
         />

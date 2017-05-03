@@ -11,7 +11,6 @@
     "react": "^16.0.0-alpha.3",
     "react-native": "0.43.3",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
-    "react-native-facebook-login": "^1.5.0",
     "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
@@ -22,6 +21,9 @@
   "devDependencies": {
     "babel-jest": "19.0.0",
     "babel-preset-react-native": "1.9.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-react-native": "^2.3.2",
     "jest": "19.0.2",
     "react-test-renderer": "16.0.0-alpha.6",
     "remote-redux-devtools": "^0.5.7"

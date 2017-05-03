@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import loginReducer from './login';
+import LoginReducer from './login';
+import SelectedTeamReducer from './SelectedTeamReducer';
+import TeamMemberReducer from './TeamMembersReducer';
 
 const rootReducer = combineReducers({
-  login: loginReducer
+  login: LoginReducer,
+  selectedTeam: SelectedTeamReducer,
+  teamMembers: TeamMemberReducer
 });
 
 export default rootReducer;

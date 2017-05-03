@@ -1,19 +1,19 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
-const Card = ({ children }) => {
+const Card = (props) => {
   return (
     <View style={styles.containerStyle}>
-      { children }
+      {props.children}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = {
   containerStyle: {
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: "#ddd",
+    borderColor: '#ddd',
     borderBottomWidth: 0,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginTop: 10
   }
-});
+};
 
 export { Card };
