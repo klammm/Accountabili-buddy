@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { CardSection, Card } from './common';
+import { StyleSheet, View, Image } from 'react-native';
+import { CardSection, Card, Button } from './common';
 
 
 // REMINDER:

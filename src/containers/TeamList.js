@@ -6,6 +6,7 @@ import { showAllTeams } from '../actions';
 import TeamDetail from '../components/TeamDetail';
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     teamsList: state.teamsList
   };
@@ -18,14 +19,16 @@ const mapDispatchToProps = (dispatch) => {
 export class TeamList extends Component {
   componentWillMount() {
     this.props.showAllTeams();
+    // this.renderTeams();
   }
 
   renderTeams() {
-    console.log('teams list: ', this.props.teamsList)
+    console.log('teams list: ', this.props.teamsList);
     return this.props.teamsList.map(team => <TeamDetail key={team.id} team={team} />)
   }
 
   render() {
+    console.log('our props brehhh:', this.props)
     return (
       <ScrollView>
         {this.renderTeams()}

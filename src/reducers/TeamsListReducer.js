@@ -1,10 +1,11 @@
 import initialState from './initialState';
 
 const teamsListReducer = (state = initialState.teamsList, action) => {
-  console.log('showing all teams!!');
+  console.log('team actions payload!!', action.payload);
+  console.log('team state: ', state)
   switch(action.type) {
-    case 'SHOW_ALL_TEAMS':
-      return { ...state, teamsList: action.payload };
+    case 'SHOW_ALL_TEAMS_FULFILLED':
+      return action.payload;
     default:
       return state;
   }
