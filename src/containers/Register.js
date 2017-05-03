@@ -46,8 +46,9 @@ export default class Register extends Component {
 }
 
 Register.navigationOptions = {
-  title: "Register"
-};
+  title: 'Register',
+  headerLeft: null
+}
 
 const styles = StyleSheet.create({
   welcome: {

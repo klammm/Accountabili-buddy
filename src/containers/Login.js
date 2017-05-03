@@ -111,8 +111,8 @@ class Login extends Component {
 }
 
 Login.navigationOptions = {
-  title: "Login"
-};
+  title: 'Log in',
+}
 
 const styles = StyleSheet.create({
   welcome: {

@@ -37,8 +37,9 @@ export class TeamList extends Component {
   }
 }
 
-TeamList.navigationOptions = {
-  title: 'Pick a team to join!'
+TeamList.navigatonOptions = {
+  title: 'Pick a team to join!',
+  headerLeft: null
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamList);
