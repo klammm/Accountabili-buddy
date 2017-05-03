@@ -3,7 +3,6 @@ import { Text, StyleSheet, View } from 'react-native';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// var { FBLogin, FBLoginManager } = require('react-native-facebook-login');
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
 const mapStateToProps = (state) => {
@@ -17,9 +16,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  // return {
-  //   loginToApp: (email, pasword) => { dispatch(loginAction(email, password)) }
-  // };
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
@@ -97,7 +93,7 @@ class Login extends Component {
         {this.renderSpinner()}
 
         <CardSection>
-          <Button whenPressed={() => this.props.navigation.navigate('Tab')}>
+          <Button whenPressed={() => this.props.navigation.navigate('Slider')}>
             Ducky Schmucky
           </Button>
         </CardSection>
@@ -123,5 +119,4 @@ const styles = StyleSheet.create({
   }
 })
 
-// export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(Login);
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
