@@ -97,6 +97,12 @@ class Login extends Component {
             Ducky Schmucky
           </Button>
         </CardSection>
+        <CardSection>
+          <Button whenPressed={() => this.props.navigation.navigate('Profile')}>
+            Profile
+          </Button>
+        </CardSection>
+
       </Card>
     )
   }
