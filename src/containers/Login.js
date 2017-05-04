@@ -86,7 +86,6 @@ class Login extends Component {
           />
         </CardSection>
 
-
         <Text style={styles.errorTextStyle}>
           {this.props.error}
         </Text>
