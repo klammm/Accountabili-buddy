@@ -1,43 +1,47 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
-import Card from './common/Card';
-import CardSection from './common/CardSection';
-import Button from './common/Button';
+import { Card, CardSection } from '../../components/common';
 
-class DuckyDetail extends Component {
+const DuckyItem = ({ player }) => {
   // properties for individual players
-  // const { title, artist, thumbnail_image, image } = album;
+  const { user_name, first_name, last_name, profile_image_url } = player;
 
-  // styling destructured
+  // styling destructuring
   const {
+    thumbnailContainerStyle,
     thumnbnailStyle,
     headerContentStyle,
-    thumbnailContainerStyle,
     headerTextStyle,
     imageStyle
   } = styles;
 
-  render() {
-    return (
-      <Card>
-        <CardSection>
-          {/* User Profile Image */}
-          <View style={thumbnailContainerStyle}>
-            <Image style={thumnbnailStyle} source={{ uri: thumbnail_image }} />
-          </View>
+  return (
+    <Card>
+      <CardSection>
+        <View style={thumbnailContainerStyle}>
+          <Image style={thumnbnailStyle} source={{ uri: profile_image_url }} />
+        </View>
 
-          {/* Ducky Progress Bar */}
-          <View style={headerContentStyle}>
-            <Text style={headerTextStyle}>{title}</Text>
-            <Text>{artist}</Text>
-          </View>
+        <View style={headerContentStyle}>
+          <Text style={headerTextStyle}>{user_name}</Text>
+          <Text>{first_name} {last_name}</Text>
+        </View>
         </CardSection>
-      </Card>
-    )
-  }
+    </Card>
+  );
 };
 
-export default DuckyDetail;
+export default DuckyItem;
+
+{/* <View style={thumbnailContainerStyle}>
+  <Image style={thumnbnailStyle} source={{ uri: profile_image_url }} />
+</View>
+
+<View style={headerContentStyle}>
+  <Text style={headerTextStyle}>{user_name}</Text>
+  <Text>{first_name} {last_name}</Text>
+</View> */}
+
 
 const styles = {
   thumbnailContainerStyle: {
@@ -48,7 +52,8 @@ const styles = {
   },
   thumnbnailStyle: {
     height: 50,
-    width: 50
+    width: 50,
+    borderRadius: 25
   },
   headerContentStyle: {
     flexDirection: 'column',

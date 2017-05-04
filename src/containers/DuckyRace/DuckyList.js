@@ -1,59 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView } from 'react-native';
-import DuckyItem from '../components/DuckyItem';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ListView, ScrollView } from 'react-native';
+import { Header } from '../../components/common';
+import DuckyItem from './DuckyItem';
+import axios from 'axios';
 
 class DuckyList extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      teamId: 1
-    };
-
-  componentWillMount() {
-    fetch(`https://bilibuddy-api.herokuapp.com/teams/${this.state.teamId}`)
-        .then(response => console.log(response));
-
+  // componentDidMount() {
+  //   axios.get('https://bilibuddy-api.herokuapp.com/teams/1')
+  //       .then(response => this.setState({ players: response.data.users }));
+  // }
     // const ds = new ListView.DataSource({
     //   rowHasChanged: (r1, r2) => r1 !== r2
     // });
     //
     // this.dataSource = ds.cloneWithRows(this.props.duckies);
-  }
+  // }
 
-  renderDuckies(ducky) {
-    return <DuckyItem />
-  }
+  renderPlayers() {
+    return this.props.players.map(player =>
+      <DuckyItem key={player.id} player={player} />
+    );
+  };
 
   render() {
+
     return (
       // <ListView
       //   dataSource={this.dataSource}
       //   renderRow={this.renderDuckies}
       // />
       <ScrollView>
-        {this.renderDuckies()}
+        <Header headerText={'Ducky Race'} />
+        {this.renderPlayers()}
       </ScrollView>
+
     );
   }
 };
 
-// function mapStateToProps(state) {
-//   return {
-//     teamID: state.selectedTeamId
-//   };
-// }
-//
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     backgroundColor: 'rgb(168, 8, 255)',
-//   },
-// });
+const mapStateToProps = (state) => {
+  return {
+    players: state.players
+  };
+}
 
-// export default connect(mapStateToProps)(DuckyRace);
-export default DuckyList;
+
+export default connect(mapStateToProps)(DuckyList);
