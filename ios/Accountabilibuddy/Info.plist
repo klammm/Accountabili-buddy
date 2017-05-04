@@ -9,8 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -26,16 +25,14 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
 			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<key>NSAllowsArbitraryLoads</key>
+				<true/>
+				<key>NSAllowsArbitraryLoadsInWebContent</key>
+				<true/>
+				<key>NSAllowsLocalNetworking</key>
 				<true/>
 			</dict>
-		</dict>
-	</dict>
 	<key>NSCameraUsageDescription</key>
   <string>Allow Billubuddy to access the camera to take photos</string>
   <key>NSLocationWhenInUseUsageDescription</key>
@@ -43,7 +40,7 @@
   <key>NSPhotoLibraryUsageDescription</key>
   <string>Allow Billybuddy to access the photo library</string>
   <key>NSMicrophoneUsageDescription</key>
-  <string>Allow Billybuddy to access the microsphone to record videos.</string>   
+  <string>Allow Billybuddy to access the microsphone to record videos.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>LobsterTwo-Bold.otf</string>

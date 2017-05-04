@@ -3,10 +3,7 @@ import { Text, View, Image } from 'react-native';
 import { Card, CardSection } from '../../components/common';
 
 const DuckyItem = ({ player }) => {
-  // properties for individual players
   const { user_name, first_name, last_name, profile_image_url } = player;
-
-  // styling destructuring
   const {
     thumbnailContainerStyle,
     thumnbnailStyle,
@@ -32,16 +29,6 @@ const DuckyItem = ({ player }) => {
 };
 
 export default DuckyItem;
-
-{/* <View style={thumbnailContainerStyle}>
-  <Image style={thumnbnailStyle} source={{ uri: profile_image_url }} />
-</View>
-
-<View style={headerContentStyle}>
-  <Text style={headerTextStyle}>{user_name}</Text>
-  <Text>{first_name} {last_name}</Text>
-</View> */}
-
 
 const styles = {
   thumbnailContainerStyle: {

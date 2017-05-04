@@ -506,10 +506,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AccountabilibuddyTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-<<<<<<< HEAD
 				16BCEF5EE20D437294687A70 /* Resources */,
-=======
->>>>>>> 91b0c35ab9694cd1083f1eea6126e63e163b642b
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -922,13 +919,10 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-<<<<<<< HEAD
 				38A35B23BF644F57AB8604CB /* LobsterTwo-Bold.otf in Resources */,
 				FB6CAB5797C04C1FB0A31A58 /* LobsterTwo-BoldItalic.otf in Resources */,
 				2D854F07B00B49F9898EA25C /* LobsterTwo-Italic.otf in Resources */,
 				405DC37A974B4D578D023B40 /* LobsterTwo-Regular.otf in Resources */,
-=======
->>>>>>> 91b0c35ab9694cd1083f1eea6126e63e163b642b
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

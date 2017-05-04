@@ -7,7 +7,7 @@ import Login from '../containers/Login';
 import Register from '../containers/Register';
 import Profile from '../containers/Profile';
 import Camera from '../containers/Camera';
-import Ducky from '../containers/Ducky';
+import Ducky from '../containers/DuckyRace/DuckyList';
 import TeamList from '../containers/TeamList';
 import Slider from './Slider';
 
