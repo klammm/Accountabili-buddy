@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 
@@ -23,20 +24,8 @@ export const LoginNavigator = StackNavigator({
   Slider: { screen: Slider }
 });
 
-const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: state.isLoggedIn
-  }
-}
-
-export class Navigation extends Component {
+export default class Navigation extends Component {
   render() {
-    if (!this.props.isLoggedIn) {
-      return <LoginNavigator />
-    }
-
-    return <DashboardNavigator />
+    return <LoginNavigator />
   }
 }
-
-export default connect(mapStateToProps)(Navigation);

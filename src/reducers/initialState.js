@@ -5,5 +5,12 @@ export default {
   error: '',
   user: null,
   teamsList: [],
-  isLoggedIn: null
+  isLoggedIn: null,
+  firstName: '',
+  lastName: '',
+  username: '',
+  confirmedPassword: '',
+  registerEmail: '',
+  registerPassword: '',
+  matchedPassword: null
 }

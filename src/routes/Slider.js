@@ -36,3 +36,7 @@ export default class Slider extends Component {
     );
   }
 }
+
+Slider.navigationOptions = {
+  header: null
+}
