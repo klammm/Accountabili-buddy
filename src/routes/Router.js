@@ -21,7 +21,8 @@ export const LoginNavigator = StackNavigator({
   Login: { screen: Login },
   Register: { screen: Register },
   Teams: { screen: TeamList },
-  Slider: { screen: Slider }
+  Slider: { screen: Slider },
+  Profile: { screen: Profile }
 });
 
 export default class Navigation extends Component {
