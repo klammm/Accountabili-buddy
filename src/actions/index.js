@@ -1,3 +1,4 @@
+import { AsyncStorage } from 'react-native';
 
 const login = (email, password) => {
   const url = 'https://bilibuddy-api.herokuapp.com/token'
@@ -14,9 +15,10 @@ const login = (email, password) => {
     })
   }).then((res) => {
     return res.json();
-  }).then((responseJSON) => {
+  }).then(async (responseJSON) => {
     // redirect and set cookie/token in headers
-    console.log('login response JSON',responseJSON)
+    console.log(responseJSON)
+    await AsyncStorage.setItem('User', JSON.stringify(responseJSON))
     return responseJSON
   }).catch((err) => {
     console.log(error)
