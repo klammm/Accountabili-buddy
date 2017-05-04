@@ -5,14 +5,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
-const mapStateToProps = (state) => {
-  return {
-    email: state.email,
-    password: state.password,
-    loading: state.loading,
-    error: state.error,
-    isLoggedIn: state.isLoggedIn
-  };
+const mapStateToProps = ({ login }) => {
+  const { email, password, error, loading, isLoggedIn } = login;
+
+  return { email, password, error, loading, isLoggedIn };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -32,10 +28,6 @@ class Login extends Component {
     const { email, password } = this.props;
 
     this.props.loginUser({ email, password });
-
-    if (this.props.isLoggedIn) {
-      this.props.navigation.navigate("Tab")
-    }
   }
 
   renderSpinner() {
@@ -50,7 +42,7 @@ class Login extends Component {
 
     return (
       <CardSection>
-        <Button whenPressed={this.onLoginAttempt.bind(this)}>
+        <Button whenPressed={() => this.onLoginAttempt()}>
           Log in
         </Button>
         <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
@@ -61,6 +53,14 @@ class Login extends Component {
   }
 
   render() {
+    // Warning: Cannot update during an existing state transition (such as within
+    // `render` or another component's constructor). Render methods should be a
+    // pure function of props and state; constructor side-effects are an
+    // anti-pattern, but can be moved to `componentWillMount`.
+    /********* FOR THIS IF STATEMENT **********/
+    if (this.props.isLoggedIn) {
+      return this.props.navigation.navigate('Slider')
+    }
     return (
       <Card>
         <Text style={styles.welcome}>Accountabili-Buddy</Text>
@@ -91,26 +91,14 @@ class Login extends Component {
         </Text>
 
         {this.renderSpinner()}
-
-        <CardSection>
-          <Button whenPressed={() => this.props.navigation.navigate('Slider')}>
-            Ducky Schmucky
-          </Button>
-        </CardSection>
-        <CardSection>
-          <Button whenPressed={() => this.props.navigation.navigate('Profile')}>
-            Profile
-          </Button>
-        </CardSection>
-
       </Card>
     )
   }
 }
 
 Login.navigationOptions = {
-  title: "Login"
-};
+  title: 'Log in',
+}
 
 const styles = StyleSheet.create({
   welcome: {
