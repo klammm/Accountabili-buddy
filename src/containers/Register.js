@@ -93,6 +93,26 @@ class Register extends Component {
     return this.props.matchedPassword ? match : notMatched
   }
 
+  renderSpinner() {
+    if (this.props.loading) {
+      return (
+        <CardSection>
+          <Spinner size='large' />
+        </CardSection>
+      )
+    }
+
+    const { navigate } = this.props.navigation;
+
+    return (
+      <CardSection>
+        <Button whenPressed={() => this.onRegisterAttempt()}>
+          Submit
+        </Button>
+      </CardSection>
+    )
+  }
+
   render() {
     return (
       <Card>

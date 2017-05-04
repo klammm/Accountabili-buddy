@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 export class TeamList extends Component {
   componentWillMount() {
     this.props.showAllTeams();
-    // this.renderTeams();
   }
 
   renderTeams() {

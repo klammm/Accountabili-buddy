@@ -35,9 +35,9 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
     body: JSON.stringify({
       email: registerEmail,
       password: registerPassword,
-      first_name: firstName,
-      last_name: lastName,
-      user_name: username
+      firstName,
+      lastName,
+      userName: username
     })
   }).then((res) => {
     console.log('CreateUser res: ', res);
