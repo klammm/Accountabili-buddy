@@ -16,12 +16,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class Login extends Component {
-  componentWillMount() {
-    if (this.props.isLoggedIn) {
-      return this.props.navigation.navigate('Slider')
-    }
-  }
-
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -30,16 +24,10 @@ class Login extends Component {
     this.props.passwordChanged(text);
   }
 
-  onLoginAttempt = () => {
+  onLoginAttempt() {
     const { email, password } = this.props;
 
     this.props.loginUser({ email, password });
-
-    // console.log('Our loggedIn prop: ',this.props.isLoggedIn)
-
-    if (this.props.isLoggedIn) {
-      return this.props.navigation.navigate("Slider")
-    }
   }
 
   renderSpinner() {
@@ -54,7 +42,7 @@ class Login extends Component {
 
     return (
       <CardSection>
-        <Button whenPressed={this.onLoginAttempt.bind(this)}>
+        <Button whenPressed={() => this.onLoginAttempt()}>
           Log in
         </Button>
         <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
@@ -65,9 +53,13 @@ class Login extends Component {
   }
 
   render() {
-
+    // Warning: Cannot update during an existing state transition (such as within
+    // `render` or another component's constructor). Render methods should be a
+    // pure function of props and state; constructor side-effects are an
+    // anti-pattern, but can be moved to `componentWillMount`.
+    /********* FOR THIS IF STATEMENT **********/
     if (this.props.isLoggedIn) {
-      this.props.navigation.navigate('Slider')
+      return this.props.navigation.navigate('Slider')
     }
     return (
       <Card>
@@ -99,12 +91,6 @@ class Login extends Component {
         </Text>
 
         {this.renderSpinner()}
-
-        <CardSection>
-          <Button whenPressed={() => this.props.navigation.navigate('Slider')}>
-            Ducky Schmucky
-          </Button>
-        </CardSection>
       </Card>
     )
   }
