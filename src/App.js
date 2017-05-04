@@ -6,47 +6,42 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
-import Router from './Router';
+import Router from './routes/Router';
 
 const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(thunk, promiseMiddleware)
+  applyMiddleware(thunk, promiseMiddleware())
 ));
 
 
-// Swiping action achieved through two 'menus' one for vertical and one for horizontal swiping
-import Profile from './containers/Profile.js';
-import Camera from './containers/Camera';
-import DuckyRace from './containers/DuckyRace/DuckyList';
-import Settings from './containers/Settings'
 
-import Menu from './components/Menu';
+// // Swiping action achieved through two 'menus' one for vertical and one for horizontal swiping
+// import Profile from './containers/Profile.js';
+// import Camera from './containers/Camera';
+// import DuckyRace from './containers/DuckyRace/DuckyList';
+// import Settings from './containers/Settings'
+//
+// import Menu from './components/Menu';
+//
+// const SubMenu = () => (
+//   <Menu
+//     routes={
+//       [
+//         { component: Settings },
+//         { component: Camera }
+//       ]
+//     }
+//     initialIndex={1}
+//     horizontal={false}
+//    />
+// );
 
-const SubMenu = () => (
-  <Menu
-    routes={
-      [
-        { component: Settings },
-        { component: Camera }
-      ]
-    }
-    initialIndex={1}
-    horizontal={false}
-   />
-);
 
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Menu
-          routes={[
-            { component: Profile },
-            { component: SubMenu },
-            { component: DuckyRace },
-          ]}
-          initialIndex={1}
-        />
+        <Router />
       </Provider>
     )
   }

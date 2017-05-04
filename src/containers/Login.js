@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { Button, CardSection, Card, Input } from '../components/common';
+import { Text, StyleSheet, View } from 'react-native';
+import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
-// import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
+import { bindActionCreators } from 'redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
-const mapStateToProps = (state) => {
-  return {
-    email: state.email,
-    password: state.password,
-    loading: state.loading
-  };
+const mapStateToProps = ({ login }) => {
+  const { email, password, error, loading, isLoggedIn } = login;
+
+  return { email, password, error, loading, isLoggedIn };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    loginToApp: (email, pasword) => { dispatch(loginAction(email, password)) }
-  };
+  return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
-export class Login extends Component {
+class Login extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -34,8 +30,37 @@ export class Login extends Component {
     this.props.loginUser({ email, password });
   }
 
-  render() {
+  renderSpinner() {
+    if (this.props.loading) {
+      return (
+        <CardSection>
+          <Spinner size='large' />
+        </CardSection>
+      )
+    }
     const { navigate } = this.props.navigation;
+
+    return (
+      <CardSection>
+        <Button whenPressed={() => this.onLoginAttempt()}>
+          Log in
+        </Button>
+        <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
+          Sign Up
+        </Button>
+      </CardSection>
+    );
+  }
+
+  render() {
+    // Warning: Cannot update during an existing state transition (such as within
+    // `render` or another component's constructor). Render methods should be a
+    // pure function of props and state; constructor side-effects are an
+    // anti-pattern, but can be moved to `componentWillMount`.
+    /********* FOR THIS IF STATEMENT **********/
+    if (this.props.isLoggedIn) {
+      return this.props.navigation.navigate('Slider')
+    }
     return (
       <Card>
         <Text style={styles.welcome}>Accountabili-Buddy</Text>
@@ -44,7 +69,9 @@ export class Login extends Component {
           <Input
             placeholder="example@gmail.com"
             label='Email'
-            onChangeText={() => this.onEmailChange}
+            autoCapitalize={'none'}
+            value={this.props.email}
+            onChangeText={this.onEmailChange.bind(this)}
           />
         </CardSection>
 
@@ -52,34 +79,39 @@ export class Login extends Component {
           <Input
             placeholder='Password'
             label="Password"
-            onChangeText={() => this.onPasswordChange}
+            autoCapitalize={'none'}
+            secureTextEntry
+            value={this.props.password}
+            onChangeText={this.onPasswordChange.bind(this)}
           />
         </CardSection>
 
-        <CardSection>
-          <Button whenPressed={() => this.onLoginAttempt()}>
-            Log in
-          </Button>
-          <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
-            Sign Up
-          </Button>
-        </CardSection>
 
+        <Text style={styles.errorTextStyle}>
+          {this.props.error}
+        </Text>
+
+        {this.renderSpinner()}
       </Card>
     )
   }
 }
 
 Login.navigationOptions = {
-  title: "Login"
-};
+  title: 'Log in',
+}
 
 const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
   }
 })
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

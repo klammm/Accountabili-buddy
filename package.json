@@ -9,13 +9,19 @@
   "dependencies": {
     "axios": "^0.16.1",
     "prop-types": "^15.5.8",
+<<<<<<< HEAD
     "react": "15.4.2",
     "react-native": "0.42.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-navigation": "git+https://github.com/react-community/react-navigation.git",
+=======
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
+    "react-navigation": "^1.0.0-beta.7",
+>>>>>>> 91b0c35ab9694cd1083f1eea6126e63e163b642b
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "redux-form": "^6.6.3",
     "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0"
   },

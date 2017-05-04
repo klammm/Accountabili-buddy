@@ -1,4 +1,5 @@
 export default {
+<<<<<<< HEAD
     email : '',
     password : '',
     loading : false,
@@ -45,3 +46,20 @@ export default {
             }
         ]
     };
+=======
+  email: '',
+  password: '',
+  loading: false,
+  error: '',
+  user: null,
+  teamsList: [],
+  isLoggedIn: null,
+  firstName: '',
+  lastName: '',
+  username: '',
+  confirmedPassword: '',
+  registerEmail: '',
+  registerPassword: '',
+  matchedPassword: null
+}
+>>>>>>> 91b0c35ab9694cd1083f1eea6126e63e163b642b
