@@ -62,7 +62,21 @@ const grabAllTeams = () => {
     })
 };
 
-
+const getUserById = (userId) => {
+  const url = `https://bilibuddy-api.herokuapp.com/users/${userId}`;
+  return fetch(url)
+  .then((res) => {
+    console.log('this is the res: ', res);
+    console.log('res.json ');
+    return res.json();
+  })
+  .then((responseJSON) => {
+    console.log('this is userProfile: ', responseJSON);
+    return responseJSON;
+  }).catch((err) => {
+    console.log('userProfile error: ', err);
+  })
+}
 /********************************** ACTION CREATORS ********************************/
 
 export const emailChanged = (text) => {
@@ -163,5 +177,12 @@ export const confirmPasswordChanged = (text) => {
   return {
     type: 'CONFIRM_PASSWORD_CHANGE',
     payload: text
+  };
+};
+
+export const showUserProfile = (userId) => {
+  return {
+    type: 'SHOW_USER_PROFILE',
+    payload: getUserById(userId)
   };
 };
