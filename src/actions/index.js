@@ -21,7 +21,7 @@ const login = (email, password) => {
     await AsyncStorage.setItem('User', JSON.stringify(responseJSON))
     return responseJSON
   }).catch((err) => {
-    console.log(error)
+    console.log(err)
   })
 };
 
@@ -42,11 +42,9 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
       userName: username
     })
   }).then((res) => {
-    console.log('CreateUser res: ', res);
     return res.json();
   }).then((responseJSON) => {
-    console.log('createUser response JSON: ', responseJSON);
-    return responseJSON;
+    return login(responseJSON.email, registerPassword);
   }).catch((err) => {
     console.log(err)
   })
@@ -133,10 +131,10 @@ export const registerPasswordChanged = (text) => {
   };
 };
 
-export const registerUser = ({ email, password, firstName, lastName, username }) => {
+export const registerUser = ({ registerEmail, registerPassword, firstName, lastName, username }) => {
   return {
     type: 'CREATE_USER',
-    payload: createUser(email, password, firstName, lastName, username)
+    payload: createUser(registerEmail, registerPassword, firstName, lastName, username)
   };
 };
 

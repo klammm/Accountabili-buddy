@@ -8,6 +8,7 @@ import {
   Text,
   AsyncStorage
 } from 'react-native';
+import { Input, Button, Card, CardSection } from '../components/common';
 import Camera from 'react-native-camera';
 
 const styles = StyleSheet.create({
@@ -94,6 +95,14 @@ class CameraRoute extends Component {
           source={{ uri: this.state.path }}
           style={styles.preview}
         />
+        <Card style={{ position: 'absolute', flexDirection: 'row', alignItems: 'center', width: 200, backgroundColor: 'transparent', bottom: 100, left: 100 }}>
+          <CardSection style={{ backgroundColor: 'transparent' }}>
+            <Input placeholder="reps" />
+            <Button>
+              Submit
+            </Button>
+          </CardSection>
+        </Card>
         <Text
           style={styles.cancel}
           onPress={() => this.setState({ path: null })}

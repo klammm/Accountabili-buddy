@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 const Settings = () => {
   return (
     <View style={styles.container}>
-      <Text>Me</Text>
+      <Text>Settings</Text>
     </View>
   );
 };

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ScrollView, Dimensions, View, StyleSheet } from 'react-native';
 
 const window = Dimensions.get('window');
