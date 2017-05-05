@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
   buttonStyle: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#0091EA',
+    backgroundColor: '#007aff',
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#0091EA',
+    borderColor: '#007aff',
     marginLeft: 5,
     marginRight: 5
   },

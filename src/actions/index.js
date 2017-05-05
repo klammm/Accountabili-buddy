@@ -17,7 +17,6 @@ const login = (email, password) => {
     return res.json();
   }).then(async (responseJSON) => {
     // redirect and set cookie/token in headers
-    console.log(responseJSON)
     await AsyncStorage.setItem('User', JSON.stringify(responseJSON))
     return responseJSON
   }).catch((err) => {
@@ -55,15 +54,39 @@ const grabAllTeams = () => {
   return fetch(url)
     .then(res => res.json())
     .then((responseJSON) => {
-      console.log(responseJSON);
       return responseJSON;
     }).catch((err) => {
       console.log('Teams error: ', err)
     })
 };
 
+const grabAllPlayers = () => {
+  const url = 'https://bilibuddy-api.herokuapp.com/teams/1';
+  return fetch(url)
+    .then(res => res.json())
+    .then(responseJSON => {
+      return responseJSON.users;
+    })
+    .catch( (err) =>{
+      console.log('PlayersList error: ', err)
+    })
+};
 
 /********************************** ACTION CREATORS ********************************/
+
+export const showAllTeams = () => {
+  return {
+    type: 'SHOW_ALL_TEAMS',
+    payload: grabAllTeams()
+  };
+};
+
+export const showAllPlayers = () => {
+  return {
+    type: 'SHOW_ALL_TEAM_PLAYERS',
+    payload: grabAllPlayers()
+  };
+};
 
 export const emailChanged = (text) => {
   return {
@@ -103,12 +126,6 @@ export const logoutUser = () => {
   dispatch({ type: 'USER_LOGOUT' });
 };
 
-export const showAllTeams = () => {
-  return {
-    type: 'SHOW_ALL_TEAMS',
-    payload: grabAllTeams()
-  };
-};
 
 export const registerEmailChanged = (text) => {
   return {

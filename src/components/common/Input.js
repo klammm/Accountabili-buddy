@@ -9,14 +9,16 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
       <Text style={labelStyle}>
         {label}
       </Text>
+
       <TextInput
+        placeholder={placeholder}
         autoCorrect={false}
         style={inputStyle}
         value={value}
         autoCapitalize={autoCapitalize}
         secureTextEntry={secureTextEntry}
         onChangeText={onChangeText}
-        placeholder={placeholder} />
+      />
     </View>
   );
 };

@@ -12,5 +12,6 @@ export default {
   confirmedPassword: '',
   registerEmail: '',
   registerPassword: '',
-  matchedPassword: null
-}
+  matchedPassword: null,
+  players : []
+};
