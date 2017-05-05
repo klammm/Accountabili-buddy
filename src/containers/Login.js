@@ -59,7 +59,8 @@ class Login extends Component {
     // anti-pattern, but can be moved to `componentWillMount`.
     /********* FOR THIS IF STATEMENT **********/
     if (this.props.isLoggedIn) {
-      return this.props.navigation.navigate('Slider')
+      this.props.navigation.navigate('Slider')
+      return null;
     }
     return (
       <Card>

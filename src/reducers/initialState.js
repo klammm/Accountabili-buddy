@@ -14,4 +14,5 @@ export default {
   registerPassword: '',
   matchedPassword: null,
   players : []
-};
+  userProfile: {}
+}
