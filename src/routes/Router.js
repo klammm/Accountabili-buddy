@@ -7,7 +7,7 @@ import Login from '../containers/Login';
 import Register from '../containers/Register';
 import Profile from '../containers/Profile';
 import Camera from '../containers/Camera';
-import Ducky from './containers/DuckyRace/DuckyList';
+import Ducky from '../containers/DuckyRace/PlayerList';
 import TeamList from '../containers/TeamList';
 import Slider from './Slider';
 
@@ -20,12 +20,12 @@ export const DashboardNavigator = TabNavigator({
 export const LoginNavigator = StackNavigator({
   Login: { screen: Login },
   Register: { screen: Register },
-  Tab: { screen: TeamList },
+  Teams: { screen: TeamList },
   Slider: { screen: Slider }
 });
 
 export default class Navigation extends Component {
   render() {
-     return <LoginNavigator />
-   }
+    return <LoginNavigator />
+  }
 }

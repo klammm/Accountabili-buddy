@@ -1,4 +1,3 @@
-
 const login = (email, password) => {
   const url = 'https://bilibuddy-api.herokuapp.com/token'
   return fetch(url, {
@@ -19,7 +18,7 @@ const login = (email, password) => {
     console.log('login response JSON',responseJSON)
     return responseJSON
   }).catch((err) => {
-    console.log(error)
+    console.log(err)
   })
 };
 
@@ -62,8 +61,35 @@ const grabAllTeams = () => {
     })
 };
 
+const grabAllPlayers = () => {
+  const url = 'https://bilibuddy-api.herokuapp.com/teams/1';
+
+  return fetch(url)
+          .then(res => res.json())
+          .then(responseJSON => {
+            console.log('hey this is our team players', responseJSON);
+            return responseJSON.users;
+          })
+          .catch( (err) =>
+          { console.log('PlayersList error: ', err)
+          })
+};
 
 /********************************** ACTION CREATORS ********************************/
+
+export const showAllTeams = () => {
+  return {
+    type: 'SHOW_ALL_TEAMS',
+    payload: grabAllTeams()
+  };
+};
+
+export const showAllPlayers = () => {
+  return {
+    type: 'SHOW_ALL_TEAM_PLAYERS',
+    payload: grabAllPlayers()
+  };
+};
 
 export const emailChanged = (text) => {
   return {
@@ -103,12 +129,6 @@ export const logoutUser = () => {
   dispatch({ type: 'USER_LOGOUT' });
 };
 
-export const showAllTeams = () => {
-  return {
-    type: 'SHOW_ALL_TEAMS',
-    payload: grabAllTeams()
-  };
-};
 
 export const registerEmailChanged = (text) => {
   return {
