@@ -12,8 +12,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    // height: 800,
-    // width: 800,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent'
@@ -42,7 +40,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  console.log('log this state: ', state);
   return {
     ...state
   };
@@ -53,7 +50,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export class Profile extends Component {
-  // something in redux or react state called mounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +60,6 @@ export class Profile extends Component {
   componentWillMount() {
     this.props.showUserProfile(1)
       .then((data) => {
-        // set mounted = true;
         this.setState({
           mounted: true
         })
@@ -72,7 +67,6 @@ export class Profile extends Component {
   }
 
   renderImages() {
-    console.log('array: ', this.props);
     if(this.state.mounted) {
       return this.props.userProfile.ownedImages.map(image =>
         <ImageDetail key={image.id} image={image} />);
@@ -80,10 +74,7 @@ export class Profile extends Component {
   }
 
   render() {
-    console.log('this.props hahahahha: ', this.props.userProfile);
-    console.log('mounted: ', this.state.mounted);
     return (
-      // this is profile image and user name section
       <View>
         <CardSection>
           <Card>
@@ -100,29 +91,8 @@ export class Profile extends Component {
         </Card>
         </CardSection>
         <CardSection>
-            {/* renderif goes here with if mounted */}
             {this.renderImages()}
         </CardSection>
-        {/* <CardSection>
-          <Card style={styles.imgContainer}>
-            <Image
-              style={styles.imageInProf}
-              source={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg" }}
-            />
-          </Card>
-          <Card style={styles.imgContainer}>
-            <Image
-              style={styles.imageInProf}
-              source={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg" }}
-            />
-          </Card>
-          <Card style={styles.imgContainer}>
-            <Image
-              style={styles.imageInProf}
-              source={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg" }}
-            />
-          </Card>
-        </CardSection> */}
       </View>
     );
   }
