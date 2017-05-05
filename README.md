@@ -29,6 +29,16 @@ Happy Coding! 💻
 
 ##### Android
 
+For Android testing, follow the steps on [React Native Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) and select Mobile OS: Android and Development depending on your machine.
+
+Clone or fork and install all our dependencies.
+
+When you're done with the preview step, like in IOS run these commands:
+- `cd PROJECT_DIRECTORY` (be sure that your current working directory is `Accountabili-buddy`)
+- `npm install` to install all our dependencies into the `node_modules` folder.
+- `react-native run-android` to run the project.
+
+NOTE: in order to see the emulator with Android Studio you first need to open it, run the app, and then run the command `react-native run-android`.
 
 
 ### Web version
