@@ -13,5 +13,6 @@ export default {
   registerEmail: '',
   registerPassword: '',
   matchedPassword: null,
-  players : []
-};
+  players : [],
+  userProfile: {}
+}
