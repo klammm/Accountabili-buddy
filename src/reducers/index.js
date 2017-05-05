@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   login: loginReducer,
   teamsList: teamsListReducer,
   register: registerReducer,
-  playersList: playersListReducer
+  playersList: playersListReducer,
   userProfile: userProfileReducer
 });
 
