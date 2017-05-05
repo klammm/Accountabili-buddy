@@ -90,14 +90,22 @@ class CameraRoute extends Component {
 
   renderImage() {
     return (
-      <View>
+      <View style={{ position: 'absolute', alignItems: 'center', flexDirection: 'column'}}>
         <Image
           source={{ uri: this.state.path }}
           style={styles.preview}
         />
-        <Card style={{ position: 'absolute', flexDirection: 'row', alignItems: 'center', width: 200, backgroundColor: 'transparent', bottom: 100, left: 100 }}>
+        <Card style={{ position: 'absolute', alignItems: 'center', flexDirection: 'column', width: 300, height: 100, backgroundColor: 'transparent', bottom: 100 }}>
           <CardSection style={{ backgroundColor: 'transparent' }}>
             <Input placeholder="reps" />
+          </CardSection>
+
+          <CardSection style={{ backgroundColor: 'transparent' }}>
+
+            <Input placeholder="FRIENDS" />
+          </CardSection>
+
+          <CardSection style={{ backgroundColor: 'transparent', borderColor: 'transparent' }}>
             <Button>
               Submit
             </Button>
