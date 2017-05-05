@@ -32,9 +32,11 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		2D854F07B00B49F9898EA25C /* LobsterTwo-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B6EEEDA02446C8C9356AE /* LobsterTwo-Italic.otf */; };
 		2DCD954D1E0B4F2C00145EB5 /* AccountabilibuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AccountabilibuddyTests.m */; };
+		38A35B23BF644F57AB8604CB /* LobsterTwo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A696775334F64E55BA006839 /* LobsterTwo-Bold.otf */; };
+		405DC37A974B4D578D023B40 /* LobsterTwo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE03F9F0ABAD4F0EBEB88B43 /* LobsterTwo-Regular.otf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		69C249C394914EFE8F54F001 /* LobsterTwo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9275948CB0884F1F831FA1FF /* LobsterTwo-Bold.otf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A5CF479E9AF2451C9B633555 /* LobsterTwo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */; };
 		C9A327382CA54DA4B52F9F3D /* LobsterTwo-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50724B7675DB4653A84636A0 /* LobsterTwo-Italic.otf */; };
@@ -242,16 +244,16 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		F61F83381EB8F5FF00E42E5C /* PBXContainerItemProxy */ = {
+		F6915C1B1EBA6761008FA466 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F61F83301EB8F5FF00E42E5C /* RCTCamera.xcodeproj */;
+			containerPortal = 0FC984A428A245A88AB577AF /* RCTCamera.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
 			remoteInfo = RCTCamera;
 		};
-		F6C17E1D1EB7FA480060EF52 /* PBXContainerItemProxy */ = {
+		F6915C371EBA67AC008FA466 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 59069DBCC76C45F094338F6A /* RCTCamera.xcodeproj */;
+			containerPortal = F6915C331EBA67AC008FA466 /* RCTCamera.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
 			remoteInfo = RCTCamera;
@@ -268,6 +270,7 @@
 		00E356EE1AD99517003FC87E /* AccountabilibuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccountabilibuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AccountabilibuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountabilibuddyTests.m; sourceTree = "<group>"; };
+		0FC984A428A245A88AB577AF /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Accountabilibuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accountabilibuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,11 +283,9 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* Accountabilibuddy-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accountabilibuddy-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Accountabilibuddy-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Accountabilibuddy-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50724B7675DB4653A84636A0 /* LobsterTwo-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LobsterTwo-Italic.otf"; path = "../assets/fonts/LobsterTwo-Italic.otf"; sourceTree = "<group>"; };
-		59069DBCC76C45F094338F6A /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7C3059241EB3B04D0035EEC5 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
+		7C0B6EEEDA02446C8C9356AE /* LobsterTwo-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LobsterTwo-Italic.otf"; path = "../assets/fonts/LobsterTwo-Italic.otf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8B0246E44A0B43BBB9A58351 /* LobsterTwo-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LobsterTwo-Regular.otf"; path = "../assets/fonts/LobsterTwo-Regular.otf"; sourceTree = "<group>"; };
 		9275948CB0884F1F831FA1FF /* LobsterTwo-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LobsterTwo-Bold.otf"; path = "../assets/fonts/LobsterTwo-Bold.otf"; sourceTree = "<group>"; };
@@ -317,7 +318,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F62E1EAF1EB802400062B855 /* libRCTCamera.a in Frameworks */,
+				F6915C391EBA67D1008FA466 /* libRCTCamera.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -464,6 +465,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		16BCEF5EE20D437294687A70 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A696775334F64E55BA006839 /* LobsterTwo-Bold.otf */,
+				97D9687DDE8D41769722C967 /* LobsterTwo-BoldItalic.otf */,
+				7C0B6EEEDA02446C8C9356AE /* LobsterTwo-Italic.otf */,
+				EE03F9F0ABAD4F0EBEB88B43 /* LobsterTwo-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,13 +490,6 @@
 			children = (
 				78C398B91ACF4ADC00677621 /* libRCTLinking.a */,
 				3DAD3E881DF850E9000B6D8A /* libRCTLinking-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7C3059251EB3B04D0035EEC5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -521,7 +526,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				F61F83301EB8F5FF00E42E5C /* RCTCamera.xcodeproj */,
+				F6915C331EBA67AC008FA466 /* RCTCamera.xcodeproj */,
 				13B07FAE1A68108700A75B9A /* Accountabilibuddy */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AccountabilibuddyTests */,
@@ -567,15 +572,15 @@
 		F61F83311EB8F5FF00E42E5C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F61F83391EB8F5FF00E42E5C /* libRCTCamera.a */,
+				F6915C1C1EBA6761008FA466 /* libRCTCamera.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F6C17E171EB7FA480060EF52 /* Products */ = {
+		F6915C341EBA67AC008FA466 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6C17E1E1EB7FA480060EF52 /* libRCTCamera.a */,
+				F6915C381EBA67AC008FA466 /* libRCTCamera.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -674,11 +679,7 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = GYG5R2D9DF;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
-					};
-					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = GYG5R2D9DF;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -712,16 +713,12 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
-					ProductGroup = F6C17E171EB7FA480060EF52 /* Products */;
-					ProjectRef = 59069DBCC76C45F094338F6A /* RCTCamera.xcodeproj */;
+					ProductGroup = F6915C341EBA67AC008FA466 /* Products */;
+					ProjectRef = F6915C331EBA67AC008FA466 /* RCTCamera.xcodeproj */;
 				},
 				{
-					ProductGroup = F61F83311EB8F5FF00E42E5C /* Products */;
-					ProjectRef = F61F83301EB8F5FF00E42E5C /* RCTCamera.xcodeproj */;
-				},
-				{
-					ProductGroup = 7C3059251EB3B04D0035EEC5 /* Products */;
-					ProjectRef = 7C3059241EB3B04D0035EEC5 /* RCTFBLogin.xcodeproj */;
+					ProductGroup = F6915C151EBA6760008FA466 /* Products */;
+					ProjectRef = 0FC984A428A245A88AB577AF /* RCTCamera.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -946,18 +943,18 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F61F83391EB8F5FF00E42E5C /* libRCTCamera.a */ = {
+		F6915C1C1EBA6761008FA466 /* libRCTCamera.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTCamera.a;
-			remoteRef = F61F83381EB8F5FF00E42E5C /* PBXContainerItemProxy */;
+			remoteRef = F6915C1B1EBA6761008FA466 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F6C17E1E1EB7FA480060EF52 /* libRCTCamera.a */ = {
+		F6915C381EBA67AC008FA466 /* libRCTCamera.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTCamera.a;
-			remoteRef = F6C17E1D1EB7FA480060EF52 /* PBXContainerItemProxy */;
+			remoteRef = F6915C371EBA67AC008FA466 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1104,8 +1101,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = GYG5R2D9DF;
-				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1137,8 +1132,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = GYG5R2D9DF;
-				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
@@ -1168,12 +1161,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = GYG5R2D9DF;
-				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
-					"\"${PODS_ROOT}/Headers/Public/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\"",
-					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
 				INFOPLIST_FILE = Accountabilibuddy/Info.plist;
@@ -1183,9 +1173,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.Bilibuddy;
 				PRODUCT_NAME = Accountabilibuddy;
-				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1195,13 +1183,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GYG5R2D9DF;
-				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../../../React/**",
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
-					"\"${PODS_ROOT}/Headers/Public/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\"",
-					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 				);
 				INFOPLIST_FILE = Accountabilibuddy/Info.plist;
@@ -1211,9 +1197,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.Bilibuddy;
 				PRODUCT_NAME = Accountabilibuddy;
-				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1229,7 +1213,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1266,7 +1249,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1302,7 +1284,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Accountabilibuddy-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1329,7 +1310,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "\"/Users/marylai/Documents/FacebookSDK\"";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Accountabilibuddy-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1366,7 +1346,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "/Users/marylai/Documents/FacebookSDKs-iOS-4.22.0/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1409,7 +1388,6 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "/Users/marylai/Documents/FacebookSDKs-iOS-4.22.0/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

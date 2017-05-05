@@ -25,16 +25,14 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
+	    <dict>
+	        <key>NSAllowsArbitraryLoads</key>
+	        <true/>
+	        <key>NSAllowsArbitraryLoadsInWebContent</key>
+	        <true/>
+	        <key>NSAllowsLocalNetworking</key>
+	        <true/>
+	    </dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow Billybuddy to access the camera to take photos.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

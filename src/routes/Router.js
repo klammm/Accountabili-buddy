@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
+
 
 import Login from '../containers/Login';
 import Register from '../containers/Register';
 import Profile from '../containers/Profile';
 import Camera from '../containers/Camera';
-import Ducky from '../containers/Ducky';
+import Ducky from '../containers/DuckyRace/PlayerList';
 import TeamList from '../containers/TeamList';
 import Slider from './Slider';
 
