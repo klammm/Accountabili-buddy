@@ -16,13 +16,12 @@ const ImageDetail = ({ image }) => {
   const { imageUrl } = image;
 
   return (
-  //   <Card style={styles.imgContainer}>
-  //     <Image
-  //       style={styles.imageInProf}
-  //       source={{ uri: imageUrl }}
-  //     />
-  //   </Card>
-  <Text>Hello</Text>
+    <Card style={styles.imgContainer}>
+      <Image
+        style={styles.imageInProf}
+        source={{ uri: imageUrl }}
+      />
+    </Card>
   );
 };
 export default ImageDetail;
