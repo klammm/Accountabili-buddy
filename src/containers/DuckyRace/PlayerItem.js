@@ -30,10 +30,10 @@ const styles = {
   },
   duckyContainerStyle: {
     padding: 5,
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    borderColor: '#ddd',
+    borderColor: 'transparent',
     position: 'relative'
   },
   wavesStyle: {
@@ -50,7 +50,7 @@ const styles = {
 };
 
 const PlayerItem = ({ player }) => {
-  const { user_name, first_name, last_name, profile_image_url } = player;
+  const { user_name, first_name, last_name, profile_image_url, id } = player;
   const {
     thumbnailContainerStyle,
     thumnbnailStyle,
@@ -74,10 +74,10 @@ const PlayerItem = ({ player }) => {
           <Text>{first_name} {last_name}</Text>
 
           <View style={duckyContainerStyle}>
-            <Image style={wavesStyle} source={wave}/>
-            <Image style={wavesStyle} source={wave}/>
-            <Image style={wavesStyle} source={wave}/>
-            <Image style={duckyStyle} source={ducky}/>
+            <Image style={wavesStyle} source={wave} />
+            <Image style={wavesStyle} source={wave} />
+            <Image style={wavesStyle} source={wave} />
+            <Image style={duckyStyle} source={ducky} />
           </View>
         </View>
         </CardSection>
