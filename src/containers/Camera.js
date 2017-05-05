@@ -6,7 +6,9 @@ import {
   TouchableHighlight,
   Image,
   Text,
+  AsyncStorage
 } from 'react-native';
+import { Input, Button, Card, CardSection } from '../components/common';
 import Camera from 'react-native-camera';
 
 const styles = StyleSheet.create({
@@ -46,8 +48,13 @@ class CameraRoute extends Component {
   constructor(props) {
     super(props);
 
+    AsyncStorage.getItem('User').then((value) => {
+      this.setState({ 'User': JSON.parse(value) })
+    }).done()
+
     this.state = {
       path: null,
+      User: null
     };
   }
 
@@ -88,6 +95,14 @@ class CameraRoute extends Component {
           source={{ uri: this.state.path }}
           style={styles.preview}
         />
+        <Card style={{ position: 'absolute', flexDirection: 'row', alignItems: 'center', width: 200, backgroundColor: 'transparent', bottom: 100, left: 100 }}>
+          <CardSection style={{ backgroundColor: 'transparent' }}>
+            <Input placeholder="reps" />
+            <Button>
+              Submit
+            </Button>
+          </CardSection>
+        </Card>
         <Text
           style={styles.cancel}
           onPress={() => this.setState({ path: null })}
@@ -98,6 +113,7 @@ class CameraRoute extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <View style={styles.container}>
         {this.state.path ? this.renderImage() : this.renderCamera()}

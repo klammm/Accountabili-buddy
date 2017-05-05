@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 export class TeamList extends Component {
   componentWillMount() {
     this.props.showAllTeams();
-    // this.renderTeams();
   }
 
   renderTeams() {
@@ -36,7 +35,7 @@ export class TeamList extends Component {
 
 TeamList.navigatonOptions = {
   title: 'Pick a team to join!',
-  headerLeft: null
+  header: null
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamList);

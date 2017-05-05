@@ -4,7 +4,6 @@ import Profile from '../containers/Profile';
 import Camera from '../containers/Camera';
 import Ducky from '../containers/DuckyRace/PlayerList';
 import Settings from '../containers/Settings'
-
 import Menu from '../components/Menu';
 
 
