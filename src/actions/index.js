@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native';
+
 const login = (email, password) => {
   const url = 'https://bilibuddy-api.herokuapp.com/token'
   return fetch(url, {
@@ -13,9 +15,9 @@ const login = (email, password) => {
     })
   }).then((res) => {
     return res.json();
-  }).then((responseJSON) => {
+  }).then(async (responseJSON) => {
     // redirect and set cookie/token in headers
-    console.log('login response JSON',responseJSON)
+    await AsyncStorage.setItem('User', JSON.stringify(responseJSON))
     return responseJSON
   }).catch((err) => {
     console.log(err)
@@ -34,16 +36,14 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
     body: JSON.stringify({
       email: registerEmail,
       password: registerPassword,
-      first_name: firstName,
-      last_name: lastName,
-      user_name: username
+      firstName,
+      lastName,
+      userName: username
     })
   }).then((res) => {
-    console.log('CreateUser res: ', res);
     return res.json();
   }).then((responseJSON) => {
-    console.log('createUser response JSON: ', responseJSON);
-    return responseJSON;
+    return login(responseJSON.email, registerPassword);
   }).catch((err) => {
     console.log(err)
   })
@@ -54,7 +54,6 @@ const grabAllTeams = () => {
   return fetch(url)
     .then(res => res.json())
     .then((responseJSON) => {
-      console.log(responseJSON);
       return responseJSON;
     }).catch((err) => {
       console.log('Teams error: ', err)
@@ -63,16 +62,14 @@ const grabAllTeams = () => {
 
 const grabAllPlayers = () => {
   const url = 'https://bilibuddy-api.herokuapp.com/teams/1';
-
   return fetch(url)
-          .then(res => res.json())
-          .then(responseJSON => {
-            console.log('hey this is our team players', responseJSON);
-            return responseJSON.users;
-          })
-          .catch( (err) =>
-          { console.log('PlayersList error: ', err)
-          })
+    .then(res => res.json())
+    .then(responseJSON => {
+      return responseJSON.users;
+    })
+    .catch( (err) =>{
+      console.log('PlayersList error: ', err)
+    })
 };
 
 /********************************** ACTION CREATORS ********************************/
@@ -151,10 +148,10 @@ export const registerPasswordChanged = (text) => {
   };
 };
 
-export const registerUser = ({ email, password, firstName, lastName, username }) => {
+export const registerUser = ({ registerEmail, registerPassword, firstName, lastName, username }) => {
   return {
     type: 'CREATE_USER',
-    payload: createUser(email, password, firstName, lastName, username)
+    payload: createUser(registerEmail, registerPassword, firstName, lastName, username)
   };
 };
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Card, CardSection, Input } from '../components/common';
@@ -83,6 +83,7 @@ class Register extends Component {
   onRegisterAttempt() {
     const { registerEmail, registerPassword, firstName, lastName, username } = this.props;
 
+
     this.props.registerUser({ registerEmail, registerPassword, firstName, lastName, username });
   }
 
@@ -91,6 +92,26 @@ class Register extends Component {
     const notMatched = <Text style={styles.errorTextStyle}>Not Ready!</Text>
 
     return this.props.matchedPassword ? match : notMatched
+  }
+
+  renderSpinner() {
+    if (this.props.loading) {
+      return (
+        <CardSection>
+          <Spinner size='large' />
+        </CardSection>
+      )
+    }
+
+    const { navigate } = this.props.navigation;
+
+    return (
+      <CardSection>
+        <Button whenPressed={() => this.onRegisterAttempt()}>
+          Submit
+        </Button>
+      </CardSection>
+    )
   }
 
   render() {
@@ -156,6 +177,11 @@ class Register extends Component {
             Checkaroo!!!
           </Button>
         </CardSection>
+        <CardSection>
+          <View style={styles.readyCheckContainer}>
+            { this.realTimeConfirmedPassword() }
+          </View>
+        </CardSection>
 
         <CardSection>
           <Button whenPressed={() => {
@@ -167,10 +193,6 @@ class Register extends Component {
             Submit
           </Button>
         </CardSection>
-
-        <CardSection>
-          { this.realTimeConfirmedPassword() }
-        </CardSection>
       </Card>
     )
   }
@@ -178,7 +200,7 @@ class Register extends Component {
 
 Register.navigationOptions = {
   title: 'Register',
-  headerLeft: null
+  header: null
 }
 
 const styles = StyleSheet.create({
@@ -196,6 +218,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     alignSelf: 'center',
     color: 'green'
+  },
+  readyCheckContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   }
 });
 
