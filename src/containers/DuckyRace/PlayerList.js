@@ -32,6 +32,7 @@ class PlayerList extends Component {
     return (
       <ScrollView>
         <Header style={styles.headerTextStyle} headerText={'Ducky Race'} />
+
         {this.renderPlayers()}
       </ScrollView>
     );
