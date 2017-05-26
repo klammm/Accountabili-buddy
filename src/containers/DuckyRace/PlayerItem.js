@@ -4,6 +4,42 @@ import { Card, CardSection } from '../../components/common';
 import wave from '../../../assets/images/wave.png';
 import ducky from '../../../assets/images/ducky.png';
 
+const PlayerItem = ({ player }) => {
+  const { user_name, first_name, last_name, profile_image_url, id } = player;
+  const {
+    thumbnailContainerStyle,
+    thumnbnailStyle,
+    headerContentStyle,
+    headerTextStyle,
+    imageStyle,
+    duckyContainerStyle,
+    wavesStyle,
+    duckyStyle
+  } = styles;
+
+  return (
+    <Card>
+      <CardSection>
+        <View style={thumbnailContainerStyle}>
+          <Image style={thumnbnailStyle} source={{ uri: profile_image_url }} />
+        </View>
+
+        <View style={headerContentStyle}>
+          <Text style={headerTextStyle}>{user_name}</Text>
+          <Text>{first_name} {last_name}</Text>
+
+          <View style={duckyContainerStyle}>
+            <Image style={wavesStyle} source={wave} />
+            <Image style={wavesStyle} source={wave} />
+            <Image style={wavesStyle} source={wave} />
+            <Image style={duckyStyle} source={ducky} />
+          </View>
+        </View>
+        </CardSection>
+    </Card>
+  );
+};
+
 const styles = {
   thumbnailContainerStyle: {
     justifyContent: 'center',
@@ -47,42 +83,6 @@ const styles = {
     paddingBottom: 5,
     position: 'relative'
   }
-};
-
-const PlayerItem = ({ player }) => {
-  const { user_name, first_name, last_name, profile_image_url, id } = player;
-  const {
-    thumbnailContainerStyle,
-    thumnbnailStyle,
-    headerContentStyle,
-    headerTextStyle,
-    imageStyle,
-    duckyContainerStyle,
-    wavesStyle,
-    duckyStyle
-  } = styles;
-
-  return (
-    <Card>
-      <CardSection>
-        <View style={thumbnailContainerStyle}>
-          <Image style={thumnbnailStyle} source={{ uri: profile_image_url }} />
-        </View>
-
-        <View style={headerContentStyle}>
-          <Text style={headerTextStyle}>{user_name}</Text>
-          <Text>{first_name} {last_name}</Text>
-
-          <View style={duckyContainerStyle}>
-            <Image style={wavesStyle} source={wave} />
-            <Image style={wavesStyle} source={wave} />
-            <Image style={wavesStyle} source={wave} />
-            <Image style={duckyStyle} source={ducky} />
-          </View>
-        </View>
-        </CardSection>
-    </Card>
-  );
 };
 
 export default PlayerItem;
