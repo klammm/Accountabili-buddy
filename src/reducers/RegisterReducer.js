@@ -1,4 +1,4 @@
-import initialState from './initialState';
+import initialState from './initialState/RegisterState';
 
 const registerReducer = (state = initialState, action) => {
   switch(action.type) {

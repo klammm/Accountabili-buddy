@@ -1,6 +1,9 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
+// be consistent where you place your styles versus your components.
+// are you styles above or below your component declarations? 
+
 const Button = ({ whenPressed, children, style }) => {
   const { buttonStyle, textStyle } = styles;
 
