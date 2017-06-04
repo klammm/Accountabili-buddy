@@ -4,27 +4,6 @@ import { ScrollView, Dimensions, View, StyleSheet } from 'react-native';
 
 const window = Dimensions.get('window');
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  scrollView: {
-    flexDirection: 'row',
-  },
-  scrollViewVertical: {
-    flexDirection: 'column',
-  },
-  item: {
-    flex: 1,
-    width: window.width,
-  },
-  verticalItem: {
-    flex: 1,
-    height: window.height,
-    width: window.width,
-  },
-});
-
 class Menu extends Component {
   static propTypes = {
     routes: PropTypes.array,
@@ -89,5 +68,26 @@ class Menu extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flexDirection: 'row',
+  },
+  scrollViewVertical: {
+    flexDirection: 'column',
+  },
+  item: {
+    flex: 1,
+    width: window.width,
+  },
+  verticalItem: {
+    flex: 1,
+    height: window.height,
+    width: window.width,
+  },
+});
 
 export default Menu;
