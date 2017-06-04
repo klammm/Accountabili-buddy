@@ -97,12 +97,18 @@ class CameraRoute extends Component {
         />
         <Card style={{ position: 'absolute', alignItems: 'center', flexDirection: 'column', width: 300, height: 100, backgroundColor: 'transparent', bottom: 100 }}>
           <CardSection style={{ backgroundColor: 'transparent' }}>
-            <Input placeholder="reps" />
+            <Input
+              placeholder="Over 9000"
+              autoCapitalize={'none'}
+              label='Reps' />
           </CardSection>
 
           <CardSection style={{ backgroundColor: 'transparent' }}>
 
-            <Input placeholder="FRIENDS" />
+            <Input
+              label="Tag your friends!"
+              autoCapitalize={'none'}
+              placeholder="@ThrillClinton" />
           </CardSection>
 
           <CardSection style={{ backgroundColor: 'transparent', borderColor: 'transparent' }}>
@@ -121,7 +127,7 @@ class CameraRoute extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log('camera state', this.state)
     return (
       <View style={styles.container}>
         {this.state.path ? this.renderImage() : this.renderCamera()}

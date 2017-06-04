@@ -85,13 +85,13 @@ export class Profile extends Component {
           </Card>
           <Card>
           <View style={styles.container}>
-              <Text style={styles.titleText}>{this.props.userProfile.user_name}</Text>
-              <Text >Push Ups: 40</Text>
+            <Text style={styles.titleText}>{this.props.userProfile.user_name}</Text>
+            <Text >Push Ups: 40</Text>
           </View>
         </Card>
         </CardSection>
         <CardSection>
-            {this.renderImages()}
+          {this.renderImages()}
         </CardSection>
       </View>
     );
