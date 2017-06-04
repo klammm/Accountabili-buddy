@@ -1,4 +1,4 @@
-import initialState from './initialState';
+import initialState from './initialState/TeamsListState';
 
 const teamsListReducer = (state = initialState.teamsList, action) => {
   switch (action.type) {

@@ -1,4 +1,4 @@
-import initialState from './initialState';
+import initialState from './initialState/UserProfileState';
 
 const userProfileReducer = (state = initialState.userProfile, action) => {
   switch (action.type) {

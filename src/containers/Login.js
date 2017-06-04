@@ -16,6 +16,13 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class Login extends Component {
+  // componentWillMount() {
+  //   if (this.props.isLoggedIn) {
+  //     this.props.navigation.navigate('Slider')
+  //     return null;
+  //   }
+  // }
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
