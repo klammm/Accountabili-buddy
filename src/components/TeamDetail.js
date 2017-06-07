@@ -3,7 +3,7 @@ import { StyleSheet, View, Image } from 'react-native';
 import { CardSection, Card, Button } from './common';
 
 
-// REMINDER:
+// REMINDER TO DO:
 // Button when pressed needs to join a team
 const TeamDetail = ({ team }) => {
   const { name, team_image_url } = team;

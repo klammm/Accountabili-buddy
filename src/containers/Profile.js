@@ -8,36 +8,6 @@ import RenderIf from 'react-renderif';
 import { showUserProfile } from '../actions';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import ImageDetail from './ImageDetail';
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent'
-  },
-  avatarProfile: {
-    flex: 0,
-    borderRadius: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: 82,
-    width: 82,
-    backgroundColor: 'transparent'
-  },
-  imgContainer: {
-    flex: 1
-  },
-  imageInProf: {
-    width: 122,
-    height: 122
-  },
-  titleText: {
-    fontSize: 40,
-    fontWeight: 'bold'
-  }
-});
 
 const mapStateToProps = (state) => {
   return {
@@ -97,5 +67,36 @@ export class Profile extends Component {
     );
   }
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent'
+  },
+  avatarProfile: {
+    flex: 0,
+    borderRadius: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: 82,
+    width: 82,
+    backgroundColor: 'transparent'
+  },
+  imgContainer: {
+    flex: 1
+  },
+  imageInProf: {
+    width: 122,
+    height: 122
+  },
+  titleText: {
+    fontSize: 40,
+    fontWeight: 'bold'
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

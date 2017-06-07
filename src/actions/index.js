@@ -87,6 +87,7 @@ const getUserById = (userId) => {
     console.log('userProfile error: ', err);
   })
 }
+
 /********************************** ACTION CREATORS ********************************/
 
 export const showAllTeams = () => {
@@ -204,3 +205,24 @@ export const showUserProfile = (userId) => {
     payload: getUserById(userId)
   };
 };
+
+export const repsChanged = (reps) => {
+  return {
+    type: 'REPS_CHANGED',
+    payload: reps
+  };
+};
+
+export const captionChanged = (text) => {
+  return {
+    type: 'CAPTION_CHANGED',
+    payload: text
+  };
+};
+
+export const tagFriendsChanged = (text) => {
+  return {
+    type: 'TAG_FRIENDS_CHANGED',
+    payload: text
+  }
+}
