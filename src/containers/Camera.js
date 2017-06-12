@@ -11,17 +11,20 @@ import {
 import { Input, Button, Card, CardSection } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { repsChanged, captionChanged, tagFriendsChanged } from '../actions';
+import { repsChanged, captionChanged, tagFriendsChanged, pictureTaken } from '../actions';
 import Camera from 'react-native-camera';
+import { RNS3 } from 'react-native-aws3';
+import { AWSAccessKeyId, AWSSecretKey } from 'react-native-dotenv';
+import uuid from 'react-native-uuid';
 
 const mapStateToProps = ({ photoEdit }) => {
-  const { reps, friends, caption } = photoEdit;
+  const { reps, friends, caption, imageUrl } = photoEdit;
 
-  return { reps, friends, caption };
+  return { reps, friends, caption, imageUrl };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ repsChanged, captionChanged, tagFriendsChanged }, dispatch);
+  return bindActionCreators({ repsChanged, captionChanged, tagFriendsChanged, pictureTaken }, dispatch);
 }
 
 class CameraRoute extends Component {
@@ -43,6 +46,28 @@ class CameraRoute extends Component {
       .then((data) => {
         console.log(data);
         this.setState({ path: data.path })
+        const file = {
+          uri: data.path,
+          name: `${uuid.v1()}.jpg`,
+          type: 'image/jpeg',
+        };
+
+        const options = {
+          keyPrefix: 'photos/',
+          bucket: 'accountabilibuddy-1',
+          region: 'us-west-1',
+          accessKey: AWSAccessKeyId,
+          secretKey: AWSSecretKey,
+          successActionStatus: 201
+        };
+
+        RNS3.put(file, options).then(response => {
+          if (response.status !== 201) {
+            throw new Error('Failed to upload image to S3', response);
+          }
+          console.log('*** BODY ***', response.body);
+          this.props.pictureTaken(response.body.postResponse.location)
+        })
       })
       .catch(err => console.error(err));
   }
@@ -133,7 +158,6 @@ class CameraRoute extends Component {
   }
 
   render() {
-    console.log('Camera state: ', this.state);
     return (
       <View style={styles.container}>
         {this.state.path ? this.renderImage() : this.renderCamera()}
