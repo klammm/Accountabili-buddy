@@ -1,5 +1,3 @@
-// import initialState from './initialState';
-
 const userScoreReducer = (state = null, action) => {
   switch (action.type) {
     case 'SHOW_USER_SCORE_FULFILLED':
