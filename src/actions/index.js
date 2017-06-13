@@ -86,6 +86,21 @@ const getUserById = (userId) => {
   }).catch((err) => {
     console.log('userProfile error: ', err);
   })
+};
+
+const getUserScore = (userId) => {
+  const url = `https://bilibuddy-api.herokuapp.com/users/${userId}/score`;
+  return fetch(url)
+  .then((res) => {
+    console.log('this is res from UserScore', res);
+    return res.json();
+  })
+  .then((responseJSON) => {
+    console.log('this is responseJSON UserScore', responseJSON);
+    return responseJSON.sum;
+  }).catch((err) => {
+    console.log('userScore error: ', err);
+  });
 }
 
 /********************************** ACTION CREATORS ********************************/
@@ -226,3 +241,10 @@ export const tagFriendsChanged = (text) => {
     payload: text
   }
 }
+
+export const showUserScore = (userId) => {
+  return {
+    type: 'SHOW_USER_SCORE',
+    payload: getUserScore(userId)
+  };
+};

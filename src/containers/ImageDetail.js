@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text } from 'react-native';
-import { Card } from '../components/common';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { CardSection } from '../components/common';
 
 const ImageDetail = ({ image }) => {
   const { imageUrl } = image;
-
+  const {
+    imgContainer,
+    imagesStyle
+  } = styles;
+  console.log(image);
   return (
-    <Card style={styles.imgContainer}>
+    <CardSection>
       <Image
-        style={styles.imageInProf}
+        style={imagesStyle}
         source={{ uri: imageUrl }}
       />
-    </Card>
+    </CardSection>
   );
 };
 
 const styles = StyleSheet.create({
   imgContainer: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   },
-  imageInProf: {
-    width: 122,
-    height: 122
+  imagesStyle: {
+    flex:1,
+    // backgroundColor: '#CCC',
+    // margin: 10,
+    height: 300
+    // width: 300
   }
 });
 
