@@ -239,8 +239,15 @@ export const tagFriendsChanged = (text) => {
   return {
     type: 'TAG_FRIENDS_CHANGED',
     payload: text
-  }
-}
+  };
+};
+
+export const pictureTaken = (imageUrl) => {
+  return {
+    type: 'PICTURE_TAKEN',
+    payload: imageUrl
+  };
+};
 
 export const showUserScore = (userId) => {
   return {
