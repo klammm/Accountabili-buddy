@@ -39,7 +39,6 @@ export class Profile extends Component {
 
   render() {
     const { avatarProfile, container, titleText } = styles;
-    console.log('this.props hahahahha: ', this.props.userProfile);
     return (
       <Card style={{ marginTop: 20 }}>
         <CardSection >
