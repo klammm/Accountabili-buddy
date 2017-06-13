@@ -1,45 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import RenderIf from 'react-renderif';
 
-import { showUserProfile } from '../actions';
+import { showUserProfile, showUserScore } from '../actions';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import ImageDetail from './ImageDetail';
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    // height: 800,
-    // width: 800,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent'
-  },
-  avatarProfile: {
-    flex: 0,
-    borderRadius: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: 82,
-    width: 82,
-    backgroundColor: 'transparent'
-  },
-  imgContainer: {
-    flex: 1
-  },
-  imageInProf: {
-    width: 122,
-    height: 122
-  },
-  titleText: {
-    fontSize: 40,
-    fontWeight: 'bold'
-  }
-});
 
 const mapStateToProps = (state) => {
   console.log('log this state: ', state);
@@ -49,82 +17,82 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ showUserProfile }, dispatch);
+  return bindActionCreators({ showUserProfile, showUserScore }, dispatch);
 };
 
 export class Profile extends Component {
-  // something in redux or react state called mounted = false;
   constructor(props) {
     super(props);
-    this.state = {
-      mounted: false
-    }
+    // this.state = {
+    //   mounted: false
+    // }
   }
 
-  componentWillMount() {
-    this.props.showUserProfile(1)
-      .then((data) => {
-        // set mounted = true;
-        this.setState({
-          mounted: true
-        })
-      });
+  componentDidMount() {
+    this.props.showUserProfile(1);
+    this.props.showUserScore(1);
   }
 
   renderImages() {
-    console.log('array: ', this.props);
-    if(this.state.mounted) {
+    if(this.props.userProfile.ownedImages) {
       return this.props.userProfile.ownedImages.map(image =>
         <ImageDetail key={image.id} image={image} />);
     }
   }
 
   render() {
+    const { avatarProfile, container, titleText } = styles;
     console.log('this.props hahahahha: ', this.props.userProfile);
-    console.log('mounted: ', this.state.mounted);
+    // console.log('mounted: ', this.state.mounted);
     return (
       // this is profile image and user name section
-      <View>
-        <CardSection>
-          <Card>
+      <Card style={{marginTop: 20}}>
+        <CardSection >
+          <View>
             <Image
-              style={styles.avatarProfile}
+              style={avatarProfile}
               source={{ uri: this.props.userProfile.profile_image_url }}
             />
-          </Card>
-          <Card>
-          <View style={styles.container}>
-              <Text style={styles.titleText}>{this.props.userProfile.user_name}</Text>
-              <Text >Push Ups: 40</Text>
           </View>
-        </Card>
+          {/* <Card> */}
+          <View style={container}>
+              <Text style={titleText}>{this.props.userProfile.user_name}</Text>
+              <Text >Push Ups: {this.props.userScore}</Text>
+          </View>
         </CardSection>
         <CardSection>
-            {/* renderif goes here with if mounted */}
-            {this.renderImages()}
+          <ScrollView>
+            {/* <CardSection> */}
+              {this.renderImages()}
+            {/* </CardSection> */}
+          </ScrollView>
         </CardSection>
-        {/* <CardSection>
-          <Card style={styles.imgContainer}>
-            <Image
-              style={styles.imageInProf}
-              source={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg" }}
-            />
-          </Card>
-          <Card style={styles.imgContainer}>
-            <Image
-              style={styles.imageInProf}
-              source={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg" }}
-            />
-          </Card>
-          <Card style={styles.imgContainer}>
-            <Image
-              style={styles.imageInProf}
-              source={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg" }}
-            />
-          </Card>
-        </CardSection> */}
-      </View>
+      </Card>
     );
+  }
+};
+
+const styles = {
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent'
+  },
+  avatarProfile: {
+    flex: 0,
+    borderRadius: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: 82,
+    width: 82,
+    backgroundColor: 'transparent'
+  },
+  titleText: {
+    fontSize: 40,
+    fontWeight: 'bold'
   }
 };
 
