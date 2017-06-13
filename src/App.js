@@ -7,7 +7,6 @@ import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import Router from './routes/Router';
-import Profile from './containers/Profile';
 
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk, promiseMiddleware())
@@ -17,8 +16,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {/* <Router /> */}
-        <Profile />
+        <Router />
       </Provider>
     )
   }
