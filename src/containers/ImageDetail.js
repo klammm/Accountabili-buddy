@@ -4,10 +4,7 @@ import { CardSection } from '../components/common';
 
 const ImageDetail = ({ image }) => {
   const { imageUrl } = image;
-  const {
-    imgContainer,
-    imagesStyle
-  } = styles;
+  const { imgContainer, imagesStyle } = styles;
   console.log(image);
   return (
     <CardSection>
@@ -28,10 +25,7 @@ const styles = StyleSheet.create({
   },
   imagesStyle: {
     flex:1,
-    // backgroundColor: '#CCC',
-    // margin: 10,
     height: 300
-    // width: 300
   }
 });
 

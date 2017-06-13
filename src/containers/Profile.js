@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
 import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -22,9 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 export class Profile extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   mounted: false
-    // }
+
   }
 
   componentDidMount() {
@@ -42,10 +40,8 @@ export class Profile extends Component {
   render() {
     const { avatarProfile, container, titleText } = styles;
     console.log('this.props hahahahha: ', this.props.userProfile);
-    // console.log('mounted: ', this.state.mounted);
     return (
-      // this is profile image and user name section
-      <Card style={{marginTop: 20}}>
+      <Card style={{ marginTop: 20 }}>
         <CardSection >
           <View>
             <Image
@@ -53,7 +49,6 @@ export class Profile extends Component {
               source={{ uri: this.props.userProfile.profile_image_url }}
             />
           </View>
-          {/* <Card> */}
           <View style={container}>
               <Text style={titleText}>{this.props.userProfile.user_name}</Text>
               <Text >Push Ups: {this.props.userScore}</Text>
@@ -61,17 +56,15 @@ export class Profile extends Component {
         </CardSection>
         <CardSection>
           <ScrollView>
-            {/* <CardSection> */}
               {this.renderImages()}
-            {/* </CardSection> */}
           </ScrollView>
         </CardSection>
       </Card>
     );
   }
-};
+}
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -93,6 +86,6 @@ const styles = {
     fontSize: 40,
     fontWeight: 'bold'
   }
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
