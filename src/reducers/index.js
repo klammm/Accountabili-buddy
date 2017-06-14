@@ -3,6 +3,7 @@ import loginReducer from './LoginReducer';
 import teamsListReducer from './TeamsListReducer';
 import registerReducer from './RegisterReducer';
 import playersListReducer from './PlayersListReducer';
+import playersScoresReducer from './PlayersScoresReducer';
 import userProfileReducer from './UserProfileReducer';
 import photoEditReducer from './PhotoEditReducer';
 import userScoreReducer from './UserScoreReducer';
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   teamsList: teamsListReducer,
   register: registerReducer,
   playersList: playersListReducer,
-  userProfile: userProfileReducer,
+  playersScores: playersScoresReducer,
+  userProfile: userProfileReducer
   photoEdit: photoEditReducer,
   userScore: userScoreReducer
 });
