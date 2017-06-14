@@ -97,8 +97,6 @@ const getUserById = (userId) => {
   const url = `https://bilibuddy-api.herokuapp.com/users/${userId}`;
   return fetch(url)
   .then((res) => {
-    console.log('this is the res: ', res);
-    console.log('res.json ');
     return res.json();
   })
   .then((responseJSON) => {
@@ -107,6 +105,19 @@ const getUserById = (userId) => {
   }).catch((err) => {
     console.log('userProfile error: ', err);
   })
+};
+
+const getUserScore = (userId) => {
+  const url = `https://bilibuddy-api.herokuapp.com/users/${userId}/score`;
+  return fetch(url)
+  .then((res) => {
+    return res.json();
+  })
+  .then((responseJSON) => {
+    return responseJSON.sum;
+  }).catch((err) => {
+    console.log('userScore error: ', err);
+  });
 }
 
 /********************************** ACTION CREATORS ********************************/
@@ -231,5 +242,40 @@ export const showUserProfile = (userId) => {
   return {
     type: 'SHOW_USER_PROFILE',
     payload: getUserById(userId)
+  };
+};
+
+export const repsChanged = (reps) => {
+  return {
+    type: 'REPS_CHANGED',
+    payload: reps
+  };
+};
+
+export const captionChanged = (text) => {
+  return {
+    type: 'CAPTION_CHANGED',
+    payload: text
+  };
+};
+
+export const tagFriendsChanged = (text) => {
+  return {
+    type: 'TAG_FRIENDS_CHANGED',
+    payload: text
+  };
+};
+
+export const pictureTaken = (imageUrl) => {
+  return {
+    type: 'PICTURE_TAKEN',
+    payload: imageUrl
+  };
+};
+
+export const showUserScore = (userId) => {
+  return {
+    type: 'SHOW_USER_SCORE',
+    payload: getUserScore(userId)
   };
 };
