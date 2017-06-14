@@ -23,8 +23,6 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
 
-
-
     this.state = {
       User: null
     }
@@ -46,7 +44,6 @@ export class Profile extends Component {
   }
 
   render() {
-    console.log(this.state.User);
     const { avatarProfile, container, titleText } = styles;
     return (
       <Card style={{ marginTop: 20 }}>
