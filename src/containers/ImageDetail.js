@@ -5,7 +5,6 @@ import { CardSection } from '../components/common';
 const ImageDetail = ({ image }) => {
   const { imageUrl } = image;
   const { imgContainer, imagesStyle } = styles;
-  console.log(image);
   return (
     <CardSection>
       <Image

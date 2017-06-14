@@ -76,8 +76,6 @@ const getUserById = (userId) => {
   const url = `https://bilibuddy-api.herokuapp.com/users/${userId}`;
   return fetch(url)
   .then((res) => {
-    console.log('this is the res: ', res);
-    console.log('res.json ');
     return res.json();
   })
   .then((responseJSON) => {
@@ -92,11 +90,9 @@ const getUserScore = (userId) => {
   const url = `https://bilibuddy-api.herokuapp.com/users/${userId}/score`;
   return fetch(url)
   .then((res) => {
-    console.log('this is res from UserScore', res);
     return res.json();
   })
   .then((responseJSON) => {
-    console.log('this is responseJSON UserScore', responseJSON);
     return responseJSON.sum;
   }).catch((err) => {
     console.log('userScore error: ', err);

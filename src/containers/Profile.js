@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, AsyncStorage } from 'react-native';
 import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -23,11 +23,19 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
 
+
+
+    this.state = {
+      User: null
+    }
   }
 
   componentDidMount() {
-    this.props.showUserProfile(1);
-    this.props.showUserScore(1);
+    AsyncStorage.getItem('User').then((value) => {
+      this.setState({ 'User': JSON.parse(value) });
+      this.props.showUserProfile(this.state.User.id);
+      this.props.showUserScore(this.state.User.id);
+    }).done()
   }
 
   renderImages() {
@@ -38,6 +46,7 @@ export class Profile extends Component {
   }
 
   render() {
+    console.log(this.state.User);
     const { avatarProfile, container, titleText } = styles;
     return (
       <Card style={{ marginTop: 20 }}>
