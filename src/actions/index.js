@@ -20,7 +20,7 @@ const login = (email, password) => {
     await AsyncStorage.setItem('User', JSON.stringify(responseJSON))
     return responseJSON
   }).catch((err) => {
-    console.log(err)
+    console.log('Login error: ', err)
   })
 };
 
@@ -42,10 +42,8 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
     })
   }).then((res) => {
     return res.json();
-  }).then((responseJSON) => {
-    return login(responseJSON.email, registerPassword);
   }).catch((err) => {
-    console.log(err)
+    console.log('Register user error: ', err)
   })
 };
 
@@ -117,6 +115,33 @@ const getUserScore = (userId) => {
   }).catch((err) => {
     console.log('userScore error: ', err);
   });
+}
+
+const createEvent = (reps, caption, userId, imageUrl) => {
+  const url = 'https://bilibuddy-api.herokuapp.com/events';
+  return fetch(url, {
+    mode: 'no-cors',
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user_id: userId,
+      imageUrl,
+      caption,
+      reps,
+      team_id: 1
+    })
+  }).then((res) => {
+    console.log('our res from Events: ', res);
+    return res.json();
+  }).then((responseJSON) => {
+    console.log('our responseJSON from Events: ', responseJSON);
+    return responseJSON
+  }).catch((err) => {
+    console.log('Take Picture error: ', err)
+  })
 }
 
 /********************************** ACTION CREATORS ********************************/
@@ -276,5 +301,12 @@ export const showUserScore = (userId) => {
   return {
     type: 'SHOW_USER_SCORE',
     payload: getUserScore(userId)
+  };
+};
+
+export const submitEvent = ({ reps, caption, imageUrl, userId }) => {
+  return {
+    type: 'CREATE_EVENT',
+    payload: createEvent(reps, caption, userId, imageUrl)
   };
 };
