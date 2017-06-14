@@ -3,6 +3,7 @@ import loginReducer from './LoginReducer';
 import teamsListReducer from './TeamsListReducer';
 import registerReducer from './RegisterReducer';
 import playersListReducer from './PlayersListReducer';
+import playersScoresReducer from './PlayersScoresReducer';
 import userProfileReducer from './UserProfileReducer';
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   teamsList: teamsListReducer,
   register: registerReducer,
   playersList: playersListReducer,
+  playersScores: playersScoresReducer,
   userProfile: userProfileReducer
 });
 

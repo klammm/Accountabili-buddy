@@ -60,8 +60,9 @@ const grabAllTeams = () => {
     })
 };
 
-const grabAllPlayers = () => {
-  const url = 'https://bilibuddy-api.herokuapp.com/teams/1';
+const grabAllPlayers = (team_id) => {
+  // const url = `https://bilibuddy-api.herokuapp.com/teams/${team_id}`;
+  const url = 'https://bilibuddy-api.herokuapp.com/teams/3'
   return fetch(url)
     .then(res => res.json())
     .then(responseJSON => {
@@ -69,6 +70,26 @@ const grabAllPlayers = () => {
     })
     .catch( (err) =>{
       console.log('PlayersList error: ', err)
+    })
+};
+
+const grabAllScores = () => {
+  // team id number
+
+  // start and end state to specify week score calculation
+
+  const url = 'https://bilibuddy-api.herokuapp.com/teams/1/score?start=2017-04-23&end=2017-05-05'
+  return fetch(url)
+    .then(res => res.json())
+    .then(responseJSON => {
+      let scoresObj = {};
+      responseJSON.forEach((score) => {
+        scoresObj[score.user_id] = score.sum;
+      })
+      return scoresObj;
+    })
+    .catch((err) => {
+      console.log('Player Scores and Id: ', err);
     })
 };
 
@@ -87,6 +108,7 @@ const getUserById = (userId) => {
     console.log('userProfile error: ', err);
   })
 }
+
 /********************************** ACTION CREATORS ********************************/
 
 export const showAllTeams = () => {
@@ -102,6 +124,13 @@ export const showAllPlayers = () => {
     payload: grabAllPlayers()
   };
 };
+
+export const showAllScores = () => {
+  return {
+    type: 'SHOW_ALL_TEAM_PLAYERS_SCORES',
+    payload: grabAllScores()
+  }
+}
 
 export const emailChanged = (text) => {
   return {

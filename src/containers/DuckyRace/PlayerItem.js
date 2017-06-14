@@ -4,7 +4,7 @@ import { Card, CardSection } from '../../components/common';
 import wave from '../../../assets/images/wave.png';
 import ducky from '../../../assets/images/ducky.png';
 
-const PlayerItem = ({ player }) => {
+const PlayerItem = ({ player, scores }) => {
   const { user_name, first_name, last_name, profile_image_url, id } = player;
   const {
     thumbnailContainerStyle,
@@ -17,6 +17,13 @@ const PlayerItem = ({ player }) => {
     duckyStyle
   } = styles;
 
+  let arr = [];
+  scores = Number(scores);
+  for (let i = 0; i < scores; i += 1) {
+      arr.push('w');
+  }
+  let resultarr = arr.map(w => <Image style={wavesStyle} source={wave} />);
+
   return (
     <Card>
       <CardSection>
@@ -28,10 +35,11 @@ const PlayerItem = ({ player }) => {
           <Text style={headerTextStyle}>{user_name}</Text>
           <Text>{first_name} {last_name}</Text>
 
+
           <View style={duckyContainerStyle}>
-            <Image style={wavesStyle} source={wave} />
-            <Image style={wavesStyle} source={wave} />
-            <Image style={wavesStyle} source={wave} />
+            <Text>{scores}</Text>
+            { resultarr }
+
             <Image style={duckyStyle} source={ducky} />
           </View>
         </View>
@@ -73,12 +81,12 @@ const styles = {
     position: 'relative'
   },
   wavesStyle: {
-    height: 20,
-    width: 45
+    height: 7,
+    width: 5
   },
   duckyStyle: {
-    height: 40,
-    width: 44,
+    height: 30,
+    width: 34,
     marginBottom: 5,
     paddingBottom: 5,
     position: 'relative'
