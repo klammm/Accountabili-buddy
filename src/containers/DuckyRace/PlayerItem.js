@@ -34,12 +34,9 @@ const PlayerItem = ({ player, scores }) => {
         <View style={headerContentStyle}>
           <Text style={headerTextStyle}>{user_name}</Text>
           <Text>{first_name} {last_name}</Text>
-
-
           <View style={duckyContainerStyle}>
             <Text>{scores}</Text>
             { resultarr }
-
             <Image style={duckyStyle} source={ducky} />
           </View>
         </View>
