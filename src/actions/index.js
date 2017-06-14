@@ -60,9 +60,8 @@ const grabAllTeams = () => {
     })
 };
 
-const grabAllPlayers = (team_id) => {
-  // const url = `https://bilibuddy-api.herokuapp.com/teams/${team_id}`;
-  const url = 'https://bilibuddy-api.herokuapp.com/teams/3'
+const grabAllPlayers = () => {
+  const url = 'https://bilibuddy-api.herokuapp.com/teams/1'
   return fetch(url)
     .then(res => res.json())
     .then(responseJSON => {
