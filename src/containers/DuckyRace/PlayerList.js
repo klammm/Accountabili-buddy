@@ -26,6 +26,7 @@ class PlayerList extends Component {
   }
 
   renderPlayers() {
+    console.log(this.props.playersList)
     return this.props.playersList.map(player =>
       <PlayerItem key={player.id} player={player} scores={this.props.playersScores[player.id]}/>
     );
@@ -43,7 +44,8 @@ class PlayerList extends Component {
 
 const styles = {
   headerTextStyle: {
-    fontSize: 18
+    fontSize: 18,
+    color: 'rgb(177, 92, 252)'
   }
 }
 

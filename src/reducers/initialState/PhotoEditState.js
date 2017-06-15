@@ -1,4 +1,9 @@
 export default {
   reps: 0,
-  friends: []
+  friends: '',
+  caption: '',
+  imageUrl: '',
+  pictureComplete: null,
+  loading: null,
+  error: '',
 }
