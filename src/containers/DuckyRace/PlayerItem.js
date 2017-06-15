@@ -5,7 +5,7 @@ import wave from '../../../assets/images/wave.png';
 import ducky from '../../../assets/images/ducky.png';
 
 const PlayerItem = ({ player, scores }) => {
-  const { user_name, first_name, last_name, profile_image_url, id } = player;
+  const { user_name, profile_image_url, id } = player;
   const {
     thumbnailContainerStyle,
     thumnbnailStyle,
@@ -14,32 +14,41 @@ const PlayerItem = ({ player, scores }) => {
     imageStyle,
     duckyContainerStyle,
     wavesStyle,
-    duckyStyle
+    duckyStyle,
+    scoresTextStyle
   } = styles;
 
   let arr = [];
   scores = Number(scores);
-  for (let i = 0; i < scores; i += 1) {
+  for (let i = 0; i < scores; i += 10) {
       arr.push('w');
   }
   let resultarr = arr.map((w, index) => <Image key={index} style={wavesStyle} source={wave} />);
+
+  let displayNum;
+  if (isNaN(scores)) {
+    //display nothing:
+    displayNum = 0;
+  } else{
+    displayNum = scores;
+  }
 
   return (
     <Card>
       <CardSection>
         <View style={thumbnailContainerStyle}>
           <Image style={thumnbnailStyle} source={{ uri: profile_image_url }} />
+          <Text style={headerTextStyle}>{user_name}</Text>
         </View>
 
         <View style={headerContentStyle}>
-          <Text style={headerTextStyle}>{user_name}</Text>
-          <Text>{first_name} {last_name}</Text>
           <View style={duckyContainerStyle}>
-            <Text>{scores}</Text>
             { resultarr }
             <Image style={duckyStyle} source={ducky} />
+            <Text style={scoresTextStyle}>{displayNum}</Text>
           </View>
         </View>
+
         </CardSection>
     </Card>
   );
@@ -62,7 +71,10 @@ const styles = {
     justifyContent: 'space-around'
   },
   headerTextStyle: {
-    fontSize: 18
+    marginTop: 1,
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: 'rgb(33, 16, 92)'
   },
   imageStyle: {
     height: 300,
@@ -70,7 +82,7 @@ const styles = {
     width: null
   },
   duckyContainerStyle: {
-    padding: 5,
+    marginTop: 11,
     backgroundColor: 'transparent',
     justifyContent: 'flex-start',
     flexDirection: 'row',
@@ -78,15 +90,25 @@ const styles = {
     position: 'relative'
   },
   wavesStyle: {
-    height: 7,
-    width: 5
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    height: 14,
+    width: 15,
+    marginTop: 40
   },
   duckyStyle: {
-    height: 30,
-    width: 34,
+    height: 54,
+    width: 59,
     marginBottom: 5,
-    paddingBottom: 5,
+    paddingBottom: 15,
     position: 'relative'
+  },
+  scoresTextStyle: {
+    marginLeft: 10,
+    fontSize: 18,
+    color: 'rgb(160, 40, 255)',
+    fontWeight: 'bold',
+    marginTop: 5
   }
 };
 
