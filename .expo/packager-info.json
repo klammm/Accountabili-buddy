@@ -1,0 +1,8 @@
+{
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://st-tdz.paolaclo.accountabili-buddy.exp.direct",
+  "packagerNgrokUrl": "https://packager.st-tdz.paolaclo.accountabili-buddy.exp.direct",
+  "ngrokPid": 40276,
+  "packagerPort": 19002,
+  "packagerPid": 40251
+}
