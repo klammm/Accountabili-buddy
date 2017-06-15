@@ -46,7 +46,7 @@ export class Profile extends Component {
   render() {
     const { avatarProfile, container, titleText } = styles;
     return (
-      <Card style={{ marginTop: 20 }}>
+      <Card>
         <CardSection >
           <View>
             <Image
