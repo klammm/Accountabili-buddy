@@ -11,7 +11,6 @@ const PlayerItem = ({ player, scores }) => {
     thumnbnailStyle,
     headerContentStyle,
     headerTextStyle,
-    imageStyle,
     duckyContainerStyle,
     wavesStyle,
     duckyStyle,
@@ -75,11 +74,6 @@ const styles = {
     fontSize: 12,
     fontWeight: 'bold',
     color: 'rgb(33, 16, 92)'
-  },
-  imageStyle: {
-    height: 300,
-    flex: 1,
-    width: null
   },
   duckyContainerStyle: {
     marginTop: 11,

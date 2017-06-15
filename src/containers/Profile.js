@@ -50,25 +50,25 @@ export class Profile extends Component {
     console.log('our props: ', this.props);
     const { avatarProfile, container, titleText } = styles;
     return (
-      <Card style={{ marginTop: 20 }}>
-        <CardSection >
-          <View>
-            <Image
-              style={avatarProfile}
-              source={{ uri: this.props.userProfile.profile_image_url }}
-            />
-          </View>
-          <View style={container}>
-              <Text style={titleText}>{this.props.userProfile.user_name}</Text>
-              <Text >Push Ups: {this.props.userScore}</Text>
-          </View>
-        </CardSection>
-        <CardSection>
+      // <Card style={{ marginTop: 20 }}>
+        // {<CardSection >
+        //   <View>
+        //     <Image
+        //       style={avatarProfile}
+        //       source={{ uri: this.props.userProfile.profile_image_url }}
+        //     />
+        //   </View>
+        //   <View style={container}>
+        //       <Text style={titleText}>{this.props.userProfile.user_name}</Text>
+        //       <Text >Push Ups: {this.props.userScore}</Text>
+        //   </View>
+        // </CardSection> }
+        // <CardSection>
           <ScrollView>
               {this.renderImages()}
           </ScrollView>
-        </CardSection>
-      </Card>
+        // { </CardSection> }
+      // </Card>
     );
   }
 }
