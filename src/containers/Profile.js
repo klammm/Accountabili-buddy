@@ -23,17 +23,20 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
 
+    AsyncStorage.getItem('User').then((value) => {
+      this.setState({ 'User': JSON.parse(value) });
+    }).done()
+
     this.state = {
       User: null
     }
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('User').then((value) => {
-      this.setState({ 'User': JSON.parse(value) });
-      this.props.showUserProfile(this.state.User.id);
-      this.props.showUserScore(this.state.User.id);
-    }).done()
+
+
+    this.props.showUserProfile(this.props.login.user.id);
+    this.props.showUserScore(this.props.login.user.id);
   }
 
   renderImages() {
@@ -44,6 +47,7 @@ export class Profile extends Component {
   }
 
   render() {
+    console.log('our props: ', this.props);
     const { avatarProfile, container, titleText } = styles;
     return (
       <Card style={{ marginTop: 20 }}>

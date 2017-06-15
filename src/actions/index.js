@@ -24,6 +24,10 @@ const login = (email, password) => {
   })
 };
 
+const logout = () => {
+  return AsyncStorage.removeItem('User')
+}
+
 const createUser = (registerEmail, registerPassword, firstName, lastName, username) => {
   const url = 'https://bilibuddy-api.herokuapp.com/users'
   return fetch(url, {
@@ -38,7 +42,8 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
       password: registerPassword,
       firstName,
       lastName,
-      userName: username
+      userName: username,
+      profileUrl: 'http://2.bp.blogspot.com/-SDqMr0T36Ng/UDILDXFdhhI/AAAAAAAACno/ZCjiciy3pxI/s1600/BATMAN+FB+PROFILE.jpg'
     })
   }).then((res) => {
     return res.json();
@@ -134,10 +139,8 @@ const createEvent = (reps, caption, userId, imageUrl) => {
       team_id: 1
     })
   }).then((res) => {
-    console.log('our res from Events: ', res);
     return res.json();
   }).then((responseJSON) => {
-    console.log('our responseJSON from Events: ', responseJSON);
     return responseJSON
   }).catch((err) => {
     console.log('Take Picture error: ', err)
@@ -188,21 +191,11 @@ export const loginUser = ({ email, password }) => {
   };
 };
 
-export const loginUserFail = () => {
-  return {
-    type: 'USER_FAIL'
-  }
-};
-
-export const loginUserSucess = (dispatch, user) => {
-  dispatch({
-    type: 'USER_SUCCESS',
-    payload: user
-  });
-};
-
 export const logoutUser = () => {
-  dispatch({ type: 'USER_LOGOUT' });
+  return {
+    type: 'USER_LOGOUT',
+    payload: logout()
+  }
 };
 
 

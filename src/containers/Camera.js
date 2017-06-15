@@ -171,7 +171,6 @@ class CameraRoute extends Component {
   }
 
   render() {
-    console.log('our User: ', this.state.User);
     return (
       <View style={styles.container}>
         {this.state.path ? this.renderImage() : this.renderCamera()}
