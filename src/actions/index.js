@@ -18,6 +18,7 @@ const login = (email, password) => {
   }).then(async (responseJSON) => {
     // redirect and set cookie/token in headers
     await AsyncStorage.setItem('User', JSON.stringify(responseJSON))
+    console.log('our responseJSON: ', responseJSON);
     return responseJSON
   }).catch((err) => {
     console.log('Login error: ', err)
@@ -156,20 +157,6 @@ export const showAllTeams = () => {
   };
 };
 
-export const showAllPlayers = () => {
-  return {
-    type: 'SHOW_ALL_TEAM_PLAYERS',
-    payload: grabAllPlayers()
-  };
-};
-
-export const showAllScores = () => {
-  return {
-    type: 'SHOW_ALL_TEAM_PLAYERS_SCORES',
-    payload: grabAllScores()
-  }
-}
-
 export const emailChanged = (text) => {
   return {
     type: 'EMAIL_CHANGE',
@@ -184,11 +171,13 @@ export const passwordChanged = (text) => {
   };
 };
 
-export const loginUser = ({ email, password }) => {
-  return {
-    type: 'LOGIN_USER',
-    payload: login(email, password)
-  };
+export const loginUser = ({ email, password }, callback) => {
+  return (dispatch, getState) => {
+    dispatch({ type: 'LOGIN_USER', payload: login(email, password) }).then((data) => {
+      callback('Slider')
+      dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(data.id) })
+    })
+  }
 };
 
 export const logoutUser = () => {
@@ -297,9 +286,26 @@ export const showUserScore = (userId) => {
   };
 };
 
-export const submitEvent = ({ reps, caption, imageUrl, userId }) => {
+export const showAllPlayers = () => {
   return {
-    type: 'CREATE_EVENT',
-    payload: createEvent(reps, caption, userId, imageUrl)
+    type: 'SHOW_ALL_TEAM_PLAYERS',
+    payload: grabAllPlayers()
   };
+};
+
+export const showAllScores = () => {
+  return {
+    type: 'SHOW_ALL_TEAM_PLAYERS_SCORES',
+    payload: grabAllScores()
+  };
+};
+
+export const submitEvent = ({ reps, caption, imageUrl, userId }) => {
+  return (dispatch, getState) => {
+    dispatch({ type: 'CREATE_EVENT', payload: createEvent(reps, caption, userId, imageUrl) });
+    dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(userId) });
+    dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(userId) });
+    dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
+    dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
+  }
 };
