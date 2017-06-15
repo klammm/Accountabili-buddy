@@ -16,8 +16,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-         {/* <Router /> */}
-         <PlayerList></PlayerList>
+        <Router />
       </Provider>
     )
   }
