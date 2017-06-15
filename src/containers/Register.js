@@ -11,7 +11,8 @@ import {
   registerPasswordChanged,
   registerUser,
   confirmPasswordChanged,
-  passwordMatch
+  passwordMatch,
+  loginUser
 } from '../actions';
 
 const mapStateToProps = ({ register }) => {
@@ -45,7 +46,8 @@ const mapDispatchToProps = (dispatch) => {
     registerPasswordChanged,
     registerUser,
     confirmPasswordChanged,
-    passwordMatch
+    passwordMatch,
+    loginUser
   }, dispatch);
 }
 
@@ -85,6 +87,7 @@ class Register extends Component {
 
 
     this.props.registerUser({ registerEmail, registerPassword, firstName, lastName, username });
+    this.props.loginUser({ registerEmail, registerPassword });
   }
 
   realTimeConfirmedPassword() {
@@ -107,7 +110,12 @@ class Register extends Component {
 
     return (
       <CardSection>
-        <Button whenPressed={() => this.onRegisterAttempt()}>
+        <Button whenPressed={() => {
+          if (this.props.matchedPassword) {
+            this.props.navigation.navigate('Slider')
+            return this.onRegisterAttempt()
+          }
+        }}>
           Submit
         </Button>
       </CardSection>
@@ -183,16 +191,7 @@ class Register extends Component {
           </View>
         </CardSection>
 
-        <CardSection>
-          <Button whenPressed={() => {
-            if (this.props.matchedPassword) {
-              this.props.navigation.navigate('Teams')
-              return this.onRegisterAttempt()
-            }
-          }}>
-            Submit
-          </Button>
-        </CardSection>
+        { this.renderSpinner() }
       </Card>
     )
   }
