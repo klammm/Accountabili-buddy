@@ -20,7 +20,6 @@ const login = (email, password) => {
   }).then(async (responseJSON) => {
     // redirect and set cookie/token in headers
     await AsyncStorage.setItem('User', JSON.stringify(responseJSON))
-    console.log('our responseJSON: ', responseJSON);
     return responseJSON
   }).catch((err) => {
     console.log('Login error: ', err)
@@ -103,7 +102,6 @@ const getUserById = (userId) => {
     return res.json();
   })
   .then((responseJSON) => {
-    console.log('this is userProfile: ', responseJSON);
     return responseJSON;
   }).catch((err) => {
     console.log('userProfile error: ', err);
