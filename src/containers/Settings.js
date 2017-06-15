@@ -29,7 +29,7 @@ class Settings extends Component {
     return (
       <CardSection>
         <Button whenPressed={() => this.props.logoutUser()}>
-          Log in
+          Log out
         </Button>
       </CardSection>
     );

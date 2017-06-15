@@ -16,6 +16,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class Login extends Component {
+
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }

@@ -80,7 +80,7 @@ const grabAllScores = () => {
 
   // start and end state to specify week score calculation
 
-  const url = 'https://bilibuddy-api.herokuapp.com/teams/1/score?start=2017-04-23&end=2017-05-05'
+  const url = 'https://bilibuddy-api.herokuapp.com/teams/1/score?start=2017-06-12&end=2017-06-16'
   return fetch(url)
     .then(res => res.json())
     .then(responseJSON => {
@@ -91,7 +91,7 @@ const grabAllScores = () => {
       return scoresObj;
     })
     .catch((err) => {
-      console.log('Player Scores and Id: ', err);
+      console.log('Player Scores and Id error: ', err);
     })
 };
 
