@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux';
 import { repsChanged, captionChanged, tagFriendsChanged, pictureTaken } from '../actions';
 import Camera from 'react-native-camera';
 import { RNS3 } from 'react-native-aws3';
-import { AWSAccessKeyId, AWSSecretKey } from 'react-native-dotenv';
+// import { AWSAccessKeyId, AWSSecretKey } from 'react-native-dotenv';
 import uuid from 'react-native-uuid';
 
 const mapStateToProps = ({ photoEdit }) => {

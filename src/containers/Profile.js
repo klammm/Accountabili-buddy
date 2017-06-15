@@ -59,8 +59,8 @@ export class Profile extends Component {
               <Text >Push Ups: {this.props.userScore}</Text>
           </View>
         </CardSection>
-        <CardSection>
-          <ScrollView>
+        <CardSection >
+          <ScrollView >
               {this.renderImages()}
           </ScrollView>
         </CardSection>

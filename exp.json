@@ -1,0 +1,19 @@
+{
+  "name": "Accountabilibuddy",
+  "description": "track your pushups at Galvanize",
+  "slug": "accountabilibuddy",
+  "sdkVersion": "14.0.0",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "primaryColor": "#cccccc",
+  "icon": "https://pbs.twimg.com/media/DCU7G0SVoAIdm9-.png",
+  "loading": {
+    "icon": "https://pbs.twimg.com/media/DCU7G0SVoAIdm9-.png",
+    "hideExponentText": false
+  },
+  "packagerOpts": {
+    "assetExts": [
+      "ttf"
+    ]
+  }
+}

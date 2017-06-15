@@ -3,15 +3,21 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { CardSection } from '../components/common';
 
 const ImageDetail = ({ image }) => {
-  const { imageUrl } = image;
+  const { imageUrl, caption } = image;
   const { imgContainer, imagesStyle } = styles;
   return (
-    <CardSection>
-      <Image
-        style={imagesStyle}
-        source={{ uri: imageUrl }}
-      />
-    </CardSection>
+    <View style={{ borderWidth: 0.8, borderColor: '#a0a2a5' }}>
+      <CardSection>
+        <Image
+          style={imagesStyle}
+          source={{ uri: imageUrl }}
+        />
+        {/* <View></View> */}
+      </CardSection>
+      <CardSection>
+        <Text>{caption}</Text>
+      </CardSection>
+    </View>
   );
 };
 
@@ -24,7 +30,7 @@ const styles = StyleSheet.create({
   },
   imagesStyle: {
     flex:1,
-    height: 300
+    height: 250
   }
 });
 
