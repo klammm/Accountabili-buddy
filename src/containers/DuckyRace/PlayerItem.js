@@ -22,7 +22,7 @@ const PlayerItem = ({ player, scores }) => {
   for (let i = 0; i < scores; i += 1) {
       arr.push('w');
   }
-  let resultarr = arr.map(w => <Image style={wavesStyle} source={wave} />);
+  let resultarr = arr.map((w, index) => <Image key={index} style={wavesStyle} source={wave} />);
 
   return (
     <Card>

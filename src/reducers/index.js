@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   register: registerReducer,
   playersList: playersListReducer,
   playersScores: playersScoresReducer,
-  userProfile: userProfileReducer
+  userProfile: userProfileReducer,
   photoEdit: photoEditReducer,
   userScore: userScoreReducer
 });
