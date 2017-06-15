@@ -1,4 +1,6 @@
 import { AsyncStorage } from 'react-native';
+import moment from 'moment';
+
 
 const login = (email, password) => {
   const url = 'https://bilibuddy-api.herokuapp.com/token'
@@ -77,11 +79,9 @@ const grabAllPlayers = () => {
 };
 
 const grabAllScores = () => {
-  // team id number
-
-  // start and end state to specify week score calculation
-
-  const url = 'https://bilibuddy-api.herokuapp.com/teams/1/score?start=2017-06-12&end=2017-06-16'
+  let beginDate = moment().startOf('week').add(1, 'days').format('YYYY MM DD').replace(/ /g, '-');
+  let endDate = moment().startOf('week').add(7, 'days').format('YYYY MM DD').replace(/ /g, '-');
+  const url = `https://bilibuddy-api.herokuapp.com/teams/1/score?start=${beginDate}&end=${endDate}`
   return fetch(url)
     .then(res => res.json())
     .then(responseJSON => {
