@@ -9,14 +9,17 @@ const CardSection = ({ children, style }) => {
   );
 };
 
+const $white = '#fff';
+const $grey = '#ddd';
+
 const styles = StyleSheet.create({
   containerStyle: {
     borderBottomWidth: 1,
     padding: 5,
-    backgroundColor: '#fff',
+    backgroundColor: $white,
+    borderColor: $grey,
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    borderColor: '#ddd',
     position: 'relative'
   }
 });
