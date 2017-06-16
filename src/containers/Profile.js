@@ -33,10 +33,10 @@ export class Profile extends Component {
   }
 
   componentDidMount() {
-
-
-    this.props.showUserProfile(this.props.login.user.id);
-    this.props.showUserScore(this.props.login.user.id);
+    if (this.props.login.user) {
+      this.props.showUserProfile(this.props.login.user.id);
+      this.props.showUserScore(this.props.login.user.id);
+    }
   }
 
   renderImages() {
@@ -47,11 +47,10 @@ export class Profile extends Component {
   }
 
   render() {
-    console.log('our props: ', this.props);
     const { avatarProfile, container, titleText } = styles;
     return (
       <Card style={{ marginTop: 20 }}>
-        <CardSection >
+        <CardSection style={{ backgroundColor: '#007aff' }}>
           <View>
             <Image
               style={avatarProfile}
@@ -59,7 +58,7 @@ export class Profile extends Component {
             />
           </View>
           <View style={container}>
-              <Text style={titleText}>{this.props.userProfile.user_name}</Text>
+              <Text>{this.props.userProfile.user_name}</Text>
               <Text >Push Ups: {this.props.userScore}</Text>
           </View>
         </CardSection>
