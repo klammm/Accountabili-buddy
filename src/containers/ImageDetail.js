@@ -12,7 +12,6 @@ const ImageDetail = ({ image }) => {
           style={imagesStyle}
           source={{ uri: imageUrl }}
         />
-        {/* <View></View> */}
       </CardSection>
       <CardSection>
         <Text>{caption}</Text>

@@ -43,8 +43,9 @@ class PlayerList extends Component {
 
 const styles = {
   headerTextStyle: {
-    fontSize: 18
-  }
+    fontSize: 18,
+    backgroundColor: 'rgb(177, 92, 252)',
+  },
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerList);

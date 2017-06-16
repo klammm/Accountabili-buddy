@@ -1,0 +1,1 @@
+import PlayersScoresReducer from '../PlayersScoresReducer';

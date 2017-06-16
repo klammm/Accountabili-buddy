@@ -11,7 +11,7 @@ import {
 import { Input, Button, Card, CardSection } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { repsChanged, captionChanged, tagFriendsChanged, pictureTaken } from '../actions';
+import { repsChanged, captionChanged, tagFriendsChanged, pictureTaken, submitEvent } from '../actions';
 import Camera from 'react-native-camera';
 import { RNS3 } from 'react-native-aws3';
 import { AWSAccessKeyId, AWSSecretKey } from 'react-native-dotenv';
@@ -24,21 +24,23 @@ const mapStateToProps = ({ photoEdit }) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ repsChanged, captionChanged, tagFriendsChanged, pictureTaken }, dispatch);
+  return bindActionCreators({ repsChanged, captionChanged, tagFriendsChanged, pictureTaken, submitEvent }, dispatch);
 }
 
 class CameraRoute extends Component {
   constructor(props) {
     super(props);
 
-    AsyncStorage.getItem('User').then((value) => {
-      this.setState({ 'User': JSON.parse(value) })
-    }).done()
-
     this.state = {
       path: null,
       User: null
     };
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('User').then((value) => {
+      this.setState({ 'User': JSON.parse(value) })
+    }).done()
   }
 
   takePicture() {
@@ -105,6 +107,17 @@ class CameraRoute extends Component {
     this.props.tagFriendsChanged(text)
   }
 
+  onPictureSubmit() {
+    const { reps, caption, imageUrl } = this.props;
+    let userId;
+    if (this.state.User) {
+      userId = this.state.User.id
+    }
+
+    this.props.submitEvent({ reps, caption, userId, imageUrl });
+    this.setState({ path: null })
+  }
+
   renderImage() {
     return (
       <View style={{ position: 'absolute', alignItems: 'center', flexDirection: 'column'}}>
@@ -114,7 +127,7 @@ class CameraRoute extends Component {
         />
         <Card style={{ position: 'absolute', alignItems: 'center', flexDirection: 'column', width: 300, height: 200, backgroundColor: 'transparent', top: 50 }}>
           <CardSection style={{ backgroundColor: 'transparent', borderColor: 'transparent' }}>
-            <Button>
+            <Button whenPressed={() => this.onPictureSubmit()}>
               Submit
             </Button>
           </CardSection>

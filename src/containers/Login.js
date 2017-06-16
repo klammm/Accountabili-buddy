@@ -16,13 +16,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class Login extends Component {
-  // componentWillMount() {
-  //   if (this.props.isLoggedIn) {
-  //     this.props.navigation.navigate('Slider')
-  //     return null;
-  //   }
-  // }
-
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -34,7 +27,7 @@ class Login extends Component {
   onLoginAttempt() {
     const { email, password } = this.props;
 
-    this.props.loginUser({ email, password });
+    this.props.loginUser({ email, password }, this.props.navigation.navigate);
   }
 
   renderSpinner() {
@@ -60,15 +53,6 @@ class Login extends Component {
   }
 
   render() {
-    // Warning: Cannot update during an existing state transition (such as within
-    // `render` or another component's constructor). Render methods should be a
-    // pure function of props and state; constructor side-effects are an
-    // anti-pattern, but can be moved to `componentWillMount`.
-    /********* FOR THIS IF STATEMENT **********/
-    if (this.props.isLoggedIn) {
-      this.props.navigation.navigate('Slider')
-      return null;
-    }
     return (
       <Card>
         <Text style={styles.welcome}>Accountabili-Buddy</Text>
@@ -106,6 +90,7 @@ class Login extends Component {
 
 Login.navigationOptions = {
   title: 'Log in',
+  header: null
 }
 
 const styles = StyleSheet.create({

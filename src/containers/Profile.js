@@ -23,17 +23,20 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
 
+    // AsyncStorage.getItem('User').then((value) => {
+    //   this.setState({ 'User': JSON.parse(value) });
+    // }).done()
+
     this.state = {
       User: null
     }
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('User').then((value) => {
-      this.setState({ 'User': JSON.parse(value) });
-      this.props.showUserProfile(this.state.User.id);
-      this.props.showUserScore(this.state.User.id);
-    }).done()
+    if (this.props.login.user) {
+      this.props.showUserProfile(this.props.login.user.id);
+      this.props.showUserScore(this.props.login.user.id);
+    }
   }
 
   renderImages() {
@@ -46,8 +49,8 @@ export class Profile extends Component {
   render() {
     const { avatarProfile, container, titleText } = styles;
     return (
-      <Card>
-        <CardSection >
+      <Card style={{ marginTop: 20 }}>
+        <CardSection style={{ backgroundColor: '#007aff' }}>
           <View>
             <Image
               style={avatarProfile}
@@ -55,7 +58,7 @@ export class Profile extends Component {
             />
           </View>
           <View style={container}>
-              <Text style={titleText}>{this.props.userProfile.user_name}</Text>
+              <Text>{this.props.userProfile.user_name}</Text>
               <Text >Push Ups: {this.props.userScore}</Text>
           </View>
         </CardSection>

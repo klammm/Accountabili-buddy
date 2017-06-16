@@ -1,13 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Button, Card, CardSection, Spinner } from '../components/common';
+import { logoutUser } from '../actions';
 
-const Settings = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Settings</Text>
-    </View>
-  );
-};
+const mapStateToProps = ({ login }) => {
+  const { loading, error } = login;
+
+  return { loading, error };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ logoutUser }, dispatch);
+}
+
+class Settings extends Component {
+  onLogoutAttempt() {
+    this.props.logoutUser(this.props.navigation.navigate)
+  }
+
+  renderSpinner() {
+    if (this.props.loading) {
+      return (
+        <CardSection>
+          <Spinner size='large' />
+        </CardSection>
+      )
+    }
+
+    return (
+      <CardSection>
+        <Button whenPressed={() => this.onLogoutAttempt()}>
+          Log out
+        </Button>
+      </CardSection>
+    );
+  }
+
+  render() {
+    return (
+      <Card>
+        { this.renderSpinner() }
+      </Card>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -18,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Settings;
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);
