@@ -16,6 +16,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Settings extends Component {
+  onLogoutAttempt() {
+    this.props.logoutUser(this.props.navigation.navigate)
+  }
+
   renderSpinner() {
     if (this.props.loading) {
       return (
@@ -24,11 +28,10 @@ class Settings extends Component {
         </CardSection>
       )
     }
-    // const { navigate } = this.props.navigation;
 
     return (
       <CardSection>
-        <Button whenPressed={() => this.props.logoutUser()}>
+        <Button whenPressed={() => this.onLogoutAttempt()}>
           Log out
         </Button>
       </CardSection>
@@ -36,10 +39,6 @@ class Settings extends Component {
   }
 
   render() {
-    // if (this.props.isLoggedIn) {
-    //   this.props.navigation.navigate('Login')
-    //   return null;
-    // }
     return (
       <Card>
         { this.renderSpinner() }

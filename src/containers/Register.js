@@ -85,9 +85,7 @@ class Register extends Component {
   onRegisterAttempt() {
     const { registerEmail, registerPassword, firstName, lastName, username } = this.props;
 
-
     this.props.registerUser({ registerEmail, registerPassword, firstName, lastName, username });
-    this.props.loginUser({ registerEmail, registerPassword });
   }
 
   realTimeConfirmedPassword() {
@@ -112,8 +110,8 @@ class Register extends Component {
       <CardSection>
         <Button whenPressed={() => {
           if (this.props.matchedPassword) {
-            this.props.navigation.navigate('Slider')
-            return this.onRegisterAttempt()
+            this.onRegisterAttempt()
+            return this.props.navigation.navigate('Login')
           }
         }}>
           Submit
@@ -182,7 +180,7 @@ class Register extends Component {
 
         <CardSection>
           <Button whenPressed={() => this.checkPasswordWithConfirmPassword()} style={{ backgroundColor: 'red', borderColor: 'red' }}>
-            Checkaroo!!!
+            Confirm your password!
           </Button>
         </CardSection>
         <CardSection>

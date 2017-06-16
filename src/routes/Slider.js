@@ -8,7 +8,7 @@ import Menu from '../components/Menu';
 
 
 // Swiping action achieved through two 'menus' one for vertical and one for horizontal swiping
-const SubMenu = () => (
+export const SubMenu = () => (
   <Menu
     routes={
       [

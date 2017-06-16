@@ -19,7 +19,7 @@ const registerReducer = (state = initialState, action) => {
     case 'CREATE_USER_PENDING':
       return { ...state, loading: true, error: '' };
     case 'CREATE_USER_FULFILLED':
-      return { ...state, loading: false, isLoggedIn: true, error: '', user: action.payload };
+      return { ...state, loading: false, isLoggedIn: true, error: '' };
     case 'CREATE_USER_REJECTED':
       return { ...state, loading: false, isLoggedIn: false, error: 'Username is not available. Try again.' };
     default:
