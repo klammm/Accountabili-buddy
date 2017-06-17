@@ -41,8 +41,9 @@ export class Profile extends Component {
 
   renderImages() {
     if(this.props.userProfile.ownedImages) {
-      return this.props.userProfile.ownedImages.map(image =>
-        <ImageDetail key={image.id} image={image} />);
+      return this.props.userProfile.ownedImages.map(image =>{
+        return <ImageDetail key={image.id} image={image} />;
+      })
     }
   }
 

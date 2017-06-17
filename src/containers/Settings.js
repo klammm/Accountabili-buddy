@@ -5,10 +5,10 @@ import { bindActionCreators } from 'redux';
 import { Button, Card, CardSection, Spinner } from '../components/common';
 import { logoutUser } from '../actions';
 
-const mapStateToProps = ({ login }) => {
-  const { loading, error } = login;
-
-  return { loading, error };
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -21,7 +21,7 @@ class Settings extends Component {
   }
 
   renderSpinner() {
-    if (this.props.loading) {
+    if (this.props.login.loading) {
       return (
         <CardSection>
           <Spinner size='large' />

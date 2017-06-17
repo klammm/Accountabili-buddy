@@ -125,6 +125,12 @@ class Register extends Component {
       <Card>
         <Text style={styles.welcome}>Create a new user</Text>
         <CardSection>
+          <Button whenPressed={() => this.props.navigation.navigate("Login")}>
+            Back to Login!
+          </Button>
+        </CardSection>
+
+        <CardSection>
           <Input
             value={this.props.firstName}
             onChangeText={this.onFirstNameChange.bind(this)}
@@ -183,6 +189,7 @@ class Register extends Component {
             Confirm your password!
           </Button>
         </CardSection>
+
         <CardSection>
           <View style={styles.readyCheckContainer}>
             { this.realTimeConfirmedPassword() }
