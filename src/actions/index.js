@@ -173,18 +173,29 @@ export const passwordChanged = (text) => {
 
 export const loginUser = ({ email, password }, callback) => {
   return (dispatch, getState) => {
-    dispatch({ type: 'LOGIN_USER', payload: login(email, password).then((data) => {
-      dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(data.id) })
-      dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(data.id) });
+    dispatch({ type: 'LOGIN_USER', payload: login(email, password)
+    .then((data) => {
+      if (!data) {
+        dispatch({ type: 'FAILED_LOGIN_USER' })
+        return data;
+      }
       callback('Slider')
-    }) })
+      dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(data.id) });
+      dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(data.id) });
+      dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
+      dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
+      return data;
+    })
+    });
   }
 };
 
 export const logoutUser = (callback) => {
   return (dispatch, getState) => {
     dispatch({ type: 'USER_LOGOUT', payload: logout() });
-    callback('Login')
+    dispatch({ type: "CLEAR_USER_PROFILE" });
+    dispatch({ type: "CLEAR_USER_SCORE" });
+    return callback('Login')
   }
 };
 

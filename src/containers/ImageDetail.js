@@ -5,6 +5,7 @@ import { CardSection } from '../components/common';
 const ImageDetail = ({ image }) => {
   const { imageUrl, caption } = image;
   const { imgContainer, imagesStyle } = styles;
+
   return (
     <View style={{ borderWidth: 0.8, borderColor: '#a0a2a5' }}>
       <CardSection>
