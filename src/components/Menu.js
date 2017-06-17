@@ -39,14 +39,14 @@ class Menu extends Component {
     return this.props.routes.map((route, index) => {
       return (
         <View key={index} style={itemStyle}>
-          <route.component />
+          <route.component navigation={this.props.navigation}/>
         </View>
       );
     });
   }
 
   render() {
-    const { horizontal } = this.props;
+    const { horizontal, navigation } = this.props;
     const scrollViewStyle = horizontal ? styles.scrollView : styles.scrollViewVertical;
 
     return (
@@ -61,6 +61,7 @@ class Menu extends Component {
           scrollEventThrottle={32}
           bounces={false}
           directionalLockEnabled={true}
+          navigation={navigation}
         >
           {this.renderScreens()}
         </ScrollView>
