@@ -9,15 +9,17 @@ const loginReducer = (state = initialState, action) => {
     case 'LOGIN_USER_PENDING':
       return { ...state, loading: true, error: '', user: null };
     case 'LOGIN_USER_FULFILLED':
-      return { ...state, loading: false, isLoggedIn: true, error: '', user: action.payload };
+      return { ...state, loading: false, isLoggedIn: true, user: action.payload };
     case 'LOGIN_USER_REJECTED':
       return { ...state, loading: false, isLoggedIn: false, error: 'Unable to login', user: null };
     case 'USER_LOGOUT_PENDING':
-      return { ...state, loading: true, error: '' };
+      return { ...initialState }
     case 'USER_LOGOUT_FULLFILLED':
-      return { ...initialState, loading: false, isLoggedIn: false, user: null };
+      return { ...initialState }
     case 'USER_LOGOUT_REJECTED':
-      return { ...state, loading: false, error: 'Unable to logout! Try again.' };
+      return { ...state, loading: false, error: 'Unable to logout! Try again.'}
+    case 'FAILED_LOGIN_USER':
+      return { ...state, loading: false, isLoggedIn: false, error: 'Unable to login', user: null }
     default:
       return state;
   }

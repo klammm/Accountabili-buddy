@@ -72,11 +72,11 @@ describe('login reducer tests', () => {
   });
 
   it('returns for when the user is successfully logged out', () => {
-    expect(loginReducer(state, { type: 'USER_LOGOUT_FULLFILLED' })).toEqual({ ...initialState, isLoggedIn: false, user: null, loading: false });
+    expect(loginReducer(state, { type: 'USER_LOGOUT_FULLFILLED' })).toEqual({ ...initialState });
   });
 
   it('returns loading is true when the user is logging out', () => {
-    expect(loginReducer(state, { type: 'USER_LOGOUT_PENDING' })).toEqual({ ...state, loading: true });
+    expect(loginReducer(state, { type: 'USER_LOGOUT_PENDING' })).toEqual({ ...initialState});
   });
 
   it('returns loading is false and an error when logged out is rejected', () => {

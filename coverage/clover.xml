@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497734899770" clover="3.2.0">
-  <project timestamp="1497734899771" name="All files">
-    <metrics statements="54" coveredstatements="53" conditionals="46" coveredconditionals="45" methods="8" coveredmethods="8" elements="108" coveredelements="106" complexity="0" loc="54" ncloc="54" packages="2" files="15" classes="15">
+<coverage generated="1497736844748" clover="3.2.0">
+  <project timestamp="1497736844748" name="All files">
+    <metrics statements="57" coveredstatements="53" conditionals="49" coveredconditionals="45" methods="8" coveredmethods="8" elements="114" coveredelements="106" complexity="0" loc="57" ncloc="57" packages="2" files="15" classes="15">
       <package name="reducers">
-        <metrics statements="54" coveredstatements="53" conditionals="46" coveredconditionals="45" methods="8" coveredmethods="8"/>
+        <metrics statements="57" coveredstatements="53" conditionals="49" coveredconditionals="45" methods="8" coveredmethods="8"/>
         <file name="LoginReducer.js" path="/Users/paolaclaros/Dev/capstone/Accountabili-buddy/src/reducers/LoginReducer.js">
-          <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+          <metrics statements="12" coveredstatements="11" conditionals="11" coveredconditionals="10" methods="1" coveredmethods="1"/>
           <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-          <line num="4" count="9" type="cond" truecount="9" falsecount="0"/>
+          <line num="4" count="9" type="cond" truecount="9" falsecount="1"/>
           <line num="6" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
           <line num="10" count="1" type="stmt"/>
@@ -16,7 +16,8 @@
           <line num="16" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
         </file>
         <file name="PhotoEditReducer.js" path="/Users/paolaclaros/Dev/capstone/Accountabili-buddy/src/reducers/PhotoEditReducer.js">
           <metrics statements="10" coveredstatements="9" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
@@ -62,18 +63,20 @@
           <line num="26" count="1" type="stmt"/>
         </file>
         <file name="UserProfileReducer.js" path="/Users/paolaclaros/Dev/capstone/Accountabili-buddy/src/reducers/UserProfileReducer.js">
-          <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
           <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-          <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="4" count="2" type="cond" truecount="2" falsecount="1"/>
           <line num="6" count="1" type="stmt"/>
-          <line num="8" count="1" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
         </file>
         <file name="UserScoreReducer.js" path="/Users/paolaclaros/Dev/capstone/Accountabili-buddy/src/reducers/UserScoreReducer.js">
-          <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
-          <line num="2" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="2" count="2" type="cond" truecount="2" falsecount="1"/>
           <line num="4" count="1" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
         </file>
         <file name="teamsListReducer.js" path="/Users/paolaclaros/Dev/capstone/Accountabili-buddy/src/reducers/teamsListReducer.js">
           <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
