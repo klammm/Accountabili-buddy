@@ -1,7 +1,8 @@
 import React from 'react';
 import { TextInput, View, Text, StyleSheet } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize, multiline, numberOfLines, maxLength, keyboardType }) => {
+const Input = ({ children,
+  colorOveride, label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize, multiline, numberOfLines, maxLength, keyboardType }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
   return (
@@ -9,6 +10,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
 
       <TextInput
         placeholder={placeholder}
+        placeholderTextColor={[white]}
         autoCorrect={false}
         style={inputStyle}
         value={value}
@@ -19,17 +21,20 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
         numberOfLines={numberOfLines}
         maxLength={maxLength}
         keyboardType={keyboardType}
-      />
+      >
+        { children }
+      </TextInput>
     </View>
   );
 };
 
-const darkPurple = 'rgba(127, 13, 205, 0.38)';
+const darkPurple = 'rgba(127, 13, 205, 0.88)';
 const lightPurple = '#D961FF';
+const white = 'rgb(255, 255, 255)';
 
 const styles = StyleSheet.create({
   inputStyle: {
-    color: 'white',
+    color: darkPurple,
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 15,

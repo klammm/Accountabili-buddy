@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Button = ({ whenPressed, children, style }) => {
+const Button = ({ whenPressed, children, style, textStyleOverRide }) => {
   const { buttonStyle, textStyle } = styles;
 
   return (
@@ -11,7 +11,7 @@ const Button = ({ whenPressed, children, style }) => {
       onPress={whenPressed}
       underlayColor='white'
       style={[buttonStyle, style]}>
-            <Text style={textStyle}>
+            <Text style={[textStyle, textStyleOverRide]}>
               { children }
             </Text>
     </TouchableOpacity>

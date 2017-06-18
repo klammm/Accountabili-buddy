@@ -55,6 +55,7 @@ class Login extends Component {
             <Card style={styles.onBoard}>
               <CardSection>
               <Input
+                colorOveride={{ color: 'blue'}}
                 placeholder="example@gmail.com"
                 label='Email'
                 autoCapitalize={'none'}
@@ -81,7 +82,10 @@ class Login extends Component {
 
           <Card style={styles.spinnerButtons}>
             <CardSection style={styles.loginButtons}>
-              <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: darkPurple, borderColor: darkerPurple }}>
+              <Button
+                whenPressed={() => navigate('Register')}
+                textStyleOverRide={{ color: 'white'}}
+                style={{ backgroundColor: darkPurple, borderColor: darkerPurple }}>
                 SIGN UP
               </Button>
             </CardSection>
@@ -114,6 +118,9 @@ const transparentWhite = 'rgba(255, 255, 255, 0.75)';
 const transparentPurple = 'rgba(165, 84, 204, 0.85)'
 
 const styles = StyleSheet.create({
+  inputText: {
+    color: darkPurple
+  },
   imgContainer: {
     flex: 1,
     width: null,

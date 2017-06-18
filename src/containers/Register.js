@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Card, CardSection, Input } from '../components/common';
@@ -81,6 +81,7 @@ class Register extends Component {
 
   onRegisterAttempt() {
     const { registerEmail, registerPassword, firstName, lastName, username } = this.props;
+
     this.props.registerUser({ registerEmail, registerPassword, firstName, lastName, username });
   }
 
@@ -111,6 +112,9 @@ class Register extends Component {
 
     return (
       <Image source={loginImg2} style={styles.imgContainer}>
+        <KeyboardAvoidingView
+          style={styles.imgContainer}
+          behavior="padding">
           <Text style={styles.welcome}>Sign Up</Text>
           <Card >
 
@@ -183,7 +187,7 @@ class Register extends Component {
             <CardSection>
               <Button whenPressed={() => {
                 if (this.props.matchedPassword) {
-                  this.onRegisterAttempt()
+                  this.onRegisterAttempt();
                   return this.props.navigation.navigate('Login')
                 }
               }}>
@@ -200,12 +204,11 @@ class Register extends Component {
             </CardSection>
           </Card>
 
-
-
             { this.renderSpinner() }
 
           </Card>
         </Card>
+      </KeyboardAvoidingView>
       </Image>
     )
   }
