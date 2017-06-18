@@ -15,7 +15,4 @@ describe('PlayersListReducer  tests', () => {
   it('returns all the teams players', () => {
     expect(PlayersListReducer(state, { type: 'SHOW_ALL_TEAM_PLAYERS_FULFILLED', payload: state.players})).toEqual(state.players);
   });
-
-
-
 });

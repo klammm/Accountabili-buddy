@@ -23,9 +23,9 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
 
-    AsyncStorage.getItem('User').then((value) => {
-      this.setState({ 'User': JSON.parse(value) });
-    }).done()
+    // AsyncStorage.getItem('User').then((value) => {
+    //   this.setState({ 'User': JSON.parse(value) });
+    // }).done()
 
     this.state = {
       User: null
@@ -63,8 +63,8 @@ export class Profile extends Component {
               <Text >Push Ups: {this.props.userScore}</Text>
           </View>
         </CardSection>
-        <CardSection>
-          <ScrollView>
+        <CardSection >
+          <ScrollView >
               {this.renderImages()}
           </ScrollView>
         </CardSection>
