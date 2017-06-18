@@ -6,9 +6,6 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
 
   return (
     <View style={containerStyle}>
-      <Text style={labelStyle}>
-        {label}
-      </Text>
 
       <TextInput
         placeholder={placeholder}
@@ -27,22 +24,20 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
   );
 };
 
+const darkPurple = 'rgba(127, 13, 205, 0.68)';
+
 const styles = StyleSheet.create({
   inputStyle: {
-    color: '#000',
+    color: darkPurple,
     paddingRight: 5,
     paddingLeft: 5,
-    fontSize: 18,
+    fontSize: 15,
     lineHeight: 23,
     flex: 2
   },
-  labelStyle: {
-    fontSize: 18,
-    paddingLeft: 20,
-    flex: 1
-  },
   containerStyle: {
-    height: 40,
+    marginTop: 10,
+    height: 30,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'

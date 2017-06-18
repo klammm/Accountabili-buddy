@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Card, CardSection, Input } from '../components/common';
@@ -14,6 +14,8 @@ import {
   passwordMatch,
   loginUser
 } from '../actions';
+import loginImg2 from '../../assets/images/loginImg2.jpg';
+
 
 const mapStateToProps = ({ register }) => {
   const {
@@ -122,82 +124,84 @@ class Register extends Component {
 
   render() {
     return (
-      <Card>
-        <Text style={styles.welcome}>Create a new user</Text>
-        <CardSection>
-          <Button whenPressed={() => this.props.navigation.navigate("Login")}>
-            Back to Login!
-          </Button>
-        </CardSection>
+      <Image source={loginImg2} style={styles.imgContainer}>
+        <Card>
+          <Text style={styles.welcome}>Create a new user</Text>
+          <CardSection>
+            <Button whenPressed={() => this.props.navigation.navigate("Login")}>
+              Back to Login!
+            </Button>
+          </CardSection>
 
-        <CardSection>
-          <Input
-            value={this.props.firstName}
-            onChangeText={this.onFirstNameChange.bind(this)}
-            placeholder="Thrill"
-            label='First Name' />
-        </CardSection>
+          <CardSection>
+            <Input
+              value={this.props.firstName}
+              onChangeText={this.onFirstNameChange.bind(this)}
+              placeholder="Thrill"
+              label='First Name' />
+          </CardSection>
 
-        <CardSection>
-          <Input
-            value={this.props.lastName}
-            onChangeText={this.onLastNameChange.bind(this)}
-            placeholder="Clinton"
-            label='Last Name' />
-        </CardSection>
+          <CardSection>
+            <Input
+              value={this.props.lastName}
+              onChangeText={this.onLastNameChange.bind(this)}
+              placeholder="Clinton"
+              label='Last Name' />
+          </CardSection>
 
-        <CardSection>
-          <Input
-            value={this.props.username}
-            autoCapitalize={'none'}
-            onChangeText={this.onUsernameChange.bind(this)}
-            placeholder="SuperCoder415"
-            label='Username' />
-        </CardSection>
+          <CardSection>
+            <Input
+              value={this.props.username}
+              autoCapitalize={'none'}
+              onChangeText={this.onUsernameChange.bind(this)}
+              placeholder="SuperCoder415"
+              label='Username' />
+          </CardSection>
 
-        <CardSection>
-          <Input
-            value={this.props.registerEmail}
-            autoCapitalize={'none'}
-            onChangeText={this.onRegisterEmailChange.bind(this)}
-            placeholder="example@email.com"
-            label='Email' />
-        </CardSection>
+          <CardSection>
+            <Input
+              value={this.props.registerEmail}
+              autoCapitalize={'none'}
+              onChangeText={this.onRegisterEmailChange.bind(this)}
+              placeholder="example@email.com"
+              label='Email' />
+          </CardSection>
 
-        <CardSection>
-          <Input
-            value={this.props.registerPassword}
-            onChangeText={this.onRegisterPasswordChange.bind(this)}
-            autoCapitalize={'none'}
-            secureTextEntry
-            placeholder="Password"
-            label='Password' />
-        </CardSection>
+          <CardSection>
+            <Input
+              value={this.props.registerPassword}
+              onChangeText={this.onRegisterPasswordChange.bind(this)}
+              autoCapitalize={'none'}
+              secureTextEntry
+              placeholder="Password"
+              label='Password' />
+          </CardSection>
 
-        <CardSection>
-          <Input
-            value={this.props.confirmedPassword}
-            onChangeText={this.onConfirmedPasswordChange.bind(this)}
-            secureTextEntry
-            autoCapitalize={'none'}
-            placeholder="Confirm Password"
-            label='Confirm Password' />
-        </CardSection>
+          <CardSection>
+            <Input
+              value={this.props.confirmedPassword}
+              onChangeText={this.onConfirmedPasswordChange.bind(this)}
+              secureTextEntry
+              autoCapitalize={'none'}
+              placeholder="Confirm Password"
+              label='Confirm Password' />
+          </CardSection>
 
-        <CardSection>
-          <Button whenPressed={() => this.checkPasswordWithConfirmPassword()} style={{ backgroundColor: 'red', borderColor: 'red' }}>
-            Confirm your password!
-          </Button>
-        </CardSection>
+          <CardSection>
+            <Button whenPressed={() => this.checkPasswordWithConfirmPassword()} style={{ backgroundColor: 'red', borderColor: 'red' }}>
+              Confirm your password!
+            </Button>
+          </CardSection>
 
-        <CardSection>
-          <View style={styles.readyCheckContainer}>
-            { this.realTimeConfirmedPassword() }
-          </View>
-        </CardSection>
+          <CardSection>
+            <View style={styles.readyCheckContainer}>
+              { this.realTimeConfirmedPassword() }
+            </View>
+          </CardSection>
 
-        { this.renderSpinner() }
-      </Card>
+          { this.renderSpinner() }
+        </Card>
+      </Image>
     )
   }
 }
@@ -208,6 +212,11 @@ Register.navigationOptions = {
 }
 
 const styles = StyleSheet.create({
+  imgContainer: {
+    flex: 1,
+    width: null,
+    height: null
+  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',

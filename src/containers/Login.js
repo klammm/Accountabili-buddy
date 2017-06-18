@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, Image } from 'react-native';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
+import LinearGradient from 'react-native-linear-gradient';
+import loginImg from '../../assets/images/loginImg.jpg';
 
 const mapStateToProps = ({ login }) => {
   const { email, password, error, loading, isLoggedIn } = login;
@@ -33,57 +35,67 @@ class Login extends Component {
   renderSpinner() {
     if (this.props.loading) {
       return (
-        <CardSection>
+        <CardSection style={styles.spinner}>
           <Spinner size='large' />
         </CardSection>
       )
     }
     const { navigate } = this.props.navigation;
-
-    return (
-      <CardSection>
-        <Button whenPressed={() => this.onLoginAttempt()}>
-          Log in
-        </Button>
-        <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
-          Sign Up
-        </Button>
-      </CardSection>
-    );
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
-      <Card>
-        <Text style={styles.welcome}>Accountabili-Buddy</Text>
+      <Image source={loginImg} style={styles.imgContainer}>
+        <Card style={styles.fullBackground}>
+          <Text style={styles.welcome}>ACCOUNTABLE</Text>
 
-        <CardSection>
-          <Input
-            placeholder="example@gmail.com"
-            label='Email'
-            autoCapitalize={'none'}
-            value={this.props.email}
-            onChangeText={this.onEmailChange.bind(this)}
-          />
-        </CardSection>
+          <Card style={styles.onBoard}>
+            <Card style={styles.onBoard}>
+              <CardSection style={styles.input}>
+              <Input
+                placeholder="example@gmail.com"
+                label='Email'
+                autoCapitalize={'none'}
+                value={this.props.email}
+                onChangeText={this.onEmailChange.bind(this)}
+              />
+            </CardSection>
 
-        <CardSection>
-          <Input
-            placeholder='Password'
-            label="Password"
-            autoCapitalize={'none'}
-            secureTextEntry
-            value={this.props.password}
-            onChangeText={this.onPasswordChange.bind(this)}
-          />
-        </CardSection>
+            <CardSection style={styles.input} >
+              <Input
+                placeholder='password'
+                label="Password"
+                autoCapitalize={'none'}
+                secureTextEntry
+                value={this.props.password}
+                onChangeText={this.onPasswordChange.bind(this)}
+              />
+            </CardSection>
+          </Card>
 
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
+          <Text style={styles.errorTextStyle}>
+            {this.props.error}
+          </Text>
 
-        {this.renderSpinner()}
-      </Card>
+          <Card style={styles.spinnerButtons}>
+            <CardSection style={styles.loginButtons}>
+              <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: darkPurple, borderColor: darkPurple }}>
+                SIGN UP
+              </Button>
+            </CardSection>
+
+            <CardSection style={styles.loginButtons}>
+              <Button whenPressed={() => this.onLoginAttempt()}>
+                LOG IN
+              </Button>
+            </CardSection>
+          </Card>
+          {this.renderSpinner()}
+          </Card>
+        </Card>
+      </Image>
+
     )
   }
 }
@@ -93,16 +105,58 @@ Login.navigationOptions = {
   header: null
 }
 
+const darkPurple = 'rgba(127, 13, 205, 0.68)';
+const lightPurple = '#D961FF';
+const transparentWhite = 'rgba(255, 255, 255, 0.95)';
+const transparentPurple = 'rgba(165, 84, 204, 0.85)'
+
 const styles = StyleSheet.create({
+  imgContainer: {
+    flex: 1,
+    width: null,
+    height: null
+  },
+  linearGradient: {
+    flex: 1,
+    width: null,
+    height: null,
+  },
+  fullBackground: {
+    backgroundColor: 'transparent',
+  },
   welcome: {
-    fontSize: 20,
+    fontSize: 40,
     textAlign: 'center',
     margin: 10,
+    marginTop: 100,
+    marginBottom: 30,
+    color: transparentWhite,
+    fontWeight: 'bold',
+    backgroundColor: 'transparent'
   },
   errorTextStyle: {
-    fontSize: 20,
+    marginTop: 20,
+    fontSize: 15,
     alignSelf: 'center',
-    color: 'red'
+    color: darkPurple
+  },
+  input: {
+    borderBottomWidth: 1,
+    borderColor: lightPurple
+  },
+  onBoard: {
+    marginTop: 20,
+    marginLeft: 40,
+    marginRight: 40
+  },
+  spinnerButtons: {
+    marginTop: 15
+  },
+  loginButtons: {
+    marginTop: 4
+  },
+  spinner: {
+    marginTop: 40
   }
 })
 
