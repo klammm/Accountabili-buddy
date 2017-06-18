@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497484726042" clover="3.2.0">
-  <project timestamp="1497484726043" name="All files">
-    <metrics statements="11" coveredstatements="9" conditionals="10" coveredconditionals="8" methods="1" coveredmethods="1" elements="22" coveredelements="18" complexity="0" loc="11" ncloc="11" packages="2" files="2" classes="2">
+<coverage generated="1497733230062" clover="3.2.0">
+  <project timestamp="1497733230063" name="All files">
+    <metrics statements="26" coveredstatements="20" conditionals="19" coveredconditionals="15" methods="4" coveredmethods="4" elements="49" coveredelements="39" complexity="0" loc="26" ncloc="26" packages="2" files="7" classes="7">
       <package name="reducers">
-        <metrics statements="11" coveredstatements="9" conditionals="10" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <metrics statements="26" coveredstatements="20" conditionals="19" coveredconditionals="15" methods="4" coveredmethods="4"/>
         <file name="LoginReducer.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/LoginReducer.js">
-          <metrics statements="11" coveredstatements="9" conditionals="10" coveredconditionals="8" methods="1" coveredmethods="1"/>
+          <metrics statements="12" coveredstatements="8" conditionals="10" coveredconditionals="7" methods="1" coveredmethods="1"/>
           <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-          <line num="4" count="7" type="cond" truecount="7" falsecount="2"/>
+          <line num="4" count="7" type="cond" truecount="6" falsecount="3"/>
           <line num="6" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
           <line num="10" count="1" type="stmt"/>
@@ -15,13 +15,43 @@
           <line num="14" count="1" type="stmt"/>
           <line num="16" count="0" type="stmt"/>
           <line num="18" count="0" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+        </file>
+        <file name="PlayersListReducer.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/PlayersListReducer.js">
+          <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+        </file>
+        <file name="UserProfileReducer.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/UserProfileReducer.js">
+          <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+        </file>
+        <file name="UserScoreReducer.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/UserScoreReducer.js">
+          <metrics statements="5" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="2" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
         </file>
       </package>
       <package name="reducers.initialState">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="LoginState.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/initialState/LoginState.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="PlayersListState.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/initialState/PlayersListState.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="UserProfileState.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/initialState/UserProfileState.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
       </package>
