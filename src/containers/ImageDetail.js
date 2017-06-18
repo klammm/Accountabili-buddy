@@ -6,6 +6,7 @@ import Dimensions from 'Dimensions';
 const ImageDetail = ({ image }) => {
   const { imageUrl, caption } = image;
   const { imgContainer, imagesStyle, imageContainerStyle, postImage, postTestStyle, canvas } = styles;
+
   return (
     <Card>
       <CardSection>

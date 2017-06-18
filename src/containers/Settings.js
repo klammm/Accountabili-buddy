@@ -5,10 +5,10 @@ import { bindActionCreators } from 'redux';
 import { Button, Card, CardSection, Spinner } from '../components/common';
 import { logoutUser } from '../actions';
 
-const mapStateToProps = ({ login }) => {
-  const { loading, error } = login;
-
-  return { loading, error };
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -16,30 +16,29 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Settings extends Component {
+  onLogoutAttempt() {
+    this.props.logoutUser(this.props.navigation.navigate)
+  }
+
   renderSpinner() {
-    if (this.props.loading) {
+    if (this.props.login.loading) {
       return (
         <CardSection>
           <Spinner size='large' />
         </CardSection>
       )
     }
-    // const { navigate } = this.props.navigation;
 
     return (
       <CardSection>
-        <Button whenPressed={() => this.props.logoutUser()}>
-          Log in
+        <Button whenPressed={() => this.onLogoutAttempt()}>
+          Log out
         </Button>
       </CardSection>
     );
   }
 
   render() {
-    // if (this.props.isLoggedIn) {
-    //   this.props.navigation.navigate('Login')
-    //   return null;
-    // }
     return (
       <Card>
         { this.renderSpinner() }

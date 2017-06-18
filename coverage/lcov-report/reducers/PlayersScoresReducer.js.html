@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for reducers/UserProfileReducer.js</title>
+    <title>Code coverage report for reducers/PlayersScoresReducer.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">reducers</a> UserProfileReducer.js
+      <a href="../index.html">All files</a> / <a href="index.html">reducers</a> PlayersScoresReducer.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/5</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/5</span>
+        <span class='fraction'>4/4</span>
       </div>
     </div>
   </div>
@@ -55,36 +55,30 @@
 10
 11
 12
-13
-14
-15</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+13</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import initialState from './initialState/UserProfileState';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import initialState from './initialState/PlayersScoresState';
 &nbsp;
-const userProfileReducer = (state = initialState.userProfile, action) =&gt; {
-  switch (action.type) {
-    case 'SHOW_USER_PROFILE_FULFILLED':
+const PlayersScoresReducer = (state = initialState.playerScores, action) =&gt; {
+  switch(action.type) {
+    case 'SHOW_ALL_TEAM_PLAYERS_SCORES_FULFILLED':
       return action.payload;
-<span class="branch-1 cbranch-no" title="branch not covered" >    case "CLEAR_USER_PROFILE":</span>
-<span class="cstat-no" title="statement not covered" >      return initialState.userProfile</span>
     default:
       return state;
   }
 };
 &nbsp;
-export default userProfileReducer;
+export default PlayersScoresReducer;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

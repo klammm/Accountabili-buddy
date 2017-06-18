@@ -6,10 +6,10 @@ let state = {
   loading: false,
   error: '',
   user: null,
-  isLoggedIn: null
+  isLoggedIn: false
 };
 
-let nextState = {
+let initialState = {
   email: '',
   password: '',
   loading: false,
@@ -35,15 +35,15 @@ let user = {
 describe('login reducer tests', () => {
 
   it('returns the inital state, when it is not passed a state', () => {
-    expect(loginReducer(undefined, {})).toEqual(state);
+    expect(loginReducer(undefined, {})).toEqual(initialState);
   });
 
   it('returns a new state with the email property updated', () => {
-    expect(loginReducer(state, { type: 'EMAIL_CHANGE', payload: 'test@gmail.com' })).toEqual({ ...state, email: 'test@gmail.com'});
+    expect(loginReducer(state, { type: 'EMAIL_CHANGE', payload: 'test@gmail.com' })).toEqual({ ...state, email: 'test@gmail.com' });
   });
 
   it('returns a new state with the password updated', () => {
-    expect(loginReducer(state, { type: 'PASSWORD_CHANGE', payload: 'helloreact' })).toEqual({ ...state, password: 'helloreact'});
+    expect(loginReducer(state, { type: 'PASSWORD_CHANGE', payload: 'helloreact' })).toEqual({ ...state, password: 'helloreact' });
   });
 
   it('returns a new state when login is pending', () => {
@@ -72,7 +72,14 @@ describe('login reducer tests', () => {
   });
 
   it('returns for when the user is successfully logged out', () => {
-    expect(loginReducer(state, { type: 'USER_LOGOUT' })).toEqual({ ...state,  isLoggedIn: false, user: null });
+    expect(loginReducer(state, { type: 'USER_LOGOUT_FULLFILLED' })).toEqual({ ...initialState });
   });
 
+  it('returns loading is true when the user is logging out', () => {
+    expect(loginReducer(state, { type: 'USER_LOGOUT_PENDING' })).toEqual({ ...initialState});
+  });
+
+  it('returns loading is false and an error when logged out is rejected', () => {
+    expect(loginReducer(state, { type: 'USER_LOGOUT_REJECTED' })).toEqual({ ...state, loading: false, error: 'Unable to logout! Try again.' });
+  });
 });

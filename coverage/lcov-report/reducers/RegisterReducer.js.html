@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for reducers/LoginReducer.js</title>
+    <title>Code coverage report for reducers/RegisterReducer.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">reducers</a> LoginReducer.js
+      <a href="../index.html">All files</a> / <a href="index.html">reducers</a> RegisterReducer.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/12</span>
+        <span class='fraction'>13/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90.91% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/11</span>
+        <span class='fraction'>12/12</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/12</span>
+        <span class='fraction'>13/13</span>
       </div>
     </div>
   </div>
@@ -71,62 +71,68 @@
 26
 27
 28
-29</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+29
+30
+31</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import initialState from './initialState/LoginState';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import initialState from './initialState/RegisterState';
 &nbsp;
-const loginReducer = (state = initialState, action) =&gt; {
+const registerReducer = (state = initialState, action) =&gt; {
   switch(action.type) {
-    case 'EMAIL_CHANGE':
-      return {...state, email: action.payload };
-    case 'PASSWORD_CHANGE':
-      return { ...state, password: action.payload };
-    case 'LOGIN_USER_PENDING':
-      return { ...state, loading: true, error: '', user: null };
-    case 'LOGIN_USER_FULFILLED':
-      return { ...state, loading: false, isLoggedIn: true, user: action.payload };
-    case 'LOGIN_USER_REJECTED':
-      return { ...state, loading: false, isLoggedIn: false, error: 'Unable to login', user: null };
-    case 'USER_LOGOUT_PENDING':
-      return { ...initialState }
-    case 'USER_LOGOUT_FULLFILLED':
-      return { ...initialState }
-    case 'USER_LOGOUT_REJECTED':
-      return { ...state, loading: false, error: 'Unable to logout! Try again.'}
-<span class="branch-8 cbranch-no" title="branch not covered" >    case 'FAILED_LOGIN_USER':</span>
-<span class="cstat-no" title="statement not covered" >      return { ...state, loading: false, isLoggedIn: false, error: 'Unable to login', user: null }</span>
+    case 'FIRST_NAME_CHANGE':
+      return { ...state, firstName: action.payload };
+    case 'LAST_NAME_CHANGE':
+      return { ...state, lastName: action.payload };
+    case 'USERNAME_CHANGE':
+      return { ...state, username: action.payload };
+    case 'REGISTER_EMAIL_CHANGE':
+      return { ...state, registerEmail: action.payload };
+    case 'REGISTER_PASSWORD_CHANGE':
+      return { ...state, registerPassword: action.payload };
+    case 'CONFIRM_PASSWORD_CHANGE':
+      return { ...state, confirmedPassword: action.payload };
+    case 'PASSWORD_CHECK':
+      return { ...state, matchedPassword: action.payload };
+    case 'CREATE_USER_PENDING':
+      return { ...state, loading: true, error: '' };
+    case 'CREATE_USER_FULFILLED':
+      return { ...state, loading: false, isLoggedIn: true, error: '' };
+    case 'CREATE_USER_REJECTED':
+      return { ...state, loading: false, isLoggedIn: false, error: 'Username is not available. Try again.' };
     default:
       return state;
   }
-};
+}
 &nbsp;
-export default loginReducer;
+export default registerReducer;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

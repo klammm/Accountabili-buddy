@@ -49,6 +49,8 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
     })
   }).then((res) => {
     return res.json();
+  }).then(responseJSON => {
+    return responseJSON
   }).catch((err) => {
     console.log('Register user error: ', err)
   })
@@ -91,7 +93,7 @@ const grabAllScores = () => {
       return scoresObj;
     })
     .catch((err) => {
-      console.log('Player Scores and Id: ', err);
+      console.log('Player Scores and Id error: ', err);
     })
 };
 
@@ -102,7 +104,6 @@ const getUserById = (userId) => {
     return res.json();
   })
   .then((responseJSON) => {
-    console.log('this is userProfile: ', responseJSON);
     return responseJSON;
   }).catch((err) => {
     console.log('userProfile error: ', err);
@@ -156,20 +157,6 @@ export const showAllTeams = () => {
   };
 };
 
-export const showAllPlayers = () => {
-  return {
-    type: 'SHOW_ALL_TEAM_PLAYERS',
-    payload: grabAllPlayers()
-  };
-};
-
-export const showAllScores = () => {
-  return {
-    type: 'SHOW_ALL_TEAM_PLAYERS_SCORES',
-    payload: grabAllScores()
-  }
-}
-
 export const emailChanged = (text) => {
   return {
     type: 'EMAIL_CHANGE',
@@ -184,17 +171,31 @@ export const passwordChanged = (text) => {
   };
 };
 
-export const loginUser = ({ email, password }) => {
-  return {
-    type: 'LOGIN_USER',
-    payload: login(email, password)
-  };
+export const loginUser = ({ email, password }, callback) => {
+  return (dispatch, getState) => {
+    dispatch({ type: 'LOGIN_USER', payload: login(email, password)
+    .then((data) => {
+      if (!data) {
+        dispatch({ type: 'FAILED_LOGIN_USER' })
+        return data;
+      }
+      callback('Slider')
+      dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(data.id) });
+      dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(data.id) });
+      dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
+      dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
+      return data;
+    })
+    });
+  }
 };
 
-export const logoutUser = () => {
-  return {
-    type: 'USER_LOGOUT',
-    payload: logout()
+export const logoutUser = (callback) => {
+  return (dispatch, getState) => {
+    dispatch({ type: 'USER_LOGOUT', payload: logout() });
+    dispatch({ type: "CLEAR_USER_PROFILE" });
+    dispatch({ type: "CLEAR_USER_SCORE" });
+    return callback('Login')
   }
 };
 
@@ -221,10 +222,9 @@ export const registerPasswordChanged = (text) => {
 };
 
 export const registerUser = ({ registerEmail, registerPassword, firstName, lastName, username }) => {
-  return {
-    type: 'CREATE_USER',
-    payload: createUser(registerEmail, registerPassword, firstName, lastName, username)
-  };
+  return (dispatch, getState) => {
+    dispatch({ type: 'CREATE_USER', payload: createUser(registerEmail, registerPassword, firstName, lastName, username) })
+  }
 };
 
 export const firstNameChanged = (text) => {
@@ -297,9 +297,27 @@ export const showUserScore = (userId) => {
   };
 };
 
-export const submitEvent = ({ reps, caption, imageUrl, userId }) => {
+export const showAllPlayers = () => {
   return {
-    type: 'CREATE_EVENT',
-    payload: createEvent(reps, caption, userId, imageUrl)
+    type: 'SHOW_ALL_TEAM_PLAYERS',
+    payload: grabAllPlayers()
   };
+};
+
+export const showAllScores = () => {
+  return {
+    type: 'SHOW_ALL_TEAM_PLAYERS_SCORES',
+    payload: grabAllScores()
+  };
+};
+
+export const submitEvent = ({ reps, caption, imageUrl, userId }) => {
+  return (dispatch, getState) => {
+    dispatch({ type: 'CREATE_EVENT', payload: createEvent(reps, caption, userId, imageUrl).then(() => {
+      dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(userId) });
+      dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(userId) });
+      dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
+      dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
+    }) });
+  }
 };

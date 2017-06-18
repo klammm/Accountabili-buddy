@@ -8,8 +8,8 @@ import Menu from '../components/Menu';
 
 
 // Swiping action achieved through two 'menus' one for vertical and one for horizontal swiping
-const SubMenu = () => (
-  <Menu
+export const SubMenu = (props) => {
+  return <Menu
     routes={
       [
         { component: Settings },
@@ -18,8 +18,9 @@ const SubMenu = () => (
     }
     initialIndex={1}
     horizontal={false}
+    {...props}
    />
-);
+};
 
 export default class Slider extends Component {
   render() {
@@ -31,6 +32,7 @@ export default class Slider extends Component {
           { component: Ducky },
         ]}
         initialIndex={1}
+        {...this.props}
       />
     );
   }

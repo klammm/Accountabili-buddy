@@ -17,10 +17,11 @@ import { RNS3 } from 'react-native-aws3';
 import { AWSAccessKeyId, AWSSecretKey } from 'react-native-dotenv';
 import uuid from 'react-native-uuid';
 
-const mapStateToProps = ({ photoEdit }) => {
+const mapStateToProps = ({ photoEdit, login }) => {
   const { reps, friends, caption, imageUrl } = photoEdit;
+  const { user } = login;
 
-  return { reps, friends, caption, imageUrl };
+  return { reps, friends, caption, imageUrl, user };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -110,8 +111,8 @@ class CameraRoute extends Component {
   onPictureSubmit() {
     const { reps, caption, imageUrl } = this.props;
     let userId;
-    if (this.state.User) {
-      userId = this.state.User.id
+    if (this.state.User || this.props.user) {
+      userId = this.state.User.id || this.props.user
     }
 
     this.props.submitEvent({ reps, caption, userId, imageUrl });
