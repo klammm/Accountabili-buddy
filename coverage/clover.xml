@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497745175772" clover="3.2.0">
-  <project timestamp="1497745175773" name="All files">
-    <metrics statements="57" coveredstatements="53" conditionals="49" coveredconditionals="45" methods="8" coveredmethods="8" elements="114" coveredelements="106" complexity="0" loc="57" ncloc="57" packages="2" files="15" classes="15">
+<coverage generated="1497745735987" clover="3.2.0">
+  <project timestamp="1497745735987" name="All files">
+    <metrics statements="57" coveredstatements="54" conditionals="49" coveredconditionals="46" methods="8" coveredmethods="8" elements="114" coveredelements="108" complexity="0" loc="57" ncloc="57" packages="2" files="15" classes="15">
       <package name="reducers">
-        <metrics statements="57" coveredstatements="53" conditionals="49" coveredconditionals="45" methods="8" coveredmethods="8"/>
+        <metrics statements="57" coveredstatements="54" conditionals="49" coveredconditionals="46" methods="8" coveredmethods="8"/>
         <file name="LoginReducer.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/LoginReducer.js">
           <metrics statements="12" coveredstatements="11" conditionals="11" coveredconditionals="10" methods="1" coveredmethods="1"/>
           <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -72,17 +72,17 @@
         <file name="UserProfileReducer.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/UserProfileReducer.js">
           <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
           <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-          <line num="4" count="2" type="cond" truecount="2" falsecount="1"/>
+          <line num="4" count="3" type="cond" truecount="2" falsecount="1"/>
           <line num="6" count="1" type="stmt"/>
           <line num="8" count="0" type="stmt"/>
-          <line num="10" count="1" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
         </file>
         <file name="UserScoreReducer.js" path="/Users/marylai/galvanize/capstone/Accountabili-buddy/src/reducers/UserScoreReducer.js">
-          <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
-          <line num="2" count="2" type="cond" truecount="2" falsecount="1"/>
+          <line num="2" count="3" type="cond" truecount="3" falsecount="0"/>
           <line num="4" count="1" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
         </file>
       </package>
