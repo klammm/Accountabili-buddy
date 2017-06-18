@@ -220,7 +220,7 @@ const lightPurpleOpacity = 'rgba(190, 7, 247, 0.58)';
 const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const darkPurple = 'rgba(127, 13, 205, 0.38)';
 const white = 'rgba(255, 255, 255, 0.96)';
-const transparentWhite = 'rgba(255, 255, 255, 0.65)';
+const transparentWhite = 'rgba(255, 255, 255, 0.45)';
 const successGreen = 'rgba(134, 255, 115, 0.65)';
 
 const styles = StyleSheet.create({
