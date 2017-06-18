@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import LinearGradient from 'react-native-linear-gradient';
-import loginImg from '../../assets/images/loginImg.jpg';
+import loginImg from '../../assets/images/loginImg.png';
+
 
 const mapStateToProps = ({ login }) => {
   const { email, password, error, loading, isLoggedIn } = login;
@@ -48,11 +49,11 @@ class Login extends Component {
     return (
       <Image source={loginImg} style={styles.imgContainer}>
         <Card style={styles.fullBackground}>
-          <Text style={styles.welcome}>ACCOUNTABLE</Text>
+          <Text style={styles.welcome}>Actbl</Text>
 
           <Card style={styles.onBoard}>
             <Card style={styles.onBoard}>
-              <CardSection style={styles.input}>
+              <CardSection>
               <Input
                 placeholder="example@gmail.com"
                 label='Email'
@@ -62,7 +63,7 @@ class Login extends Component {
               />
             </CardSection>
 
-            <CardSection style={styles.input} >
+            <CardSection >
               <Input
                 placeholder='password'
                 label="Password"
@@ -80,7 +81,7 @@ class Login extends Component {
 
           <Card style={styles.spinnerButtons}>
             <CardSection style={styles.loginButtons}>
-              <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: darkPurple, borderColor: darkPurple }}>
+              <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: darkPurple, borderColor: darkerPurple }}>
                 SIGN UP
               </Button>
             </CardSection>
@@ -105,9 +106,11 @@ Login.navigationOptions = {
   header: null
 }
 
-const darkPurple = 'rgba(127, 13, 205, 0.68)';
+const darkerPurple = 'rgba(127, 13, 205, 0.98)'
+const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const lightPurple = '#D961FF';
-const transparentWhite = 'rgba(255, 255, 255, 0.95)';
+const lightPurpleOpacity = 'rgba(190, 7, 247, 0.58)';
+const transparentWhite = 'rgba(255, 255, 255, 0.75)';
 const transparentPurple = 'rgba(165, 84, 204, 0.85)'
 
 const styles = StyleSheet.create({
@@ -125,12 +128,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   welcome: {
-    fontSize: 40,
+    fontSize: 44,
     textAlign: 'center',
     margin: 10,
     marginTop: 100,
     marginBottom: 30,
-    color: transparentWhite,
+    color: 'white',
     fontWeight: 'bold',
     backgroundColor: 'transparent'
   },
@@ -139,10 +142,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     alignSelf: 'center',
     color: darkPurple
-  },
-  input: {
-    borderBottomWidth: 1,
-    borderColor: lightPurple
   },
   onBoard: {
     marginTop: 20,

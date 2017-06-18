@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Button = ({ whenPressed, children, style }) => {
   const { buttonStyle, textStyle } = styles;
@@ -10,9 +11,9 @@ const Button = ({ whenPressed, children, style }) => {
       onPress={whenPressed}
       underlayColor='white'
       style={[buttonStyle, style]}>
-      <Text style={textStyle}>
-        { children }
-      </Text>
+            <Text style={textStyle}>
+              { children }
+            </Text>
     </TouchableOpacity>
   );
 }
@@ -20,6 +21,7 @@ const Button = ({ whenPressed, children, style }) => {
 const darkPurple = '#9552CE';
 const lightPurple = '#D961FF';
 const transparentWhite = 'rgba(255, 255, 255, 0.95)';
+const brightWhite = 'rgba(255, 255, 255, 0.99)';
 
 const styles = StyleSheet.create({
   buttonStyle: {
@@ -28,14 +30,14 @@ const styles = StyleSheet.create({
     backgroundColor: transparentWhite,
     borderRadius: 25,
     borderWidth: 1.8,
-    borderColor: lightPurple,
+    borderColor: brightWhite,
     marginLeft: 25,
     marginRight: 25,
     height: 40,
     width: 125,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.4,
     shadowRadius: 2,
     elevation: 1,
   },

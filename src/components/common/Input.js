@@ -24,11 +24,12 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
   );
 };
 
-const darkPurple = 'rgba(127, 13, 205, 0.68)';
+const darkPurple = 'rgba(127, 13, 205, 0.38)';
+const lightPurple = '#D961FF';
 
 const styles = StyleSheet.create({
   inputStyle: {
-    color: darkPurple,
+    color: 'white',
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 15,
@@ -40,7 +41,9 @@ const styles = StyleSheet.create({
     height: 30,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: lightPurple
   }
 });
 
