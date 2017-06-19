@@ -51,7 +51,7 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 }
 
-class Register extends Component {
+export class Register extends Component {
   onRegisterEmailChange(text) {
     this.props.registerEmailChanged(text);
   }

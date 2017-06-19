@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for containers/DuckyRace/PlayerItem.js</title>
+    <title>Code coverage report for reducers/__test__/actions/fixtures/allTeams.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">containers/DuckyRace</a> PlayerItem.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">reducers/__test__/actions/fixtures</a> allTeams.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">18.18% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/11</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/10</span>
+        <span class='fraction'>1/1</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -139,14 +139,25 @@
 94
 95
 96
-97</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,16 +167,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,7 +193,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,112 +238,148 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
-import { Card, CardSection } from '../../components/common';
-import wave from '../../../assets/images/wave.png';
-import ducky from '../../../assets/images/ducky.png';
-&nbsp;
-const PlayerItem = <span class="fstat-no" title="function not covered" >({</span> player, scores }) =&gt; {
-  const { user_name, first_name, last_name, profile_image_url, id } = <span class="cstat-no" title="statement not covered" >player;</span>
-  const {
-    thumbnailContainerStyle,
-    thumnbnailStyle,
-    headerContentStyle,
-    headerTextStyle,
-    imageStyle,
-    duckyContainerStyle,
-    wavesStyle,
-    duckyStyle
-  } = <span class="cstat-no" title="statement not covered" >styles;</span>
-&nbsp;
-  let arr = <span class="cstat-no" title="statement not covered" >[];</span>
-<span class="cstat-no" title="statement not covered" >  scores = Number(scores);</span>
-<span class="cstat-no" title="statement not covered" >  for (let i = 0; i &lt; scores; i += 1) {</span>
-<span class="cstat-no" title="statement not covered" >      arr.push('w');</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const allTeamsModel = [
+  {
+    id: 1,
+    name: 'g42',
+    team_image_url: 'https://media.glassdoor.com/sqll/825775/galvanize-squarelogo-1429039425588.png',
+    created_at: '2016-06-26T14:26:16.000Z',
+    updated_at: '2016-06-26T14:26:16.000Z',
+    users: [
+      {
+        id: 1,
+        user_name: 'klam',
+        first_name: 'Kevin',
+        last_name: 'Lam',
+        profile_image_url: 'https://pbs.twimg.com/profile_images/842876355800788992/bQ4YV83U_400x400.jpg',
+        email: 'klamklam@gahbo.com',
+        created_at: '2017-04-24T10:21:16.000Z',
+        updated_at: '2017-04-24T10:21:16.000Z',
+        _pivot_id: 1,
+        _pivot_team_id: 1,
+        _pivot_user_id: 1
+      },
+      {
+        id: 2,
+        user_name: 'paolita',
+        first_name: 'Paola',
+        last_name: 'Claros',
+        profile_image_url: 'https://pbs.twimg.com/profile_images/832357648884342784/ZDEXxcfN_400x400.jpg',
+        email: 'paolita.claros+test@gmail.com',
+        created_at: '2017-04-24T10:22:16.000Z',
+        updated_at: '2017-04-24T10:22:16.000Z',
+        _pivot_id: 2,
+        _pivot_team_id: 1,
+        _pivot_user_id: 2
+      },
+      {
+        id: 3,
+        user_name: 'mez',
+        first_name: 'Mary',
+        last_name: 'Lai',
+        profile_image_url: 'https://pbs.twimg.com/profile_images/854522454177226752/_PExneEw_400x400.jpg',
+        email: 'mez@lychee.com',
+        created_at: '2017-04-24T10:23:16.000Z',
+        updated_at: '2017-04-24T10:23:16.000Z',
+        _pivot_id: 3,
+        _pivot_team_id: 1,
+        _pivot_user_id: 3
+      },
+      {
+        id: 4,
+        user_name: 'ham-dawg',
+        first_name: 'Hamid',
+        last_name: 'Aghdaee',
+        profile_image_url: 'https://ca.slack-edge.com/T1T555TL0-U3AQUK7GS-9df641a8d4bf-512',
+        email: 'h@mid.com',
+        created_at: '2017-04-24T10:23:16.000Z',
+        updated_at: '2017-04-24T10:23:16.000Z',
+        _pivot_id: 4,
+        _pivot_team_id: 1,
+        _pivot_user_id: 4
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: 'g52',
+    team_image_url: 'https://media.glassdoor.com/sqll/825775/galvanize-squarelogo-1429039425588.png',
+    created_at: '2016-06-26T14:26:16.000Z',
+    updated_at: '2016-06-26T14:26:16.000Z',
+    users: [
+      {
+        id: 4,
+        user_name: 'ham-dawg',
+        first_name: 'Hamid',
+        last_name: 'Aghdaee',
+        profile_image_url: 'https://ca.slack-edge.com/T1T555TL0-U3AQUK7GS-9df641a8d4bf-512',
+        email: 'h@mid.com',
+        created_at: '2017-04-24T10:23:16.000Z',
+        updated_at: '2017-04-24T10:23:16.000Z',
+        _pivot_id: 5,
+        _pivot_team_id: 2,
+        _pivot_user_id: 4
+      }
+    ]
+  },
+  {
+    id: 3,
+    name: 'g Web Instructors',
+    team_image_url: 'https://media.glassdoor.com/sqll/825775/galvanize-squarelogo-1429039425588.png',
+    created_at: '2016-06-26T14:26:16.000Z',
+    updated_at: '2016-06-26T14:26:16.000Z',
+    users: [
+      {
+        id: 4,
+        user_name: 'ham-dawg',
+        first_name: 'Hamid',
+        last_name: 'Aghdaee',
+        profile_image_url: 'https://ca.slack-edge.com/T1T555TL0-U3AQUK7GS-9df641a8d4bf-512',
+        email: 'h@mid.com',
+        created_at: '2017-04-24T10:23:16.000Z',
+        updated_at: '2017-04-24T10:23:16.000Z',
+        _pivot_id: 6,
+        _pivot_team_id: 3,
+        _pivot_user_id: 4
+      }
+    ]
   }
-  let resultarr = <span class="cstat-no" title="statement not covered" >arr.map(<span class="fstat-no" title="function not covered" >w </span>=&gt; <span class="cstat-no" title="statement not covered" >&lt;Image style={wavesStyle} source={wave} /&gt;)</span>;</span>
+];
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;Card&gt;
-      &lt;CardSection&gt;
-        &lt;View style={thumbnailContainerStyle}&gt;
-          &lt;Image style={thumnbnailStyle} source={{ uri: profile_image_url }} /&gt;
-        &lt;/View&gt;
-&nbsp;
-        &lt;View style={headerContentStyle}&gt;
-          &lt;Text style={headerTextStyle}&gt;{user_name}&lt;/Text&gt;
-          &lt;Text&gt;{first_name} {last_name}&lt;/Text&gt;
-&nbsp;
-&nbsp;
-          &lt;View style={duckyContainerStyle}&gt;
-            &lt;Text&gt;{scores}&lt;/Text&gt;
-            { resultarr }
-&nbsp;
-            &lt;Image style={duckyStyle} source={ducky} /&gt;
-          &lt;/View&gt;
-        &lt;/View&gt;
-        &lt;/CardSection&gt;
-    &lt;/Card&gt;
-  );
-};
-&nbsp;
-const styles = {
-  thumbnailContainerStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10
-  },
-  thumnbnailStyle: {
-    height: 50,
-    width: 50,
-    borderRadius: 25
-  },
-  headerContentStyle: {
-    flexDirection: 'column',
-    justifyContent: 'space-around'
-  },
-  headerTextStyle: {
-    fontSize: 18
-  },
-  imageStyle: {
-    height: 300,
-    flex: 1,
-    width: null
-  },
-  duckyContainerStyle: {
-    padding: 5,
-    backgroundColor: 'transparent',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    borderColor: 'transparent',
-    position: 'relative'
-  },
-  wavesStyle: {
-    height: 7,
-    width: 5
-  },
-  duckyStyle: {
-    height: 30,
-    width: 34,
-    marginBottom: 5,
-    paddingBottom: 5,
-    position: 'relative'
-  }
-};
-&nbsp;
-export default PlayerItem;
+export default allTeamsModel;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 14 2017 11:46:41 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 23:37:35 GMT-0700 (PDT)
 </div>
 </div>
-<script src="../../prettify.js"></script>
+<script src="../../../../prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -348,6 +387,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="../../sorter.js"></script>
+<script src="../../../../sorter.js"></script>
 </body>
 </html>
