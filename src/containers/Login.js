@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, Image } from 'react-native';
+import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -47,59 +47,69 @@ class Login extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
+      <KeyboardAvoidingView
+        style={styles.imgContainer}
+        behavior="padding">
       <Image source={loginImg} style={styles.imgContainer}>
-        <Card style={styles.fullBackground}>
+        <View style={styles.fullBackground}>
           <Text style={styles.welcome}>Actbl</Text>
 
-          <Card style={styles.onBoard}>
-            <Card style={styles.onBoard}>
-              <CardSection>
-              <Input
-                colorOveride={{ color: 'blue'}}
-                placeholder="example@gmail.com"
-                label='Email'
-                autoCapitalize={'none'}
-                value={this.props.email}
-                onChangeText={this.onEmailChange.bind(this)}
-              />
-            </CardSection>
+            <View style={styles.onBoard}>
+              <Card style={styles.onBoardInput}>
 
-            <CardSection >
-              <Input
-                placeholder='password'
-                label="Password"
-                autoCapitalize={'none'}
-                secureTextEntry
-                value={this.props.password}
-                onChangeText={this.onPasswordChange.bind(this)}
-              />
-            </CardSection>
-          </Card>
+                <CardSection>
+                <Input
+                  colorOveride={{ color: 'blue'}}
+                  placeholder="email"
+                  label='Email'
+                  autoCapitalize={'none'}
+                  value={this.props.email}
+                  onChangeText={this.onEmailChange.bind(this)}
+                />
+              </CardSection>
 
-          <Text style={styles.errorTextStyle}>
-            {this.props.error}
-          </Text>
+              <CardSection >
+                <Input
+                  placeholder='password'
+                  label="Password"
+                  autoCapitalize={'none'}
+                  secureTextEntry
+                  value={this.props.password}
+                  onChangeText={this.onPasswordChange.bind(this)}
+                />
+              </CardSection>
+            </Card>
 
-          <Card style={styles.spinnerButtons}>
-            <CardSection style={styles.loginButtons}>
-              <Button
-                whenPressed={() => navigate('Register')}
-                textStyleOverRide={{ color: 'white'}}
-                style={{ backgroundColor: darkPurple, borderColor: darkerPurple }}>
-                SIGN UP
-              </Button>
-            </CardSection>
+            <Text style={styles.errorTextStyle}>
+              {this.props.error}
+            </Text>
 
-            <CardSection style={styles.loginButtons}>
-              <Button whenPressed={() => this.onLoginAttempt()}>
-                LOG IN
-              </Button>
-            </CardSection>
-          </Card>
-          {this.renderSpinner()}
-          </Card>
-        </Card>
+            <Card style={styles.spinner}>
+              {this.renderSpinner()}
+
+            </Card>
+
+            <Card style={styles.button}>
+              <CardSection style={styles.loginButtons}>
+                <Button
+                  whenPressed={() => navigate('Register')}
+                  textStyleOverRide={{ color: 'white'}}
+                  style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
+                  SIGN UP
+                </Button>
+              </CardSection>
+
+              <CardSection style={styles.loginButtons}>
+                <Button whenPressed={() => this.onLoginAttempt()}>
+                  LOG IN
+                </Button>
+              </CardSection>
+
+            </Card>
+            </View>
+        </View>
       </Image>
+    </KeyboardAvoidingView>
 
     )
   }
@@ -132,17 +142,25 @@ const styles = StyleSheet.create({
     height: null,
   },
   fullBackground: {
+    position: 'absolute',
+    alignItems: 'center',
+    flexDirection: 'column',
     backgroundColor: 'transparent',
+    flex: 1,
+    width: null,
+    height: null,
   },
   welcome: {
     fontSize: 44,
-    textAlign: 'center',
     margin: 10,
     marginTop: 100,
     marginBottom: 30,
     color: 'white',
     fontWeight: 'bold',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   errorTextStyle: {
     marginTop: 20,
@@ -151,18 +169,26 @@ const styles = StyleSheet.create({
     color: darkPurple
   },
   onBoard: {
+    position: 'relative',
+    marginTop: 20,
+    marginLeft: 40,
+    marginRight: 40,
+    width: 300,
+  },
+  onBoardInput: {
     marginTop: 20,
     marginLeft: 40,
     marginRight: 40
   },
-  spinnerButtons: {
-    marginTop: 15
+  button: {
+    marginTop: 15,
+    marginLeft: 15
   },
   loginButtons: {
-    marginTop: 4
+    marginTop: 4,
   },
   spinner: {
-    marginTop: 40
+    height: 40
   }
 })
 

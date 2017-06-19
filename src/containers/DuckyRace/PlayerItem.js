@@ -14,7 +14,8 @@ const PlayerItem = ({ player, scores }) => {
     duckyContainerStyle,
     wavesStyle,
     duckyStyle,
-    scoresTextStyle
+    scoresTextStyle,
+    playerSections
   } = styles;
 
   let arr = [];
@@ -34,7 +35,7 @@ const PlayerItem = ({ player, scores }) => {
 
   return (
     <Card>
-      <CardSection>
+      <CardSection style={playerSections}>
         <View style={thumbnailContainerStyle}>
           <Image style={thumnbnailStyle} source={{ uri: profile_image_url }} />
           <Text style={headerTextStyle}>{user_name}</Text>
@@ -53,10 +54,24 @@ const PlayerItem = ({ player, scores }) => {
   );
 };
 
+
+const lightPinkSlider = 'rgba(247, 62, 245, 0.19)';
+const lightPinkOpacity = 'rgba(252, 74, 213, 0.14)';
+const white = 'rgb(255, 255, 255)';
+
 const styles = {
+  playerSections: {
+    backgroundColor: lightPinkOpacity,
+    borderRadius: 5,
+    borderWidth: 1.8,
+    borderColor: lightPinkSlider,
+    marginLeft: 4,
+    margin: 4
+  },
   thumbnailContainerStyle: {
     justifyContent: 'center',
     alignItems: 'center',
+    width: 45,
     marginLeft: 10,
     marginRight: 10
   },
@@ -70,10 +85,10 @@ const styles = {
     justifyContent: 'space-around'
   },
   headerTextStyle: {
-    marginTop: 1,
+    marginTop: 3,
     fontSize: 12,
     fontWeight: 'bold',
-    color: 'rgb(33, 16, 92)'
+    color: white
   },
   duckyContainerStyle: {
     marginTop: 11,

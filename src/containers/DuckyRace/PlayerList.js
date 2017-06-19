@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ListView, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ListView, ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { showAllPlayers } from '../../actions';
@@ -7,6 +7,7 @@ import { showAllScores } from '../../actions';
 import { Header } from '../../components/common';
 import PlayerItem from './PlayerItem';
 import axios from 'axios';
+import duckyBackground from '../../../assets/images/duckyBackground.png';
 
 const mapStateToProps = (state) => {
   return {
@@ -23,6 +24,7 @@ class PlayerList extends Component {
   componentWillMount() {
     this.props.showAllPlayers();
     this.props.showAllScores();
+    console.log(this.props.playersList);
   }
 
   renderPlayers() {
@@ -33,19 +35,35 @@ class PlayerList extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <Header style={styles.headerTextStyle} headerText={'Ducky Race'} />
-        {this.renderPlayers()}
-      </ScrollView>
+      <Image source={duckyBackground} style={styles.imgContainer}>
+        <ScrollView>
+          <Header style={styles.headerStyle}
+            headerTextStyle={styles.headerTextStyle}
+            headerText={'Ducky Race'} />
+          {this.renderPlayers()}
+        </ScrollView>
+    </Image>
     );
   }
 }
 
+const lightPurple = '#D961FF';
+
 const styles = {
-  headerTextStyle: {
+  headerStyle: {
     fontSize: 18,
-    backgroundColor: 'rgb(177, 92, 252)',
+    backgroundColor: 'transparent',
+    borderColor: lightPurple,
+    marginTop: 30
   },
+  headerTextStyle: {
+    color: lightPurple
+  },
+  imgContainer: {
+    flex: 1,
+    width: null,
+    height: null
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerList);

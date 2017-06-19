@@ -131,7 +131,6 @@ class CameraRoute extends Component {
           style={styles.preview}
         >
 
-
         <View style={styles.inputs}>
 
           <CardSection style={{ backgroundColor: 'transparent' }}>
