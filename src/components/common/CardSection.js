@@ -9,14 +9,13 @@ const CardSection = ({ children, style }) => {
   );
 };
 
-const $white = '#fff';
-const $grey = '#ddd';
+const $main = 'transparent';
+const $grey = 'transparent';
 
 const styles = StyleSheet.create({
   containerStyle: {
-    borderBottomWidth: 1,
     padding: 5,
-    backgroundColor: $white,
+    backgroundColor: $main,
     borderColor: $grey,
     justifyContent: 'flex-start',
     flexDirection: 'row',

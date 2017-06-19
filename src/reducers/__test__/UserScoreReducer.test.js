@@ -11,4 +11,8 @@ describe('user scores reducer tests', () => {
   it('should return the user score for when the case is the user score fulfilled', () => {
     expect(userScoreReducer(state, { type: 'SHOW_USER_SCORE_FULFILLED', payload: 566 })).toEqual(566);
   });
+
+  it('should clear the user score', () => {
+    expect(userScoreReducer(state, { type: 'CLEAR_USER_SCORE'})).toEqual(null)
+  })
 })

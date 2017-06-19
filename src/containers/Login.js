@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
+import LinearGradient from 'react-native-linear-gradient';
+import loginImg from '../../assets/images/loginImg.png';
+
 
 const mapStateToProps = ({ login }) => {
   const { email, password, error, loading, isLoggedIn } = login;
@@ -15,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
-class Login extends Component {
+export class Login extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -33,57 +36,81 @@ class Login extends Component {
   renderSpinner() {
     if (this.props.loading) {
       return (
-        <CardSection>
+        <CardSection style={styles.spinner}>
           <Spinner size='large' />
         </CardSection>
       )
     }
     const { navigate } = this.props.navigation;
-
-    return (
-      <CardSection>
-        <Button whenPressed={() => this.onLoginAttempt()}>
-          Log in
-        </Button>
-        <Button whenPressed={() => navigate('Register')} style={{ backgroundColor: '#4CB906', borderColor: '#4CB906' }}>
-          Sign Up
-        </Button>
-      </CardSection>
-    );
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
-      <Card>
-        <Text style={styles.welcome}>Accountabili-Buddy</Text>
+      <KeyboardAvoidingView
+        style={styles.imgContainer}
+        behavior="padding">
+      <Image source={loginImg} style={styles.imgContainer}>
+        <View style={styles.fullBackground}>
+          <Text style={styles.welcome}>Actbl</Text>
 
-        <CardSection>
-          <Input
-            placeholder="example@gmail.com"
-            label='Email'
-            autoCapitalize={'none'}
-            value={this.props.email}
-            onChangeText={this.onEmailChange.bind(this)}
-          />
-        </CardSection>
+            <View style={styles.onBoard}>
+              <Card style={styles.onBoardInput}>
 
-        <CardSection>
-          <Input
-            placeholder='Password'
-            label="Password"
-            autoCapitalize={'none'}
-            secureTextEntry
-            value={this.props.password}
-            onChangeText={this.onPasswordChange.bind(this)}
-          />
-        </CardSection>
+                <CardSection>
+                <Input
+                  colorOveride={{ color: 'blue'}}
+                  placeholder="email"
+                  label='Email'
+                  autoCapitalize={'none'}
+                  value={this.props.email}
+                  onChangeText={this.onEmailChange.bind(this)}
+                />
+              </CardSection>
 
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
+              <CardSection >
+                <Input
+                  placeholder='password'
+                  label="Password"
+                  autoCapitalize={'none'}
+                  secureTextEntry
+                  value={this.props.password}
+                  onChangeText={this.onPasswordChange.bind(this)}
+                />
+              </CardSection>
+            </Card>
 
-        {this.renderSpinner()}
-      </Card>
+            <Text style={styles.errorTextStyle}>
+              {this.props.error}
+            </Text>
+
+            <Card style={styles.spinner}>
+              {this.renderSpinner()}
+
+            </Card>
+
+            <Card style={styles.button}>
+              <CardSection style={styles.loginButtons}>
+                <Button
+                  whenPressed={() => navigate('Register')}
+                  textStyleOverRide={{ color: 'white'}}
+                  style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
+                  SIGN UP
+                </Button>
+              </CardSection>
+
+              <CardSection style={styles.loginButtons}>
+                <Button whenPressed={() => this.onLoginAttempt()}>
+                  LOG IN
+                </Button>
+              </CardSection>
+
+            </Card>
+            </View>
+        </View>
+      </Image>
+    </KeyboardAvoidingView>
+
     )
   }
 }
@@ -93,16 +120,75 @@ Login.navigationOptions = {
   header: null
 }
 
+const darkerPurple = 'rgba(127, 13, 205, 0.98)'
+const darkPurple = 'rgba(127, 13, 205, 0.58)';
+const lightPurple = '#D961FF';
+const lightPurpleOpacity = 'rgba(190, 7, 247, 0.58)';
+const transparentWhite = 'rgba(255, 255, 255, 0.75)';
+const transparentPurple = 'rgba(165, 84, 204, 0.85)'
+
 const styles = StyleSheet.create({
+  inputText: {
+    color: darkPurple
+  },
+  imgContainer: {
+    flex: 1,
+    width: null,
+    height: null
+  },
+  linearGradient: {
+    flex: 1,
+    width: null,
+    height: null,
+  },
+  fullBackground: {
+    position: 'absolute',
+    alignItems: 'center',
+    flexDirection: 'column',
+    backgroundColor: 'transparent',
+    flex: 1,
+    width: null,
+    height: null,
+  },
   welcome: {
-    fontSize: 20,
-    textAlign: 'center',
+    fontSize: 44,
     margin: 10,
+    marginTop: 100,
+    marginBottom: 30,
+    color: 'white',
+    fontWeight: 'bold',
+    backgroundColor: 'transparent',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   errorTextStyle: {
-    fontSize: 20,
+    marginTop: 20,
+    fontSize: 15,
     alignSelf: 'center',
-    color: 'red'
+    color: darkPurple
+  },
+  onBoard: {
+    position: 'relative',
+    marginTop: 20,
+    marginLeft: 40,
+    marginRight: 40,
+    width: 300,
+  },
+  onBoardInput: {
+    marginTop: 20,
+    marginLeft: 40,
+    marginRight: 40
+  },
+  button: {
+    marginTop: 15,
+    marginLeft: 15
+  },
+  loginButtons: {
+    marginTop: 4,
+  },
+  spinner: {
+    height: 40
   }
 })
 

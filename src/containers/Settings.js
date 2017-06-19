@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ logoutUser }, dispatch);
 }
 
-class Settings extends Component {
+export class Settings extends Component {
   onLogoutAttempt() {
     this.props.logoutUser(this.props.navigation.navigate)
   }

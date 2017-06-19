@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 import moment from 'moment';
 
 
-const login = (email, password) => {
+export const login = (email, password) => {
   const url = 'https://bilibuddy-api.herokuapp.com/token'
   return fetch(url, {
     mode: 'no-cors',
@@ -56,7 +56,7 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
   })
 };
 
-const grabAllTeams = () => {
+export const grabAllTeams = () => {
   const url = 'https://bilibuddy-api.herokuapp.com/teams';
   return fetch(url)
     .then(res => res.json())
@@ -79,7 +79,7 @@ const grabAllPlayers = () => {
     })
 };
 
-const grabAllScores = () => {
+export const grabAllScores = () => {
   let beginDate = moment().startOf('week').add(1, 'days').format('YYYY MM DD').replace(/ /g, '-');
   let endDate = moment().startOf('week').add(7, 'days').format('YYYY MM DD').replace(/ /g, '-');
   const url = `https://bilibuddy-api.herokuapp.com/teams/1/score?start=${beginDate}&end=${endDate}`
@@ -313,11 +313,16 @@ export const showAllScores = () => {
 
 export const submitEvent = ({ reps, caption, imageUrl, userId }) => {
   return (dispatch, getState) => {
-    dispatch({ type: 'CREATE_EVENT', payload: createEvent(reps, caption, userId, imageUrl).then(() => {
-      dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(userId) });
-      dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(userId) });
-      dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
-      dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
-    }) });
+    return dispatch({
+      type: 'CREATE_EVENT',
+      payload: createEvent(reps, caption, userId, imageUrl).then(event => {
+        console.log(event, '++++');
+        dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(userId) });
+        dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(userId) });
+        dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
+        dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
+        return event;
+      })
+    });
   }
 };

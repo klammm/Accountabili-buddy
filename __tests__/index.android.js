@@ -1,3 +1,4 @@
+
 // import 'react-native';
 // import React from 'react';
 // import Index from '../index.android.js';
@@ -10,3 +11,8 @@
 //     <Index />
 //   );
 // });
+describe('index android test', () => {
+  it('should return true', () => {
+    expect(true).toEqual(true);
+  });
+});

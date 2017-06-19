@@ -64,4 +64,10 @@ describe('userProfile reducer tests', () => {
     });
   });
 
+  it('should clear the user profile', () => {
+    expect(userProfileReducer(state, () => {
+      type: 'CLEAR_USER_PROFILE'
+    })).toEqual({...state})
+  });
+
 });

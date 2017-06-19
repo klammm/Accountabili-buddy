@@ -6,7 +6,8 @@ import {
   TouchableHighlight,
   Image,
   Text,
-  AsyncStorage
+  AsyncStorage,
+  KeyboardAvoidingView
 } from 'react-native';
 import { Input, Button, Card, CardSection } from '../components/common';
 import { connect } from 'react-redux';
@@ -121,21 +122,20 @@ class CameraRoute extends Component {
 
   renderImage() {
     return (
-      <View style={{ position: 'absolute', alignItems: 'center', flexDirection: 'column'}}>
+      <KeyboardAvoidingView
+        style={styles.renderImage}
+        behavior="padding">
+
         <Image
           source={{ uri: this.state.path }}
           style={styles.preview}
-        />
-        <Card style={{ position: 'absolute', alignItems: 'center', flexDirection: 'column', width: 300, height: 200, backgroundColor: 'transparent', top: 50 }}>
-          <CardSection style={{ backgroundColor: 'transparent', borderColor: 'transparent' }}>
-            <Button whenPressed={() => this.onPictureSubmit()}>
-              Submit
-            </Button>
-          </CardSection>
+        >
+
+        <View style={styles.inputs}>
 
           <CardSection style={{ backgroundColor: 'transparent' }}>
             <Input
-              placeholder="Over 9000"
+              placeholder="rep count"
               autoCapitalize={'none'}
               onChangeText={this.onRepsChange.bind(this)}
               keyboardType={'numeric'}
@@ -144,7 +144,7 @@ class CameraRoute extends Component {
 
           <CardSection style={{ backgroundColor: 'transparent' }}>
             <Input
-              placeholder="Add your message to the world!"
+              placeholder='caption'
               autoCapitalize={'none'}
               onChangeText={this.onCaptionChange.bind(this)}
               multiline
@@ -156,18 +156,31 @@ class CameraRoute extends Component {
           <CardSection style={{ backgroundColor: 'transparent' }}>
 
             <Input
-              label="Tag your friends!"
+              label="tag friends"
               onChangeText={this.onTagFriendsChange.bind(this)}
               autoCapitalize={'none'}
-              placeholder="@ThrillClinton" />
+              placeholder="tag friends @..." />
           </CardSection>
-        </Card>
-        <Text
-          style={styles.cancel}
-          onPress={() => this.setState({ path: null })}
-        >Cancel
-        </Text>
-      </View>
+        </View>
+
+        <View style={styles.cancelContainer}>
+          <Button
+            textStyleOverRide={styles.textStyleOverRide}
+            style={styles.cancelButton}
+            whenPressed={() => this.setState({ path: null })}>
+            x
+          </Button>
+        </View>
+        <View style={styles.btnContainer}>
+            <Button
+              whenPressed={() => this.onPictureSubmit()}
+              textStyleOverRide={styles.textStyleOverRide}
+              style={styles.button}>
+              ↑
+            </Button>
+        </View>
+      </Image>
+      </KeyboardAvoidingView>
     );
   }
 
@@ -180,11 +193,17 @@ class CameraRoute extends Component {
   }
 };
 
+const lightPurple = '#D961FF';
+const transparentWhite = 'rgba(255, 255, 255, 0.5)';
+const darkPurple = 'rgba(127, 13, 205, 0.58)';
+const darkerPurple = 'rgba(127, 13, 205, 0.98)'
+const brightWhite = 'rgba(255, 255, 255, 0.99)';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     backgroundColor: '#000',
   },
   preview: {
@@ -202,14 +221,53 @@ const styles = StyleSheet.create({
     borderColor: '#FFF',
     marginBottom: 15,
   },
-  cancel: {
+  renderImage: {
     position: 'absolute',
-    right: 20,
-    top: 20,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'flex-end'
+  },
+  inputs: {
+    position: 'absolute',
+    alignItems: 'center',
+    flexDirection: 'column',
+    width: 300,
+    height: 200,
     backgroundColor: 'transparent',
-    color: '#FFF',
+    bottom: 50
+  },
+  btnContainer: {
+    position: 'absolute',
+    right: 5,
+    bottom: 20,
+    backgroundColor: 'transparent',
+  },
+  cancelContainer: {
+    position: 'absolute',
+    right: -5,
+    top: 10,
+    backgroundColor: 'transparent',
+  },
+  textStyleOverRide: {
+    color: brightWhite,
+    paddingTop: 6,
+    paddingBottom: 0,
+    fontSize: 24,
     fontWeight: '600',
-    fontSize: 17,
+  },
+  button: {
+    backgroundColor: lightPurple,
+    borderColor: lightPurple,
+    height: 45,
+    width: 45,
+    flex: null
+  },
+  cancelButton: {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    height: 45,
+    width: 45,
+    flex: null
   }
 });
 

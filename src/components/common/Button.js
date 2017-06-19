@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const Button = ({ whenPressed, children, style }) => {
+const Button = ({ whenPressed, children, style, textStyleOverRide }) => {
   const { buttonStyle, textStyle } = styles;
 
   return (
@@ -10,31 +10,43 @@ const Button = ({ whenPressed, children, style }) => {
       onPress={whenPressed}
       underlayColor='white'
       style={[buttonStyle, style]}>
-      <Text style={textStyle}>
-        { children }
-      </Text>
+            <Text style={[textStyle, textStyleOverRide]}>
+              { children }
+            </Text>
     </TouchableOpacity>
   );
 }
 
+const darkPurple = '#9552CE';
+const lightPurple = '#D961FF';
+const transparentWhite = 'rgba(255, 255, 255, 0.95)';
+const brightWhite = 'rgba(255, 255, 255, 0.99)';
+
 const styles = StyleSheet.create({
   buttonStyle: {
-    flex: 1,
+    flex: 0.8,
     alignSelf: 'stretch',
-    backgroundColor: '#007aff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5
+    backgroundColor: transparentWhite,
+    borderRadius: 25,
+    borderWidth: 1.8,
+    borderColor: brightWhite,
+    marginLeft: 25,
+    marginRight: 25,
+    height: 40,
+    width: 125,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    elevation: 1,
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#fff',
-    fontSize: 16,
+    color: lightPurple,
+    fontSize: 15,
     fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10
+    paddingTop: 9,
+    paddingBottom: 8
   }
 });
 

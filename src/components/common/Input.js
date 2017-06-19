@@ -1,17 +1,16 @@
 import React from 'react';
 import { TextInput, View, Text, StyleSheet } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize, multiline, numberOfLines, maxLength, keyboardType }) => {
+const Input = ({ children,
+  colorOveride, label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize, multiline, numberOfLines, maxLength, keyboardType }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
   return (
     <View style={containerStyle}>
-      <Text style={labelStyle}>
-        {label}
-      </Text>
 
       <TextInput
         placeholder={placeholder}
+        placeholderTextColor={[white]}
         autoCorrect={false}
         style={inputStyle}
         value={value}
@@ -22,30 +21,34 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
         numberOfLines={numberOfLines}
         maxLength={maxLength}
         keyboardType={keyboardType}
-      />
+      >
+        { children }
+      </TextInput>
     </View>
   );
 };
 
+const darkPurple = 'rgba(127, 13, 205, 0.88)';
+const lightPurple = '#D961FF';
+const white = 'rgb(255, 255, 255)';
+
 const styles = StyleSheet.create({
   inputStyle: {
-    color: '#000',
+    color: darkPurple,
     paddingRight: 5,
     paddingLeft: 5,
-    fontSize: 18,
+    fontSize: 15,
     lineHeight: 23,
     flex: 2
   },
-  labelStyle: {
-    fontSize: 18,
-    paddingLeft: 20,
-    flex: 1
-  },
   containerStyle: {
-    height: 40,
+    marginTop: 10,
+    height: 30,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: lightPurple
   }
 });
 
