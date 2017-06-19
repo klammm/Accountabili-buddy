@@ -1,4 +1,4 @@
-import { passwordChanged } from '../../../actions/index';
+import { passwordChanged } from '../index';
 
 describe('tests passwordChanged action', () => {
   it('shows the email changed', () => {

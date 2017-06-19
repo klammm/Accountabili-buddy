@@ -1,4 +1,4 @@
-import { firstNameChanged } from '../../../actions/index';
+import { firstNameChanged } from '../index';
 
 describe('tests firstNameChanged action', () => {
   it('shows the first name changed', () => {

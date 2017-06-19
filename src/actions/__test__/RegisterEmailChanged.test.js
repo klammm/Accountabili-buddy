@@ -1,4 +1,4 @@
-import { registerEmailChanged } from '../../../actions/index';
+import { registerEmailChanged } from '../index';
 
 describe('tests registerEmailChanged action', () => {
   it('shows the email changed', () => {

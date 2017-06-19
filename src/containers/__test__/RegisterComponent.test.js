@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 import { shallow } from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
-import { Register } from '../../containers/Register';
+import { Register } from '../Register';
 
 import renderer from 'react-test-renderer';
 

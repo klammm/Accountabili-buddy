@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
-import { showAllTeams } from '../../../actions/index';
+import { showAllTeams } from '../index';
 import allTeamsModel from './fixtures/allTeams';
 
 const middlewares = [thunk, promiseMiddleware()];
@@ -19,7 +19,6 @@ describe('tests showAllTeams async actions', () => {
 
     return store.dispatch(showAllTeams())
     .then((teams) => {
-      console.log('list: ', teams);
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

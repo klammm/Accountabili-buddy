@@ -1,4 +1,4 @@
-import { passwordMatch } from '../../../actions/index';
+import { passwordMatch } from '../index';
 
 describe('tests passwordMatch action', () => {
   it('shows true if the password matches', () => {

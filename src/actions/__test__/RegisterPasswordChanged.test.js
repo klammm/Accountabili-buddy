@@ -1,4 +1,4 @@
-import { registerPasswordChanged } from '../../../actions/index';
+import { registerPasswordChanged } from '../index';
 
 describe('tests registerPasswordChanged action', () => {
   it('shows true if the password matches', () => {

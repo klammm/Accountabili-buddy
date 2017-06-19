@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
-import { showAllPlayers } from '../../../actions/index';
+import { showAllPlayers } from '../index';
 import allPlayersModel from './fixtures/allPlayers';
 
 const middlewares = [thunk, promiseMiddleware()];
