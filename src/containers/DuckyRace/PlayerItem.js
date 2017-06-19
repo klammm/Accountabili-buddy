@@ -55,7 +55,7 @@ const PlayerItem = ({ player, scores }) => {
 };
 
 
-const lightPinkSlider = 'rgba(247, 62, 245, 0.19)';
+const lightBlueBorder = 'rgba(105, 62, 247, 0.19)';
 const lightPinkOpacity = 'rgba(252, 74, 213, 0.14)';
 const white = 'rgb(255, 255, 255)';
 
@@ -64,7 +64,7 @@ const styles = {
     backgroundColor: lightPinkOpacity,
     borderRadius: 5,
     borderWidth: 1.8,
-    borderColor: lightPinkSlider,
+    borderColor: lightBlueBorder,
     marginLeft: 4,
     margin: 4
   },
