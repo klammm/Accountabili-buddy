@@ -1,37 +1,45 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { CardSection } from '../components/common';
+import { CardSection, Card } from '../components/common';
+import Dimensions from 'Dimensions';
 
 const ImageDetail = ({ image }) => {
   const { imageUrl, caption } = image;
-  const { imgContainer, imagesStyle } = styles;
+  const { imgContainer, imagesStyle, imageContainerStyle, postImage, postTestStyle, canvas } = styles;
 
   return (
-    <View style={{ borderWidth: 0.8, borderColor: '#a0a2a5' }}>
+    <Card>
       <CardSection>
-        <Image
-          style={imagesStyle}
-          source={{ uri: imageUrl }}
-        />
+        <View style={styles.imgContainer}>
+          <Image
+            style={styles.canvas}
+            resizeMode= {"contain"} source={{ uri: imageUrl }}
+          />
+        </View>
       </CardSection>
       <CardSection>
-        <Text>{caption}</Text>
+        <Text style={postTestStyle}>{caption}</Text>
       </CardSection>
-    </View>
+    </Card>
   );
 };
 
+const win = Dimensions.get('window');
+const widthspec = win.width - 30;
+const hightspec = win.height - 30;
+
 const styles = StyleSheet.create({
-  imgContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap'
+  canvas: {
+      flex: 1,
+      alignSelf: 'stretch',
+      width: widthspec,
+      height: hightspec,
   },
-  imagesStyle: {
-    flex:1,
-    height: 250
-  }
+  imgContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
 });
 
 export default ImageDetail;
