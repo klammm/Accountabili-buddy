@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497837607771" clover="3.2.0">
-  <project timestamp="1497837607771" name="All files">
+<coverage generated="1497837748385" clover="3.2.0">
+  <project timestamp="1497837748386" name="All files">
     <metrics statements="241" coveredstatements="162" conditionals="59" coveredconditionals="47" methods="94" coveredmethods="44" elements="394" coveredelements="253" complexity="0" loc="241" ncloc="241" packages="7" files="30" classes="30">
       <package name="Accountabili-buddy">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
