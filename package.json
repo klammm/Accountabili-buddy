@@ -12,6 +12,7 @@
         "color-convert": "^1.9.0",
         "enzyme": "^2.8.2",
         "enzyme-to-json": "^1.5.1",
+        "isomorphic-fetch": "^2.2.1",
         "jest-serializer-enzyme": "^1.0.0",
         "jsonfile": "^3.0.0",
         "locate-path": "^2.0.0",
@@ -42,12 +43,17 @@
         "eslint-plugin-react-native": "^2.3.2",
         "eslint-plugin-standard": "^3.0.1",
         "jest": "^19.0.2",
+        "jest-fetch-mock": "^1.1.1",
         "react-native-dotenv": "0.0.4",
         "react-test-renderer": "16.0.0-alpha.6",
         "remote-redux-devtools": "^0.5.7"
     },
     "jest": {
-        "preset": "react-native"
+        "preset": "react-native",
+        "automock": false,
+        "setupFiles": [
+            "./setupJest.js"
+        ]
     },
     "rnpm": {
         "assets": [
