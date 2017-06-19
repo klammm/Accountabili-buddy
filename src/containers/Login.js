@@ -91,17 +91,17 @@ class Login extends Component {
 
             <Card style={styles.button}>
               <CardSection style={styles.loginButtons}>
+                <Button whenPressed={() => this.onLoginAttempt()}>
+                  LOG IN
+                </Button>
+              </CardSection>
+
+              <CardSection style={styles.loginButtons}>
                 <Button
                   whenPressed={() => navigate('Register')}
                   textStyleOverRide={{ color: 'white'}}
                   style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
                   SIGN UP
-                </Button>
-              </CardSection>
-
-              <CardSection style={styles.loginButtons}>
-                <Button whenPressed={() => this.onLoginAttempt()}>
-                  LOG IN
                 </Button>
               </CardSection>
 
