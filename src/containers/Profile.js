@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, AsyncStorage } from 'react-native';
 import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
@@ -50,25 +51,25 @@ export class Profile extends Component {
   render() {
     const { avatarProfile, container, titleText } = styles;
     return (
-      // <Card style={{ marginTop: 20 }}>
-        // {<CardSection >
-        //   <View>
-        //     <Image
-        //       style={avatarProfile}
-        //       source={{ uri: this.props.userProfile.profile_image_url }}
-        //     />
-        //   </View>
-        //   <View style={container}>
-        //       <Text style={titleText}>{this.props.userProfile.user_name}</Text>
-        //       <Text >Push Ups: {this.props.userScore}</Text>
-        //   </View>
-        // </CardSection> }
-        // <CardSection>
-          <ScrollView>
+      <Card style={{ marginTop: 20 }}>
+        <CardSection style={{ backgroundColor: '#007aff' }}>
+          <View>
+            <Image
+              style={avatarProfile}
+              source={{ uri: this.props.userProfile.profile_image_url }}
+            />
+          </View>
+          <View style={container}>
+              <Text>{this.props.userProfile.user_name}</Text>
+              <Text >Push Ups: {this.props.userScore}</Text>
+          </View>
+        </CardSection>
+        <CardSection >
+          <ScrollView >
               {this.renderImages()}
           </ScrollView>
-        // { </CardSection> }
-      // </Card>
+        </CardSection>
+      </Card>
     );
   }
 }
