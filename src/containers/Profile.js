@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, AsyncStorage } from 'react-native';
 import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
+import { Header } from '../components/common';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import RenderIf from 'react-renderif';
@@ -64,11 +65,30 @@ export class Profile extends Component {
         //   </View>
         // </CardSection> }
         // <CardSection>
+        <View>
+        <Header
+          headerText={'Actbl'}/>
+
           <ScrollView>
-              {this.renderImages()}
+            <Card>
+              <CardSection>
+                  <View>
+                     <Image
+                       style={avatarProfile}
+                       source={{ uri: this.props.userProfile.profile_image_url }} />
+                  </View>
+                  <View style={container}>
+                      <Text style={titleText}>
+                        {this.props.userProfile.user_name}
+                      </Text>
+                      <Text >Push Ups: {this.props.userScore}</Text>
+                 </View>
+              </CardSection>
+            </Card>
+
+            {this.renderImages()}
           </ScrollView>
-        // { </CardSection> }
-      // </Card>
+          </View>
     );
   }
 }

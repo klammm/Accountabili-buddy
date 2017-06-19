@@ -84,12 +84,18 @@ class Login extends Component {
               {this.props.error}
             </Text>
 
-            <Card style={styles.spinner}>
+            <Card style={styles.spinnerContainer}>
               {this.renderSpinner()}
 
             </Card>
 
             <Card style={styles.button}>
+              <CardSection style={styles.loginButtons}>
+                <Button whenPressed={() => this.onLoginAttempt()}>
+                  LOG IN
+                </Button>
+              </CardSection>
+
               <CardSection style={styles.loginButtons}>
                 <Button
                   whenPressed={() => navigate('Register')}
@@ -99,11 +105,6 @@ class Login extends Component {
                 </Button>
               </CardSection>
 
-              <CardSection style={styles.loginButtons}>
-                <Button whenPressed={() => this.onLoginAttempt()}>
-                  LOG IN
-                </Button>
-              </CardSection>
 
             </Card>
             </View>
@@ -187,8 +188,13 @@ const styles = StyleSheet.create({
   loginButtons: {
     marginTop: 4,
   },
-  spinner: {
-    height: 40
+  spinnerContainer: {
+    height: 40,
+  },
+  spinner:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 

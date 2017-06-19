@@ -36,6 +36,8 @@ class PlayerList extends Component {
   render() {
     return (
       <Image source={duckyBackground} style={styles.imgContainer}>
+        <Header
+          headerText={'Actbl'}></Header>
         <ScrollView>
           <Header style={styles.headerStyle}
             headerTextStyle={styles.headerTextStyle}

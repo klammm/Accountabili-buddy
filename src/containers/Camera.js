@@ -133,7 +133,7 @@ class CameraRoute extends Component {
 
         <View style={styles.inputs}>
 
-          <CardSection style={{ backgroundColor: 'transparent' }}>
+          <CardSection style={styles.inputCardSections}>
             <Input
               placeholder="rep count"
               autoCapitalize={'none'}
@@ -142,7 +142,7 @@ class CameraRoute extends Component {
               label='Reps' />
           </CardSection>
 
-          <CardSection style={{ backgroundColor: 'transparent' }}>
+          <CardSection style={styles.inputCardSections}>
             <Input
               placeholder='caption'
               autoCapitalize={'none'}
@@ -153,8 +153,7 @@ class CameraRoute extends Component {
               label='Caption' />
           </CardSection>
 
-          <CardSection style={{ backgroundColor: 'transparent' }}>
-
+          <CardSection style={styles.inputCardSections}>
             <Input
               label="tag friends"
               onChangeText={this.onTagFriendsChange.bind(this)}
@@ -195,6 +194,7 @@ class CameraRoute extends Component {
 
 const lightPurple = '#D961FF';
 const transparentWhite = 'rgba(255, 255, 255, 0.5)';
+const semiOpacityWhite = 'rgba(255, 255, 255, 0.8)';
 const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const brightWhite = 'rgba(255, 255, 255, 0.99)';
@@ -218,14 +218,17 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: 35,
     borderWidth: 5,
-    borderColor: '#FFF',
-    marginBottom: 15,
+    borderColor: semiOpacityWhite,
+    marginBottom: 30,
   },
   renderImage: {
     position: 'absolute',
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'flex-end'
+  },
+  inputCardSections: {
+    backgroundColor: 'transparent'
   },
   inputs: {
     position: 'absolute',
