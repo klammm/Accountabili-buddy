@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
-class Login extends Component {
+export class Login extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }

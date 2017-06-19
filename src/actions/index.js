@@ -313,11 +313,16 @@ export const showAllScores = () => {
 
 export const submitEvent = ({ reps, caption, imageUrl, userId }) => {
   return (dispatch, getState) => {
-    dispatch({ type: 'CREATE_EVENT', payload: createEvent(reps, caption, userId, imageUrl).then(() => {
-      dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(userId) });
-      dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(userId) });
-      dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
-      dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
-    }) });
+    return dispatch({
+      type: 'CREATE_EVENT',
+      payload: createEvent(reps, caption, userId, imageUrl).then(event => {
+        console.log(event, '++++');
+        dispatch({ type: 'SHOW_USER_PROFILE', payload: getUserById(userId) });
+        dispatch({ type: 'SHOW_USER_SCORE', payload: getUserScore(userId) });
+        dispatch({ type: 'SHOW_ALL_TEAMS_PLAYERS', payload: grabAllPlayers() });
+        dispatch({ type: 'SHOW_ALL_TEAM_PLAYERS_SCORES', payload: grabAllScores() });
+        return event;
+      })
+    });
   }
 };
