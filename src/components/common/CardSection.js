@@ -10,13 +10,13 @@ const CardSection = ({ children, style }) => {
 };
 
 const $main = 'transparent';
-const $grey = 'transparent';
+const $border = 'transparent';
 
 const styles = StyleSheet.create({
   containerStyle: {
     padding: 5,
     backgroundColor: $main,
-    borderColor: $grey,
+    borderColor: $border,
     justifyContent: 'flex-start',
     flexDirection: 'row',
     position: 'relative'

@@ -20,7 +20,11 @@ const PlayerItem = ({ player, scores }) => {
 
   let arr = [];
   scores = Number(scores);
-  for (let i = 0; i < scores; i += 10) {
+  let wavesCreater = scores;
+  if (wavesCreater > 110) {
+    wavesCreater = 110
+  }
+  for (let i = 0; i < wavesCreater; i += 10) {
       arr.push('w');
   }
   let resultarr = arr.map((w, index) => <Image key={index} style={wavesStyle} source={wave} />);

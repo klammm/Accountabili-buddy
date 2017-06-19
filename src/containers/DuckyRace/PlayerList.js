@@ -37,11 +37,11 @@ class PlayerList extends Component {
     return (
       <Image source={duckyBackground} style={styles.imgContainer}>
         <Header
-          headerText={'Actbl'}></Header>
+          style={styles.headerStyle}
+          headerTextStyle={styles.headerTextStyle}
+          headerText={'Ducky Race'}
+          />
         <ScrollView>
-          <Header style={styles.headerStyle}
-            headerTextStyle={styles.headerTextStyle}
-            headerText={'Ducky Race'} />
           {this.renderPlayers()}
         </ScrollView>
     </Image>
@@ -50,13 +50,13 @@ class PlayerList extends Component {
 }
 
 const lightPurple = '#D961FF';
+const lightPurpleOpacity = 'rgba(190, 7, 247, 0.28)';
+const whiteOpacity = 'rgba(255, 255, 255, 0.24)';
 
 const styles = {
   headerStyle: {
-    fontSize: 18,
-    backgroundColor: 'transparent',
-    borderColor: lightPurple,
-    marginTop: 30
+    backgroundColor: whiteOpacity,
+    borderColor: lightPurpleOpacity,
   },
   headerTextStyle: {
     color: lightPurple
