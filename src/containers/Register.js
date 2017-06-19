@@ -54,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 }
 
-class Register extends Component {
+export class Register extends Component {
   onFirstNameChange(text) {
     this.props.firstNameChanged(text);
   }
