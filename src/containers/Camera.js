@@ -125,10 +125,11 @@ class CameraRoute extends Component {
       <KeyboardAvoidingView
         style={styles.renderImage}
         behavior="padding">
+
         <Image
           source={{ uri: this.state.path }}
           style={styles.preview}
-        />
+        >
 
 
         <View style={styles.inputs}>
@@ -179,7 +180,7 @@ class CameraRoute extends Component {
               ↑
             </Button>
         </View>
-
+      </Image>
       </KeyboardAvoidingView>
     );
   }
