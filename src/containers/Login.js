@@ -68,6 +68,7 @@ export class Login extends Component {
                   autoCapitalize={'none'}
                   value={this.props.email}
                   onChangeText={this.onEmailChange.bind(this)}
+                  underlineColorAndroid={'transparent'}
                 />
               </CardSection>
 
@@ -79,6 +80,7 @@ export class Login extends Component {
                   secureTextEntry
                   value={this.props.password}
                   onChangeText={this.onPasswordChange.bind(this)}
+                  underlineColorAndroid={'transparent'}
                 />
               </CardSection>
             </Card>
