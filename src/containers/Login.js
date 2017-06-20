@@ -7,7 +7,6 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 import LinearGradient from 'react-native-linear-gradient';
 import loginImg from '../../assets/images/loginImg.png';
 
-
 const mapStateToProps = ({ login }) => {
   const { email, password, error, loading, isLoggedIn } = login;
 
@@ -18,9 +17,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
-const offset = (Platform.OS === 'android') ? -200 : 0;
+const offset = (Platform.OS === 'android') ? -500 : 0;
 
-class Login extends Component {
+export class Login extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -68,6 +67,7 @@ class Login extends Component {
                     autoCapitalize={'none'}
                     value={this.props.email}
                     onChangeText={this.onEmailChange.bind(this)}
+                    underlineColorAndroid={'transparent'}
                   />
                 </CardSection>
 
@@ -79,6 +79,7 @@ class Login extends Component {
                     secureTextEntry
                     value={this.props.password}
                     onChangeText={this.onPasswordChange.bind(this)}
+                    underlineColorAndroid={'transparent'}
                   />
                 </CardSection>
               </Card>

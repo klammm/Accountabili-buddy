@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Image, KeyboardAvoidingView, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Card, CardSection, Input } from '../components/common';
@@ -54,7 +54,9 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 }
 
-class Register extends Component {
+const offset = (Platform.OS === 'android') ? -500 : 0;
+
+export class Register extends Component {
   onFirstNameChange(text) {
     this.props.firstNameChanged(text);
   }
@@ -112,7 +114,7 @@ class Register extends Component {
 
     return (
       <Image source={loginImg2} style={styles.imgContainer}>
-        <KeyboardAvoidingView
+        <KeyboardAvoidingView keyboardVerticalOffset={offset}
           style={styles.imgContainer}
           behavior="padding">
           <Text style={styles.welcome}>Sign Up</Text>

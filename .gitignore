@@ -3,7 +3,7 @@
 .DS_Store
 .env
 .env.production
-
+coverage
 # Xcode
 #
 build/
