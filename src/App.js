@@ -8,7 +8,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import Router from './routes/Router';
 
-import Slider from './routes/Slider';
+console.warn()
+console.ignoredYellowBox = ['']
 
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk, promiseMiddleware())
@@ -19,7 +20,6 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router />
-        {/* <Slider></Slider> */}
       </Provider>
     )
   }

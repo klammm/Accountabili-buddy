@@ -7,7 +7,6 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 import LinearGradient from 'react-native-linear-gradient';
 import loginImg from '../../assets/images/loginImg.png';
 
-
 const mapStateToProps = ({ login }) => {
   const { email, password, error, loading, isLoggedIn } = login;
 
@@ -17,7 +16,6 @@ const mapStateToProps = ({ login }) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
-
 
 const offset = (Platform.OS === 'android') ? -500 : 0;
 
@@ -50,8 +48,9 @@ export class Login extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <KeyboardAvoidingView keyboardVerticalOffset={offset}
+      <KeyboardAvoidingView
         style={styles.imgContainer}
+        keyboardVerticalOffset={offset}
         behavior="padding">
       <Image source={loginImg} style={styles.imgContainer}>
         <View style={styles.fullBackground}>
@@ -61,61 +60,59 @@ export class Login extends Component {
               <Card style={styles.onBoardInput}>
 
                 <CardSection>
-                <Input
-                  colorOveride={{ color: 'blue'}}
-                  placeholder="email"
-                  label='Email'
-                  autoCapitalize={'none'}
-                  value={this.props.email}
-                  onChangeText={this.onEmailChange.bind(this)}
-                  underlineColorAndroid={'transparent'}
-                />
-              </CardSection>
+                  <Input
+                    colorOveride={{ color: 'blue'}}
+                    placeholder="email"
+                    label='Email'
+                    autoCapitalize={'none'}
+                    value={this.props.email}
+                    onChangeText={this.onEmailChange.bind(this)}
+                    underlineColorAndroid={'transparent'}
+                  />
+                </CardSection>
 
-              <CardSection >
-                <Input
-                  placeholder='password'
-                  label="Password"
-                  autoCapitalize={'none'}
-                  secureTextEntry
-                  value={this.props.password}
-                  onChangeText={this.onPasswordChange.bind(this)}
-                  underlineColorAndroid={'transparent'}
-                />
-              </CardSection>
-            </Card>
+                <CardSection >
+                  <Input
+                    placeholder='password'
+                    label="Password"
+                    autoCapitalize={'none'}
+                    secureTextEntry
+                    value={this.props.password}
+                    onChangeText={this.onPasswordChange.bind(this)}
+                    underlineColorAndroid={'transparent'}
+                  />
+                </CardSection>
+              </Card>
 
-            <Text style={styles.errorTextStyle}>
-              {this.props.error}
-            </Text>
+              <Text style={styles.errorTextStyle}>
+                {this.props.error}
+              </Text>
 
-            <Card style={styles.spinner}>
-              {this.renderSpinner()}
+              <Card style={styles.spinner}>
+                {this.renderSpinner()}
+              </Card>
 
-            </Card>
+              <Card style={styles.button}>
+                <CardSection style={styles.loginButtons}>
+                  <Button whenPressed={() => this.onLoginAttempt()}>
+                    LOG IN
+                  </Button>
+                </CardSection>
 
-            <Card style={styles.button}>
-              <CardSection style={styles.loginButtons}>
-                <Button
-                  whenPressed={() => navigate('Register')}
-                  textStyleOverRide={{ color: 'white'}}
-                  style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
-                  SIGN UP
-                </Button>
-              </CardSection>
+                <CardSection style={styles.loginButtons}>
+                  <Button
+                    whenPressed={() => navigate('Register')}
+                    textStyleOverRide={{ color: 'white'}}
+                    style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
+                    SIGN UP
+                  </Button>
+                </CardSection>
 
-              <CardSection style={styles.loginButtons}>
-                <Button whenPressed={() => this.onLoginAttempt()}>
-                  LOG IN
-                </Button>
-              </CardSection>
-
-            </Card>
+              </Card>
             </View>
         </View>
       </Image>
     </KeyboardAvoidingView>
-
     )
   }
 }

@@ -24,7 +24,6 @@ class PlayerList extends Component {
   componentWillMount() {
     this.props.showAllPlayers();
     this.props.showAllScores();
-    console.log(this.props.playersList);
   }
 
   renderPlayers() {

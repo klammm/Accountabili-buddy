@@ -4,7 +4,6 @@ import { View, Text, Image, ScrollView, StyleSheet, AsyncStorage } from 'react-n
 import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import RenderIf from 'react-renderif';
 
 import { showUserProfile, showUserScore } from '../actions';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
@@ -21,18 +20,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export class Profile extends Component {
-  constructor(props) {
-    super(props);
-
-    // AsyncStorage.getItem('User').then((value) => {
-    //   this.setState({ 'User': JSON.parse(value) });
-    // }).done()
-
-    this.state = {
-      User: null
-    }
-  }
-
   componentDidMount() {
     if (this.props.login.user) {
       this.props.showUserProfile(this.props.login.user.id);
@@ -56,12 +43,12 @@ export class Profile extends Component {
           <View>
             <Image
               style={avatarProfile}
-              source={{ uri: this.props.userProfile.profile_image_url }}
+              source={{ uri: this.props.userProfile.profile_image_url}}
             />
           </View>
           <View style={container}>
               <Text>{this.props.userProfile.user_name}</Text>
-              <Text >Push Ups: {this.props.userScore}</Text>
+              <Text >Push Ups: {this.props.userScore ? this.props.userScore : "0" }</Text>
           </View>
         </CardSection>
         <CardSection >
