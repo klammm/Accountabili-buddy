@@ -128,7 +128,7 @@ const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const lightPurple = '#D961FF';
 const lightPurpleOpacity = 'rgba(190, 7, 247, 0.58)';
-const transparentWhite = 'rgba(255, 255, 255, 0.65)';
+const transparentWhite = 'rgba(255, 255, 255, 0.45)';
 const transparentPurple = 'rgba(165, 84, 204, 0.85)'
 
 const styles = StyleSheet.create({
@@ -157,9 +157,9 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 95,
     margin: 10,
-    marginTop: 60,
+    marginTop: 50,
     marginBottom: 0,
-    color: 'white',
+    color: transparentWhite,
     fontWeight: 'bold',
     backgroundColor: 'transparent',
     flex: 1,
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
   },
   onBoard: {
     position: 'relative',
-    marginTop: 40,
+    marginTop: 50,
     marginLeft: 40,
     marginRight: 40,
     width: 300,
