@@ -159,9 +159,9 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 95,
     margin: 10,
-    marginTop: 60,
+    marginTop: 50,
     marginBottom: 0,
-    color: 'white',
+    color: transparentWhite,
     fontWeight: 'bold',
     backgroundColor: 'transparent',
     flex: 1,
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   onBoard: {
     position: 'relative',
-    marginTop: 40,
+    marginTop: 50,
     marginLeft: 40,
     marginRight: 40,
     width: 300,

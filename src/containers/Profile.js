@@ -6,6 +6,7 @@ import { Header } from '../components/common';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import RenderIf from 'react-renderif';
+
 import { showUserProfile, showUserScore } from '../actions';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import ImageDetail from './ImageDetail';
@@ -30,7 +31,8 @@ export class Profile extends Component {
       User: null
     }
   }
-  
+
+
   componentDidMount() {
     if (this.props.login.user) {
       this.props.showUserProfile(this.props.login.user.id);
