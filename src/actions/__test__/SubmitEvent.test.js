@@ -12,7 +12,6 @@ const mockUrl = 'https://pbs.twimg.com/profile_images/842876355800788992/bQ4YV83
 
 describe('tests SubmitEvent async actions', () => {
   it(' submit an event with the reps, caption and the caption for the picture that has been taken', () => {
-    console.log(createEventModel);
     fetch.mockResponseOnce(JSON.stringify(createEventModel));
     const expectedActions = [
       { type: 'CREATE_EVENT_PENDING' },
@@ -39,7 +38,6 @@ describe('tests SubmitEvent async actions', () => {
 
     return store.dispatch(submitEvent(20, 'more pushups!', mockUrl, 1))
     .then((event) => {
-      console.log(event, '<<<<<');
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
