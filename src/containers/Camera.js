@@ -131,37 +131,6 @@ class CameraRoute extends Component {
           style={styles.preview}
         >
 
-        <View style={styles.inputs}>
-
-          <CardSection style={styles.inputCardSections}>
-            <Input
-              placeholder="rep count"
-              autoCapitalize={'none'}
-              onChangeText={this.onRepsChange.bind(this)}
-              keyboardType={'numeric'}
-              label='Reps' />
-          </CardSection>
-
-          <CardSection style={styles.inputCardSections}>
-            <Input
-              placeholder='caption'
-              autoCapitalize={'none'}
-              onChangeText={this.onCaptionChange.bind(this)}
-              multiline
-              numberOfLines={3}
-              maxLength={60}
-              label='Caption' />
-          </CardSection>
-
-          <CardSection style={styles.inputCardSections}>
-            <Input
-              label="tag friends"
-              onChangeText={this.onTagFriendsChange.bind(this)}
-              autoCapitalize={'none'}
-              placeholder="tag friends @..." />
-          </CardSection>
-        </View>
-
         <View style={styles.cancelContainer}>
           <Button
             textStyleOverRide={styles.textStyleOverRide}
@@ -170,6 +139,38 @@ class CameraRoute extends Component {
             x
           </Button>
         </View>
+
+        <View style={styles.inputs}>
+          <CardSection style={styles.inputCardSections}>
+            <Input
+              textStyle = {styles.inputTextStyle}
+              placeholder="rep count"
+              autoCapitalize={'none'}
+              onChangeText={this.onRepsChange.bind(this)}
+              keyboardType={'numeric'}
+              label='Reps' />
+          </CardSection>
+          <CardSection style={styles.inputCardSections}>
+            <Input
+              textStyle = {styles.inputTextStyle}
+              placeholder='caption'
+              autoCapitalize={'none'}
+              onChangeText={this.onCaptionChange.bind(this)}
+              multiline
+              numberOfLines={3}
+              maxLength={60}
+              label='Caption' />
+          </CardSection>
+          <CardSection style={styles.inputCardSections}>
+            <Input
+              textStyle = {styles.inputTextStyle}
+              label="tag friends"
+              onChangeText={this.onTagFriendsChange.bind(this)}
+              autoCapitalize={'none'}
+              placeholder="tag friends @..." />
+          </CardSection>
+        </View>
+
         <View style={styles.btnContainer}>
             <Button
               whenPressed={() => this.onPictureSubmit()}
@@ -198,6 +199,7 @@ const semiOpacityWhite = 'rgba(255, 255, 255, 0.8)';
 const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const brightWhite = 'rgba(255, 255, 255, 0.99)';
+const transparent = 'transparent';
 
 const styles = StyleSheet.create({
   container: {
@@ -228,7 +230,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   inputCardSections: {
-    backgroundColor: 'transparent'
+    backgroundColor: transparent
   },
   inputs: {
     position: 'absolute',
@@ -236,20 +238,23 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: 300,
     height: 200,
-    backgroundColor: 'transparent',
+    backgroundColor: transparent,
     bottom: 50
+  },
+  inputTextStyle: {
+    fontWeight: '600'
   },
   btnContainer: {
     position: 'absolute',
     right: 5,
     bottom: 20,
-    backgroundColor: 'transparent',
+    backgroundColor: transparent,
   },
   cancelContainer: {
     position: 'absolute',
     right: -5,
     top: 10,
-    backgroundColor: 'transparent',
+    backgroundColor: transparent,
   },
   textStyleOverRide: {
     color: brightWhite,
@@ -266,8 +271,8 @@ const styles = StyleSheet.create({
     flex: null
   },
   cancelButton: {
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
+    backgroundColor: transparent,
+    borderColor: transparent,
     height: 45,
     width: 45,
     flex: null

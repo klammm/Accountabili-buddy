@@ -62,6 +62,8 @@ const PlayerItem = ({ player, scores }) => {
 const lightBlueBorder = 'rgba(105, 62, 247, 0.19)';
 const lightPinkOpacity = 'rgba(252, 74, 213, 0.14)';
 const white = 'rgb(255, 255, 255)';
+const watermelon = 'rgb(198, 27, 114)';
+const atomPurple = 'rgb(160, 40, 255)';
 
 const styles = {
   playerSections: {
@@ -92,7 +94,7 @@ const styles = {
     marginTop: 3,
     fontSize: 12,
     fontWeight: 'bold',
-    color: white
+    color: watermelon
   },
   duckyContainerStyle: {
     marginTop: 11,
@@ -119,7 +121,7 @@ const styles = {
   scoresTextStyle: {
     marginLeft: 10,
     fontSize: 18,
-    color: 'rgb(160, 40, 255)',
+    color: atomPurple,
     fontWeight: 'bold',
     marginTop: 5
   }

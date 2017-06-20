@@ -5,10 +5,10 @@ import { Header } from '../components/common';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import RenderIf from 'react-renderif';
-
 import { showUserProfile, showUserScore } from '../actions';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import ImageDetail from './ImageDetail';
+import redGrd from '../../assets/images/redGrd.png';
 
 const mapStateToProps = (state) => {
   return {
@@ -43,48 +43,35 @@ export class Profile extends Component {
   renderImages() {
     if(this.props.userProfile.ownedImages) {
       return this.props.userProfile.ownedImages.map(image =>{
-        return <ImageDetail key={image.id} image={image} />;
+        return <ImageDetail key={image.id} image={image} uri={this.props.userProfile.profile_image_url}/>;
       })
     }
   }
 
   render() {
-    const { avatarProfile, container, titleText } = styles;
+    const { imgContainer, avatarProfile, container, titleText, profileInfoContainer, pushupText, avatarContainer, textContainer, pushupTextEm } = styles;
     return (
-      // <Card style={{ marginTop: 20 }}>
-        // {<CardSection >
-        //   <View>
-        //     <Image
-        //       style={avatarProfile}
-        //       source={{ uri: this.props.userProfile.profile_image_url }}
-        //     />
-        //   </View>
-        //   <View style={container}>
-        //       <Text style={titleText}>{this.props.userProfile.user_name}</Text>
-        //       <Text >Push Ups: {this.props.userScore}</Text>
-        //   </View>
-        // </CardSection> }
-        // <CardSection>
         <View>
-        <Header
-          headerText={'Actbl'}/>
-
+          <Header
+            style={styles.headerStyle}
+            headerTextStyle={styles.headerTextStyle}
+            headerText={'actbl'}
+          />
           <ScrollView>
-            <Card>
-              <CardSection>
-                  <View>
+            <Image source={redGrd} style={imgContainer}>
+              <Card style={container}>
+                  <View style={avatarContainer}>
                      <Image
                        style={avatarProfile}
-                       source={{ uri: this.props.userProfile.profile_image_url }} />
+                       source={{ uri: this.props.userProfile.profile_image_url }}/>
                   </View>
-                  <View style={container}>
-                      <Text style={titleText}>
-                        {this.props.userProfile.user_name}
-                      </Text>
-                      <Text >Push Ups: {this.props.userScore}</Text>
+                  <View style={textContainer}>
+                      <Text style={titleText}>{this.props.userProfile.user_name}</Text>
+                      <Text style={pushupTextEm}> {this.props.userScore}</Text>
+                      <Text style={pushupText}> All Time Count</Text>
                  </View>
-              </CardSection>
-            </Card>
+               </Card>
+            </Image>
 
             {this.renderImages()}
           </ScrollView>
@@ -93,27 +80,79 @@ export class Profile extends Component {
   }
 }
 
+
+const white = 'rgba(255, 255, 255, 0.96)';
+const darkPurple = '#9552CE';
+const purpleOpacity = 'rgba(127, 13, 205, 0.38)';
+const pinkyPurple = 'rgb(247, 102, 255)';
+const greyOpacity = 'rgba(138, 138, 138, 0.38)';
+
 const styles = StyleSheet.create({
+  headerStyle: {
+    backgroundColor: white,
+    borderColor: greyOpacity
+  },
+  headerTextStyle: {
+    color: purpleOpacity,
+    fontWeight: '600'
+  },
+  imgContainer: {
+    flex: 1,
+    width: null,
+    height: null
+  },
   container: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    paddingTop: 5
+  },
+  profileInfoContainer: {
+    paddingTop: 7
+  },
+  avatarContainer: {
+    margin: 17
   },
   avatarProfile: {
     flex: 0,
-    borderRadius: 40,
-    flexDirection: 'row',
+    borderRadius: 60,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    elevation: 1,
+    height: 120,
+    width: 120,
+    backgroundColor: 'transparent',
+    paddingTop: 5
+  },
+  textContainer: {
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    height: 82,
-    width: 82,
-    backgroundColor: 'transparent'
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    paddingBottom: 30
   },
   titleText: {
-    fontSize: 40,
-    fontWeight: 'bold'
+    fontSize: 15,
+    textAlign: 'center',
+    color: darkPurple,
+    backgroundColor: 'transparent'
+  },
+  pushupTextEm: {
+    textAlign: 'center',
+    fontSize: 60,
+    fontWeight: '600',
+    color: purpleOpacity,
+    marginRight: 5
+  },
+  pushupText: {
+    textAlign: 'center',
+    fontSize: 13,
+    fontWeight: '400',
+    color: darkPurple,
   }
 });
 

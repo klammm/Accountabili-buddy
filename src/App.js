@@ -18,8 +18,8 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {/* <Router /> */}
-        <Slider></Slider>
+        <Router />
+        
       </Provider>
     )
   }

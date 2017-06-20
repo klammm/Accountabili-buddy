@@ -99,8 +99,8 @@ class Login extends Component {
               <CardSection style={styles.loginButtons}>
                 <Button
                   whenPressed={() => navigate('Register')}
-                  textStyleOverRide={{ color: 'white'}}
-                  style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
+                  textStyleOverRide={{ color: pinkyPurple}}
+                  style={{ backgroundColor: darkPurple, borderColor: lightPurple, }}>
                   SIGN UP
                 </Button>
               </CardSection>
@@ -121,6 +121,7 @@ Login.navigationOptions = {
   header: null
 }
 
+const pinkyPurple = 'rgb(247, 102, 255)';
 const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const lightPurple = '#D961FF';
