@@ -48,7 +48,6 @@ class CameraRoute extends Component {
   takePicture() {
     this.camera.capture()
       .then((data) => {
-        console.log(data);
         this.setState({ path: data.path })
         const file = {
           uri: data.path,
@@ -69,9 +68,8 @@ class CameraRoute extends Component {
           if (response.status !== 201) {
             throw new Error('Failed to upload image to S3', response);
           }
-          console.log('*** BODY ***', response.body);
           this.props.pictureTaken(response.body.postResponse.location)
-        })
+        }).catch(err => console.error('Camera error not uploaded: ', err))
       })
       .catch(err => console.error(err));
   }

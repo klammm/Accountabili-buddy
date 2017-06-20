@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests the Settings component renders Settings component 1`] = `
+<Card>
+  <CardSection>
+    <Button
+      whenPressed={[Function]}
+    >
+      Log out
+    </Button>
+  </CardSection>
+</Card>
+`;

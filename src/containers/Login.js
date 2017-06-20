@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
+import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView, Platform } from 'react-native';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import LinearGradient from 'react-native-linear-gradient';
 import loginImg from '../../assets/images/loginImg.png';
-
 
 const mapStateToProps = ({ login }) => {
   const { email, password, error, loading, isLoggedIn } = login;
@@ -18,7 +17,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
-class Login extends Component {
+const offset = (Platform.OS === 'android') ? -500 : 0;
+
+export class Login extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -49,6 +50,7 @@ class Login extends Component {
     return (
       <KeyboardAvoidingView
         style={styles.imgContainer}
+        keyboardVerticalOffset={offset}
         behavior="padding">
       <Image source={loginImg} style={styles.imgContainer}>
         <View style={styles.fullBackground}>
@@ -112,7 +114,6 @@ class Login extends Component {
         </View>
       </Image>
     </KeyboardAvoidingView>
-
     )
   }
 }

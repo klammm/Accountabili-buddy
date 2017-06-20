@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests the ImageDetail component renders ImageDetail component 1`] = `
+<Card>
+  <CardSection>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": undefined,
+          }
+        }
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "flex": 1,
+            "height": 1304,
+            "width": 720,
+          }
+        }
+      />
+    </View>
+  </CardSection>
+  <CardSection>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    />
+  </CardSection>
+</Card>
+`;

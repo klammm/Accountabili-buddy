@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 const Button = ({ whenPressed, children, style, textStyleOverRide }) => {
   const { buttonStyle, textStyle } = styles;
