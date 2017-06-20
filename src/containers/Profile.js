@@ -24,9 +24,6 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
 
-    // AsyncStorage.getItem('User').then((value) => {
-    //   this.setState({ 'User': JSON.parse(value) });
-    // }).done()
 
     this.state = {
       User: null
@@ -43,7 +40,7 @@ export class Profile extends Component {
   renderImages() {
     if(this.props.userProfile.ownedImages) {
       return this.props.userProfile.ownedImages.map(image =>{
-        return <ImageDetail key={image.id} image={image} uri={this.props.userProfile.profile_image_url}/>;
+        return <ImageDetail key={image.id} image={image} uri={this.props.userProfile.profile_image_url} username={this.props.userProfile.user_name}/>;
       })
     }
   }
@@ -55,7 +52,7 @@ export class Profile extends Component {
           <Header
             style={styles.headerStyle}
             headerTextStyle={styles.headerTextStyle}
-            headerText={'actbl'}
+            headerText={'ABB'}
           />
           <ScrollView>
             <Image source={redGrd} style={imgContainer}>

@@ -52,7 +52,8 @@ class Login extends Component {
         behavior="padding">
       <Image source={loginImg} style={styles.imgContainer}>
         <View style={styles.fullBackground}>
-          <Text style={styles.welcome}>Actbl</Text>
+          <Text style={styles.welcome}>ABB</Text>
+          <Text style={styles.subtext}>ACCOUNTABILLIBUDDY</Text>
 
             <View style={styles.onBoard}>
               <Card style={styles.onBoardInput}>
@@ -126,7 +127,7 @@ const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const lightPurple = '#D961FF';
 const lightPurpleOpacity = 'rgba(190, 7, 247, 0.58)';
-const transparentWhite = 'rgba(255, 255, 255, 0.75)';
+const transparentWhite = 'rgba(255, 255, 255, 0.65)';
 const transparentPurple = 'rgba(165, 84, 204, 0.85)'
 
 const styles = StyleSheet.create({
@@ -153,16 +154,22 @@ const styles = StyleSheet.create({
     height: null,
   },
   welcome: {
-    fontSize: 44,
+    fontSize: 95,
     margin: 10,
-    marginTop: 100,
-    marginBottom: 30,
-    color: 'white',
+    marginTop: 60,
+    marginBottom: 5,
+    color: transparentWhite,
     fontWeight: 'bold',
     backgroundColor: 'transparent',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  subtext: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
+    marginBottom: 90,
   },
   errorTextStyle: {
     marginTop: 20,
@@ -172,7 +179,7 @@ const styles = StyleSheet.create({
   },
   onBoard: {
     position: 'relative',
-    marginTop: 20,
+    marginTop: 40,
     marginLeft: 40,
     marginRight: 40,
     width: 300,
@@ -183,14 +190,15 @@ const styles = StyleSheet.create({
     marginRight: 40
   },
   button: {
-    marginTop: 15,
     marginLeft: 15
   },
   loginButtons: {
     marginTop: 4,
   },
   spinnerContainer: {
-    height: 40,
+    height: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   spinner:{
     flex: 1,
