@@ -1,5 +1,8 @@
 # Accountabili-Buddy
 
+
+![ABB](./assets/images/screenShot.png)
+
 Our team built AccountabiliBuddy - an accountability game to do pushups with coworkers and friends once a day. The idea came from something fun we did as a group consistently as students in the Web Development Immersive program at Galvanize. Every 3:30pm we would all go up on the roof and do 3mins of pushups. It was a fun way to get fresh air and move around, which is important when you have a room of developers who tend to sit for 5-6 hours straight. What was interesting to us was that people were willing to stick to this behaviour and log their results on an excel and compare and track their individual growth as well to ‘race’ each other. This idea of gamification led us to develop a mobile app version of PushUpHr.
 We used React Native, Redux, with Node.js and Express, and Bookshelf in the Back End.
 

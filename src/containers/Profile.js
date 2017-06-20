@@ -21,15 +21,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export class Profile extends Component {
-  constructor(props) {
-    super(props);
-
-
-    this.state = {
-      User: null
-    }
-  }
-
   componentDidMount() {
     if (this.props.login.user) {
       this.props.showUserProfile(this.props.login.user.id);
