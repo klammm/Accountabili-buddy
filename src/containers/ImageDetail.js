@@ -4,7 +4,6 @@ import { CardSection, Card } from '../components/common';
 import Dimensions from 'Dimensions';
 import Image from 'react-native-scalable-image';
 
-
 const ImageDetail = ({ image, uri, username }) => {
   const { imageUrl, caption } = image;
   const { imgContainer, imagesStyle, imageContainerStyle, postImage,
