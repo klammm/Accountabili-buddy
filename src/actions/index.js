@@ -1,9 +1,8 @@
 import { AsyncStorage } from 'react-native';
 import moment from 'moment';
 
-
 export const login = (email, password) => {
-  const url = 'https://bilibuddy-api.herokuapp.com/token'
+  const url = 'https://bilibuddy-api.herokuapp.com/token';
   return fetch(url, {
     mode: 'no-cors',
     method: 'POST',
@@ -55,7 +54,7 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
   })
 };
 
-export const grabAllTeams = () => {
+const grabAllTeams = () => {
   const url = 'https://bilibuddy-api.herokuapp.com/teams';
   return fetch(url)
     .then(res => res.json())
@@ -78,10 +77,10 @@ const grabAllPlayers = () => {
     })
 };
 
-export const grabAllScores = () => {
+const grabAllScores = () => {
   let beginDate = moment().startOf('week').add(1, 'days').format('YYYY MM DD').replace(/ /g, '-');
   let endDate = moment().startOf('week').add(7, 'days').format('YYYY MM DD').replace(/ /g, '-');
-  const url = `https://bilibuddy-api.herokuapp.com/teams/1/score?start=${beginDate}&end=${endDate}`
+  const url = `https://bilibuddy-api.herokuapp.com/teams/1/score?start=${beginDate}&end=${endDate}`;
   return fetch(url)
     .then(res => res.json())
     .then(responseJSON => {
