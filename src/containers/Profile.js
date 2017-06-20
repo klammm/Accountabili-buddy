@@ -79,10 +79,10 @@ export class Profile extends Component {
 
 
 const white = 'rgba(255, 255, 255, 0.96)';
-const darkPurple = '#9552CE';
-const purpleOpacity = 'rgba(127, 13, 205, 0.38)';
-const pinkyPurple = 'rgb(247, 102, 255)';
 const greyOpacity = 'rgba(138, 138, 138, 0.38)';
+const purpleOpacity = 'rgba(127, 13, 205, 0.38)';
+const darkPurple = '#9552CE';
+const pinkyPurple = 'rgb(247, 102, 255)';
 
 const styles = StyleSheet.create({
   headerStyle: {
