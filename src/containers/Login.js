@@ -128,7 +128,7 @@ const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const lightPurple = '#D961FF';
 const lightPurpleOpacity = 'rgba(190, 7, 247, 0.58)';
-const transparentWhite = 'rgba(255, 255, 255, 0.45)';
+const transparentWhite = 'rgba(255, 255, 255, 0.65)';
 const transparentPurple = 'rgba(165, 84, 204, 0.85)'
 
 const styles = StyleSheet.create({
