@@ -11,15 +11,19 @@ const Header = (props) => {
   );
 };
 
-const $white = '#ffffff'
+const whiteOpacity = 'rgba(255, 255, 255, 0.24)';
+const grey = 'rgba(164, 164, 164, 0.91)';
 
 const styles = {
   viewStyle: {
-    backgroundColor: $white,
+    backgroundColor: whiteOpacity,
+    borderBottomWidth: 1,
+    borderColor: grey,
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
     paddingTop: 15,
+    paddingBottom: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,

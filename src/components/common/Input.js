@@ -1,7 +1,8 @@
 import React from 'react';
 import { TextInput, View, Text, StyleSheet } from 'react-native';
 
-const Input = ({ children,colorOveride, label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize, multiline, numberOfLines, maxLength, keyboardType, underlineColorAndroid }) => {
+const Input = ({ children, textStyle,
+  colorOveride, label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize, multiline, numberOfLines, maxLength, keyboardType, underlineColorAndroid }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
   return (
@@ -11,7 +12,7 @@ const Input = ({ children,colorOveride, label, value, onChangeText, placeholder,
         placeholder={placeholder}
         placeholderTextColor={[white]}
         autoCorrect={false}
-        style={inputStyle}
+        style={[inputStyle, textStyle]}
         value={value}
         autoCapitalize={autoCapitalize}
         secureTextEntry={secureTextEntry}
