@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     margin: 10,
     marginTop: 60,
     marginBottom: 5,
-    color: transparentWhite,
+    color: 'white',
     fontWeight: 'bold',
     backgroundColor: 'transparent',
     flex: 1,
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     marginBottom: 90,
   },
   errorTextStyle: {
-    marginTop: 20,
+    marginTop: 5,
     fontSize: 15,
     alignSelf: 'center',
     color: darkPurple
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   spinnerContainer: {
-    height: 10,
+    height: 7,
     justifyContent: 'center',
     alignItems: 'center'
   },
