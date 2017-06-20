@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
+import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView, Platform } from 'react-native';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,6 +17,8 @@ const mapStateToProps = ({ login }) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
+
+const offset = (Platform.OS === 'android') ? -200 : 0;
 
 class Login extends Component {
   onEmailChange(text) {
@@ -49,6 +51,7 @@ class Login extends Component {
     return (
       <KeyboardAvoidingView
         style={styles.imgContainer}
+        keyboardVerticalOffset={offset}
         behavior="padding">
       <Image source={loginImg} style={styles.imgContainer}>
         <View style={styles.fullBackground}>
@@ -58,59 +61,57 @@ class Login extends Component {
               <Card style={styles.onBoardInput}>
 
                 <CardSection>
-                <Input
-                  colorOveride={{ color: 'blue'}}
-                  placeholder="email"
-                  label='Email'
-                  autoCapitalize={'none'}
-                  value={this.props.email}
-                  onChangeText={this.onEmailChange.bind(this)}
-                />
-              </CardSection>
+                  <Input
+                    colorOveride={{ color: 'blue'}}
+                    placeholder="email"
+                    label='Email'
+                    autoCapitalize={'none'}
+                    value={this.props.email}
+                    onChangeText={this.onEmailChange.bind(this)}
+                  />
+                </CardSection>
 
-              <CardSection >
-                <Input
-                  placeholder='password'
-                  label="Password"
-                  autoCapitalize={'none'}
-                  secureTextEntry
-                  value={this.props.password}
-                  onChangeText={this.onPasswordChange.bind(this)}
-                />
-              </CardSection>
-            </Card>
+                <CardSection >
+                  <Input
+                    placeholder='password'
+                    label="Password"
+                    autoCapitalize={'none'}
+                    secureTextEntry
+                    value={this.props.password}
+                    onChangeText={this.onPasswordChange.bind(this)}
+                  />
+                </CardSection>
+              </Card>
 
-            <Text style={styles.errorTextStyle}>
-              {this.props.error}
-            </Text>
+              <Text style={styles.errorTextStyle}>
+                {this.props.error}
+              </Text>
 
-            <Card style={styles.spinner}>
-              {this.renderSpinner()}
+              <Card style={styles.spinner}>
+                {this.renderSpinner()}
+              </Card>
 
-            </Card>
+              <Card style={styles.button}>
+                <CardSection style={styles.loginButtons}>
+                  <Button whenPressed={() => this.onLoginAttempt()}>
+                    LOG IN
+                  </Button>
+                </CardSection>
 
-            <Card style={styles.button}>
-              <CardSection style={styles.loginButtons}>
-                <Button whenPressed={() => this.onLoginAttempt()}>
-                  LOG IN
-                </Button>
-              </CardSection>
+                <CardSection style={styles.loginButtons}>
+                  <Button
+                    whenPressed={() => navigate('Register')}
+                    textStyleOverRide={{ color: 'white'}}
+                    style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
+                    SIGN UP
+                  </Button>
+                </CardSection>
 
-              <CardSection style={styles.loginButtons}>
-                <Button
-                  whenPressed={() => navigate('Register')}
-                  textStyleOverRide={{ color: 'white'}}
-                  style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
-                  SIGN UP
-                </Button>
-              </CardSection>
-
-            </Card>
+              </Card>
             </View>
         </View>
       </Image>
     </KeyboardAvoidingView>
-
     )
   }
 }

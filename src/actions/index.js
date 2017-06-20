@@ -45,7 +45,7 @@ const createUser = (registerEmail, registerPassword, firstName, lastName, userna
       firstName,
       lastName,
       userName: username,
-      profileUrl: 'http://2.bp.blogspot.com/-SDqMr0T36Ng/UDILDXFdhhI/AAAAAAAACno/ZCjiciy3pxI/s1600/BATMAN+FB+PROFILE.jpg'
+      profileUrl: 'https://2.bp.blogspot.com/-SDqMr0T36Ng/UDILDXFdhhI/AAAAAAAACno/ZCjiciy3pxI/s1600/BATMAN+FB+PROFILE.jpg'
     })
   }).then((res) => {
     return res.json();
