@@ -4,12 +4,10 @@ import { View, Text, Image, ScrollView, StyleSheet, AsyncStorage } from 'react-n
 import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import RenderIf from 'react-renderif';
 
 import { showUserProfile, showUserScore } from '../actions';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import ImageDetail from './ImageDetail';
-import defaultPic from '../../assets/images/BATMAN_FB_PROFILE.jpg'
 
 const mapStateToProps = (state) => {
   return {
