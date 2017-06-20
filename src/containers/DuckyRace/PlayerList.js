@@ -36,10 +36,12 @@ class PlayerList extends Component {
   render() {
     return (
       <Image source={duckyBackground} style={styles.imgContainer}>
+        <Header
+          style={styles.headerStyle}
+          headerTextStyle={styles.headerTextStyle}
+          headerText={'Ducky Race'}
+          />
         <ScrollView>
-          <Header style={styles.headerStyle}
-            headerTextStyle={styles.headerTextStyle}
-            headerText={'Ducky Race'} />
           {this.renderPlayers()}
         </ScrollView>
     </Image>
@@ -47,17 +49,21 @@ class PlayerList extends Component {
   }
 }
 
+const white = 'rgba(255, 255, 255, 0.96)';
+const greyOpacity = 'rgba(138, 138, 138, 0.38)';
+const purpleOpacity = 'rgba(127, 13, 205, 0.38)';
 const lightPurple = '#D961FF';
+const lightPurpleOpacity = 'rgba(190, 7, 247, 0.28)';
+const whiteOpacity = 'rgba(255, 255, 255, 0.24)';
 
 const styles = {
   headerStyle: {
-    fontSize: 18,
-    backgroundColor: 'transparent',
-    borderColor: lightPurple,
-    marginTop: 30
+    backgroundColor: white,
+    borderColor: greyOpacity
   },
   headerTextStyle: {
-    color: lightPurple
+    color: purpleOpacity,
+    fontWeight: '600'
   },
   imgContainer: {
     flex: 1,

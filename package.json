@@ -26,6 +26,7 @@
         "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
         "react-native-elements": "^0.11.2",
         "react-native-linear-gradient": "^2.0.0",
+        "react-native-scalable-image": "^0.1.2",
         "react-native-uuid": "^1.4.9",
         "react-native-vector-icons": "^4.0.1",
         "react-navigation": "^1.0.0-beta.7",

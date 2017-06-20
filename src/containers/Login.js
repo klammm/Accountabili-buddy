@@ -52,7 +52,8 @@ class Login extends Component {
         behavior="padding">
       <Image source={loginImg} style={styles.imgContainer}>
         <View style={styles.fullBackground}>
-          <Text style={styles.welcome}>Actbl</Text>
+          <Text style={styles.welcome}>ABB</Text>
+          <Text style={styles.subtext}>ACCOUNTABILLIBUDDY</Text>
 
             <View style={styles.onBoard}>
               <Card style={styles.onBoardInput}>
@@ -84,26 +85,27 @@ class Login extends Component {
               {this.props.error}
             </Text>
 
-            <Card style={styles.spinner}>
+            <Card style={styles.spinnerContainer}>
               {this.renderSpinner()}
 
             </Card>
 
             <Card style={styles.button}>
               <CardSection style={styles.loginButtons}>
-                <Button
-                  whenPressed={() => navigate('Register')}
-                  textStyleOverRide={{ color: 'white'}}
-                  style={{ backgroundColor: darkPurple, borderColor: darkerPurple, }}>
-                  SIGN UP
-                </Button>
-              </CardSection>
-
-              <CardSection style={styles.loginButtons}>
                 <Button whenPressed={() => this.onLoginAttempt()}>
                   LOG IN
                 </Button>
               </CardSection>
+
+              <CardSection style={styles.loginButtons}>
+                <Button
+                  whenPressed={() => navigate('Register')}
+                  textStyleOverRide={{ color: pinkyPurple}}
+                  style={{ backgroundColor: darkPurple, borderColor: lightPurple, }}>
+                  SIGN UP
+                </Button>
+              </CardSection>
+
 
             </Card>
             </View>
@@ -120,11 +122,12 @@ Login.navigationOptions = {
   header: null
 }
 
+const pinkyPurple = 'rgb(247, 102, 255)';
 const darkerPurple = 'rgba(127, 13, 205, 0.98)'
 const darkPurple = 'rgba(127, 13, 205, 0.58)';
 const lightPurple = '#D961FF';
 const lightPurpleOpacity = 'rgba(190, 7, 247, 0.58)';
-const transparentWhite = 'rgba(255, 255, 255, 0.75)';
+const transparentWhite = 'rgba(255, 255, 255, 0.65)';
 const transparentPurple = 'rgba(165, 84, 204, 0.85)'
 
 const styles = StyleSheet.create({
@@ -151,10 +154,10 @@ const styles = StyleSheet.create({
     height: null,
   },
   welcome: {
-    fontSize: 44,
+    fontSize: 95,
     margin: 10,
-    marginTop: 100,
-    marginBottom: 30,
+    marginTop: 60,
+    marginBottom: 0,
     color: 'white',
     fontWeight: 'bold',
     backgroundColor: 'transparent',
@@ -162,15 +165,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  subtext: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
+    marginBottom: 90,
+  },
   errorTextStyle: {
-    marginTop: 20,
+    marginTop: 5,
     fontSize: 15,
     alignSelf: 'center',
     color: darkPurple
   },
   onBoard: {
     position: 'relative',
-    marginTop: 20,
+    marginTop: 40,
     marginLeft: 40,
     marginRight: 40,
     width: 300,
@@ -181,14 +190,20 @@ const styles = StyleSheet.create({
     marginRight: 40
   },
   button: {
-    marginTop: 15,
     marginLeft: 15
   },
   loginButtons: {
     marginTop: 4,
   },
-  spinner: {
-    height: 40
+  spinnerContainer: {
+    height: 7,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  spinner:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 
