@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
+import { Text, Dimensions, StyleSheet, View, Image, KeyboardAvoidingView, Platform } from 'react-native';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -18,7 +18,10 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ emailChanged, loginUser, passwordChanged }, dispatch);
 };
 
-class Login extends Component {
+
+const offset = (Platform.OS === 'android') ? -500 : 0;
+
+export class Login extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -47,7 +50,7 @@ class Login extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <KeyboardAvoidingView
+      <KeyboardAvoidingView keyboardVerticalOffset={offset}
         style={styles.imgContainer}
         behavior="padding">
       <Image source={loginImg} style={styles.imgContainer}>
@@ -65,6 +68,7 @@ class Login extends Component {
                   autoCapitalize={'none'}
                   value={this.props.email}
                   onChangeText={this.onEmailChange.bind(this)}
+                  underlineColorAndroid={'transparent'}
                 />
               </CardSection>
 
@@ -76,6 +80,7 @@ class Login extends Component {
                   secureTextEntry
                   value={this.props.password}
                   onChangeText={this.onPasswordChange.bind(this)}
+                  underlineColorAndroid={'transparent'}
                 />
               </CardSection>
             </Card>

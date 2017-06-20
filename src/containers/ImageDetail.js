@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { CardSection, Card } from '../components/common';
 import Dimensions from 'Dimensions';
 
-const ImageDetail = ({ image }) => {
+export const ImageDetail = ({ image }) => {
   const { imageUrl, caption } = image;
   const { imgContainer, imagesStyle, imageContainerStyle, postImage, postTestStyle, canvas } = styles;
 
