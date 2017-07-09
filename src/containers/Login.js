@@ -61,57 +61,55 @@ export class Login extends Component {
               <Card style={styles.onBoardInput}>
 
                 <CardSection>
-                <Input
-                  colorOveride={{ color: 'blue'}}
-                  placeholder="email"
-                  label='Email'
-                  autoCapitalize={'none'}
-                  value={this.props.email}
-                  onChangeText={this.onEmailChange.bind(this)}
-                  underlineColorAndroid={'transparent'}
-                />
-              </CardSection>
+                  <Input
+                    colorOveride={{ color: 'blue'}}
+                    placeholder="email"
+                    label='Email'
+                    autoCapitalize={'none'}
+                    value={this.props.email}
+                    onChangeText={this.onEmailChange.bind(this)}
+                    underlineColorAndroid={'transparent'}
+                  />
+                </CardSection>
 
-              <CardSection >
-                <Input
-                  placeholder='password'
-                  label="Password"
-                  autoCapitalize={'none'}
-                  secureTextEntry
-                  value={this.props.password}
-                  onChangeText={this.onPasswordChange.bind(this)}
-                  underlineColorAndroid={'transparent'}
-                />
-              </CardSection>
-            </Card>
+                <CardSection>
+                  <Input
+                    placeholder='password'
+                    label="Password"
+                    autoCapitalize={'none'}
+                    secureTextEntry
+                    value={this.props.password}
+                    onChangeText={this.onPasswordChange.bind(this)}
+                    underlineColorAndroid={'transparent'}
+                  />
+                </CardSection>
+              </Card>
 
-            <Text style={styles.errorTextStyle}>
-              {this.props.error}
-            </Text>
+              <Text style={styles.errorTextStyle}>
+                {this.props.error}
+              </Text>
 
-            <Card style={styles.spinnerContainer}>
-              {this.renderSpinner()}
+              <Card style={styles.spinnerContainer}>
+                {this.renderSpinner()}
+              </Card>
 
-            </Card>
+              <Card style={styles.button}>
+                <CardSection style={styles.loginButtons}>
+                  <Button whenPressed={() => this.onLoginAttempt()}>
+                    LOG IN
+                  </Button>
+                </CardSection>
 
-            <Card style={styles.button}>
-              <CardSection style={styles.loginButtons}>
-                <Button whenPressed={() => this.onLoginAttempt()}>
-                  LOG IN
-                </Button>
-              </CardSection>
+                <CardSection style={styles.loginButtons}>
+                  <Button
+                    whenPressed={() => navigate('Register')}
+                    textStyleOverRide={{ color: pinkyPurple}}
+                    style={{ backgroundColor: darkPurple, borderColor: lightPurple, }}>
+                    SIGN UP
+                  </Button>
+                </CardSection>
 
-              <CardSection style={styles.loginButtons}>
-                <Button
-                  whenPressed={() => navigate('Register')}
-                  textStyleOverRide={{ color: pinkyPurple}}
-                  style={{ backgroundColor: darkPurple, borderColor: lightPurple, }}>
-                  SIGN UP
-                </Button>
-              </CardSection>
-
-
-            </Card>
+              </Card>
             </View>
         </View>
       </Image>

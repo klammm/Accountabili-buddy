@@ -5,8 +5,6 @@ import { Avatar, Grid, Row, Tile, Col } from 'react-native-elements';
 import { Header } from '../components/common';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import RenderIf from 'react-renderif';
-
 import { showUserProfile, showUserScore } from '../actions';
 import { Button, CardSection, Card, Input, Spinner } from '../components/common';
 import ImageDetail from './ImageDetail';
@@ -23,16 +21,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export class Profile extends Component {
-  constructor(props) {
-    super(props);
-
-
-    this.state = {
-      User: null
-    }
-  }
-
-
   componentDidMount() {
     if (this.props.login.user) {
       this.props.showUserProfile(this.props.login.user.id);
